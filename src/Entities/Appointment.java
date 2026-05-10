@@ -114,13 +114,16 @@ public class Appointment {
         System.out.println("Enter new appointment time: ");
         String newTime = scanner.nextLine();
         setAppointmentTime(newTime);
+        setStatus("Rescheduled");
         System.out.println(Constants.APPOINTMENT_RESCHEDULED_SUCCESSFULLY);
 
     }
     public void cancel(){
+        setStatus("Cancelled");
 
     }
     public void complete(){
+        setStatus("Completed");
 
     }
 
