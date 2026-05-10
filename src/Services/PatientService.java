@@ -105,6 +105,14 @@ public class PatientService {
 
 
     }
+    public void removePatient(String patientId){
+        for(Patient p : patients){
+            if(p.getId().equals(patientId)){
+                patients.remove(p);
+                System.out.println(Constants.PATIENT_REMOVED_SUCCESSFULLY);
+            }
+        }
+    }
 
     public void displayAllPatients(){
         for(Patient p : patients){
