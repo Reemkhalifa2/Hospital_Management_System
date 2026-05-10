@@ -52,12 +52,16 @@ public class Patient extends Person{
 
     }
 
-
     public void addMedicalRecord(){
         System.out.println(Constants.ADD_MEDICAL_RECORD);
         medicalRecords.add(scanner.nextLine());
-
     }
+    public void addAppointment(){
+        System.out.println(Constants.ADD_APPOINTMENT);
+        appointments.add(scanner.nextLine());
+    }
+
+
 
 
 
