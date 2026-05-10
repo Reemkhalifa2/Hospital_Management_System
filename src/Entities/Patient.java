@@ -11,10 +11,27 @@ public class Patient extends Person{
     static Scanner scanner = new Scanner(System.in);
     private String patientId;
     private String bloodGroup;
-    private List<String> allergies;
+    private List<String> allergies = new ArrayList<>();
     private String emergencyContact;
     private LocalDate registrationDate;
     private String insuranceId;
+
+    public List<String> getMedicalRecords() {
+        return medicalRecords;
+    }
+
+    public void setMedicalRecords(List<String> medicalRecords) {
+        this.medicalRecords = medicalRecords;
+    }
+
+    public List<String> getAllergies() {
+        return allergies;
+    }
+
+    public void setAllergies(List<String> allergies) {
+        this.allergies = allergies;
+    }
+
     private List<String> medicalRecords;
     private List<String> appointments;
 
@@ -24,7 +41,7 @@ public class Patient extends Person{
                    String phoneNumber, String email, String address,
                    String patientId, String bloodGroup,
                    String emergencyContact, LocalDate registrationDate,
-                   String insuranceId) {
+                   String insuranceId, List<String> allergies) {
 
         super(id, firstName, lastName, dateOfBirth,
                 gender, phoneNumber, email, address);
@@ -34,8 +51,7 @@ public class Patient extends Person{
         this.emergencyContact = emergencyContact;
         this.registrationDate = registrationDate;
         this.insuranceId = insuranceId;
-
-        this.allergies = new ArrayList<>();
+        this.allergies = allergies;
         this.medicalRecords = new ArrayList<>();
         this.appointments = new ArrayList<>();
     }
