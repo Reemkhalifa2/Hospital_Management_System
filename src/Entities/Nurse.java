@@ -49,6 +49,6 @@ public class Nurse extends Person{
     // Remove patient
     public void removePatient(Patient patient) {
         assignedPatients.remove(patient);
-        System.out.println(Constants.PATIENT_REMOVED);
+        System.out.println(Constants.PATIENT_REMOVED_SUCCESSFULLY);
     }
 }
