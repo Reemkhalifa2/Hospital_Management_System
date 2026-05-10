@@ -119,7 +119,7 @@ public class Doctor extends Person{
 
         System.out.println("Assigned Patients");
         for(Patient patient : assignedPatients){
-            System.out.print(patient + ",");
+            patient.displayInfo();
         }
     }
 }
