@@ -111,10 +111,13 @@ public class Appointment {
         String newDate = scanner.nextLine();
         LocalDate appointmentDate = LocalDate.parse(newDate);
         setAppointmentDate(appointmentDate);
+
         System.out.println("Enter new appointment time: ");
         String newTime = scanner.nextLine();
         setAppointmentTime(newTime);
+
         setStatus("Rescheduled");
+
         System.out.println(Constants.APPOINTMENT_RESCHEDULED_SUCCESSFULLY);
 
     }

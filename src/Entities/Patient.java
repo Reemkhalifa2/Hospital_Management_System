@@ -69,13 +69,15 @@ public class Patient extends Person{
 
         System.out.println("Emergency Contact :"+emergencyContact);
         System.out.println("Registration Date :"+registrationDate);
-        System.out.println("Insurance Id"+insuranceId);
+        System.out.println("Insurance Id      :"+insuranceId);
 
         System.out.println("Medical Records");
+        System.out.println();
         for(String x : medicalRecords){
             System.out.print(x + ",");
 
         }System.out.println("Appointments");
+        System.out.println();
         for(String x : appointments){
             System.out.print(x + ",");
         }
