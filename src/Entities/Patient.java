@@ -11,19 +11,47 @@ public class Patient extends Person{
     static Scanner scanner = new Scanner(System.in);
     private String patientId;
     private String bloodGroup;
-    private List<String> allergies;
+    private List<String> allergies = new ArrayList<>();
     private String emergencyContact;
     private LocalDate registrationDate;
     private String insuranceId;
+
+    public List<String> getMedicalRecords() {
+        return medicalRecords;
+    }
+
+    public void setMedicalRecords(List<String> medicalRecords) {
+        this.medicalRecords = medicalRecords;
+    }
+
+    public List<String> getAllergies() {
+        return allergies;
+    }
+
+    public void setAllergies(List<String> allergies) {
+        this.allergies = allergies;
+    }
+
     private List<String> medicalRecords;
     private List<String> appointments;
 
     //call parent constructor
-    public Patient() {
+    public Patient(String id, String firstName, String lastName,
+                   LocalDate dateOfBirth, String gender,
+                   String phoneNumber, String email, String address,
+                   String patientId, String bloodGroup,
+                   String emergencyContact, LocalDate registrationDate,
+                   String insuranceId, List<String> allergies) {
 
-        super();
+        super(id, firstName, lastName, dateOfBirth,
+                gender, phoneNumber, email, address);
 
-        this.allergies = new ArrayList<>();
+        this.patientId = patientId;
+        this.bloodGroup = bloodGroup;
+        this.emergencyContact = emergencyContact;
+        this.registrationDate = registrationDate;
+        this.insuranceId = insuranceId;
+        this.allergies = allergies;
         this.medicalRecords = new ArrayList<>();
         this.appointments = new ArrayList<>();
     }
