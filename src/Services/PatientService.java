@@ -113,6 +113,15 @@ public class PatientService {
             }
         }
     }
+    public void getPatientById(String patientId){
+        for(Patient p : patients){
+            if(p.getId().equals(patientId)){
+                p.displayInfo();
+                return;
+            }
+        }
+        System.out.println(Constants.PATIENT_NOT_FOUND);
+    }
 
     public void displayAllPatients(){
         for(Patient p : patients){
