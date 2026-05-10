@@ -18,5 +18,30 @@ public class Patient extends Person{
     List<String> medicalRecords;
     List<String> appointments;
 
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
 
+        System.out.println("Patient ID        :"+patientId);
+        System.out.println("Blood Group       :"+bloodGroup );
+
+        System.out.println("Allergies");
+        for(String x : allergies){
+            System.out.print(x + ",");
+        }
+
+        System.out.println("Emergency Contact :"+emergencyContact);
+        System.out.println("Registration Date :"+registrationDate);
+        System.out.println("Insurance Id"+insuranceId);
+
+        System.out.println("Medical Records");
+        for(String x : medicalRecords){
+            System.out.print(x + ",");
+
+        }System.out.println("Appointments");
+        for(String x : appointments){
+            System.out.print(x + ",");
+        }
+
+            }
 }
