@@ -1,8 +1,10 @@
 package Entities;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Appointment {
+    static Scanner scanner = new Scanner(System.in);
 
     private String appointmentId;
     private String patientId;
@@ -103,6 +105,11 @@ public class Appointment {
         System.out.println("Notes: " + notes);
     }
     public void reschedule(){
+        System.out.println("Enter new appointment date (YYYY-MM-DD):");
+        String newDate = scanner.nextLine();
+        LocalDate appointmentDate = LocalDate.parse(newDate);
+        setAppointmentDate(appointmentDate);
+
 
     }
     public void cancel(){
