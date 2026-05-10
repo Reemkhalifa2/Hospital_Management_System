@@ -79,14 +79,19 @@ public class Department {
     }
 
     public void assignDoctor(Doctor doctor) {
+        doctors.add(doctor);
+        System.out.println("Doctor assigned to department.");
 
     }
 
-    public void assignNurse( ) {
+    public void assignNurse(Nurse nurse) {
+        nurses.add(nurse);
+        System.out.println("Nurse assigned to department.");
 
     }
 
     public void updateBedAvailability() {
+
 
     }
 
