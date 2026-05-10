@@ -13,6 +13,12 @@ public class PatientService {
         System.out.println(Constants.PATIENT_ADDED_SUCCESSFULLY);
     }
 
+    public void displayAllPatients(){
+        for(Patient p : patients){
+            p.displayInfo();
+        }
+    }
+
 
 
 
