@@ -81,6 +81,30 @@ public class PatientService {
         return patient;
 
     }
+    public void updatePatient(String patientId, Patient updatedPatient){
+        for(Patient p : patients){
+
+            if(p.getId().equals(patientId)){
+                System.out.println("Enter new phone number:");
+                p.setPhoneNumber(scanner.nextLine());
+
+                System.out.println("Enter new email:");
+                String email = scanner.nextLine();
+                p.setEmail(email);
+
+                System.out.println("Enter new address:");
+                String address = scanner.nextLine();
+                p.setAddress(address);
+
+                System.out.println(Constants.PATIENT_UPDATED_SUCCESSFULLY);
+                return;
+            }
+
+        }
+        System.out.println(Constants.PATIENT_NOT_FOUND);
+
+
+    }
 
     public void displayAllPatients(){
         for(Patient p : patients){
