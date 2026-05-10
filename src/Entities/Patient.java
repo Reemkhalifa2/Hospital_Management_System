@@ -1,14 +1,19 @@
 package Entities;
 
+import Utilities.Constants;
+
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Scanner;
 
 public class Patient extends Person{
+    static Scanner scanner = new Scanner(System.in);
 
     public Patient(String id, String firstName, String lastName, LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address) {
         super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address);
 
     }
+
     String patientId;
     String bloodGroup;
     List<String> allergies;
@@ -18,6 +23,8 @@ public class Patient extends Person{
     List<String> medicalRecords;
     List<String> appointments;
 
+
+    //Display patient information
     @Override
     public void displayInfo() {
         super.displayInfo();
@@ -43,5 +50,17 @@ public class Patient extends Person{
             System.out.print(x + ",");
         }
 
-            }
+    }
+
+
+    public void addMedicalRecord(){
+        System.out.println(Constants.ADD_MEDICAL_RECORD);
+        medicalRecords.add(scanner.nextLine());
+
+    }
+
+
+
+
+
 }
