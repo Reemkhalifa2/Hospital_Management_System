@@ -9,6 +9,8 @@ public class Constants {
     public static String PATIENT_ADDED_SUCCESSFULLY = "Patient added successfully";
     public static String AVAILABILITY_UPDATED = "Availability updated";
     public static String APPOINTMENT_RESCHEDULED_SUCCESSFULLY = "Appointment rescheduled successfully";
+    public static String PATIENT_UPDATED_SUCCESSFULLY = "Patient updated successfully";
+    public static String PATIENT_NOT_FOUND = "Patient not found";
 
 
 }
