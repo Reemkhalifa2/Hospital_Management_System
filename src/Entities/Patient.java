@@ -1,4 +1,7 @@
 package Entities;
 
-public class Patient {
+import java.time.LocalDate;
+
+public class Patient extends Person{
+
 }
