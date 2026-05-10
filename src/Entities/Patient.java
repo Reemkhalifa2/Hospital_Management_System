@@ -3,25 +3,44 @@ package Entities;
 import Utilities.Constants;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Patient extends Person{
     static Scanner scanner = new Scanner(System.in);
+    private String patientId;
+    private String bloodGroup;
+    private List<String> allergies;
+    private String emergencyContact;
+    private LocalDate registrationDate;
+    private String insuranceId;
+    private List<String> medicalRecords;
+    private List<String> appointments;
 
-    public Patient(String id, String firstName, String lastName, LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address) {
-        super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address);
+    //call parent constructor
+    public Patient(String id, String firstName, String lastName,
+                   LocalDate dateOfBirth, String gender,
+                   String phoneNumber, String email, String address,
+                   String patientId, String bloodGroup,
+                   String emergencyContact, LocalDate registrationDate,
+                   String insuranceId) {
 
+        super(id, firstName, lastName, dateOfBirth,
+                gender, phoneNumber, email, address);
+
+        this.patientId = patientId;
+        this.bloodGroup = bloodGroup;
+        this.emergencyContact = emergencyContact;
+        this.registrationDate = registrationDate;
+        this.insuranceId = insuranceId;
+
+        this.allergies = new ArrayList<>();
+        this.medicalRecords = new ArrayList<>();
+        this.appointments = new ArrayList<>();
     }
 
-    String patientId;
-    String bloodGroup;
-    List<String> allergies;
-    String emergencyContact;
-    LocalDate registrationDate;
-    String insuranceId;
-    List<String> medicalRecords;
-    List<String> appointments;
+
 
 
     //Display patient information
@@ -56,15 +75,15 @@ public class Patient extends Person{
         System.out.println(Constants.ADD_MEDICAL_RECORD);
         medicalRecords.add(scanner.nextLine());
     }
+
     public void addAppointment(){
         System.out.println(Constants.ADD_APPOINTMENT);
         appointments.add(scanner.nextLine());
     }
 
-
-
-
-
-
+    public void updateInsurance(){
+        System.out.println(Constants.ENTER_INSURANCE);
+        this.insuranceId = scanner.nextLine();
+    }
 
 }

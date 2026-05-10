@@ -4,14 +4,14 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class Person {
-    String id;
-    String firstName;
-    String lastName;
-    LocalDate dateOfBirth;
-    String gender;
-    String phoneNumber;
-    String email;
-    String address;
+    private String id;
+    private String firstName;
+    private String lastName;
+    private LocalDate dateOfBirth;
+    private String gender;
+    private String phoneNumber;
+    private String email;
+    private String address;
 
     //constructor
     public Person(String id,String firstName,String lastName,
