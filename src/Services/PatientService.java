@@ -123,6 +123,14 @@ public class PatientService {
         System.out.println(Constants.PATIENT_NOT_FOUND);
     }
 
+    public void searchPatientsByName(String name){
+        for(Patient p : patients){
+            if(p.getFirstName().equalsIgnoreCase(name) || p.getLastName().equalsIgnoreCase(name)){
+                p.displayInfo();
+            }
+        }
+    }
+
     public void displayAllPatients(){
         for(Patient p : patients){
             p.displayInfo();
