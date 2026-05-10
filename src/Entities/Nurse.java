@@ -1,5 +1,7 @@
 package Entities;
 
+import Utilities.Constants;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +12,7 @@ public class Nurse extends Person{
     private String departmentId;
     private String shift;
     private String qualification;
-    private List<String> assignedPatients;
+    private List<Patient> assignedPatients;
     public Nurse(String id, String firstName, String lastName,
                  LocalDate dateOfBirth, String gender,
                  String phoneNumber, String email, String address,
@@ -36,5 +38,17 @@ public class Nurse extends Person{
         System.out.println("Department ID: " + departmentId);
         System.out.println("Shift: " + shift);
         System.out.println("Qualification: " + qualification);
+    }
+
+    // Assign patient
+    public void assignPatient(Patient patient) {
+        assignedPatients.add(patient);
+        System.out.println(Constants.ASSIGNED);
+    }
+
+    // Remove patient
+    public void removePatient(Patient patient) {
+        assignedPatients.remove(patient);
+        System.out.println(Constants.PATIENT_REMOVED);
     }
 }

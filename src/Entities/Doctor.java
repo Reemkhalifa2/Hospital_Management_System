@@ -76,8 +76,7 @@ public class Doctor extends Person{
         System.out.println("Enter insurance ID:");
         String insuranceId = scanner.nextLine();
 
-        Patient patient;
-        patient = new Patient(
+        Patient patient= new Patient(
                 id,
                 firstName,
                 lastName,
