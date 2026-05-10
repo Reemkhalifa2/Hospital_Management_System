@@ -13,6 +13,15 @@ public class PatientService {
     private List<Patient> patients;
 
 
+    public void addPatients(){
+        patients.add(addPatient());
+        System.out.println("Press q to quit or enter key to continue:");
+        if(scanner.nextLine().equalsIgnoreCase("q") ){
+            return;
+        }
+        addPatients();
+
+    }
     public Patient addPatient(){
 
         System.out.println("Enter patient id:");
@@ -67,7 +76,7 @@ public class PatientService {
                 LocalDate.now(),
                 insuranceId
         );
-        patients.add(patient);
+
         System.out.println(Constants.PATIENT_ADDED_SUCCESSFULLY);
         return patient;
 
