@@ -19,21 +19,9 @@ public class Patient extends Person{
     private List<String> appointments;
 
     //call parent constructor
-    public Patient(String id, String firstName, String lastName,
-                   LocalDate dateOfBirth, String gender,
-                   String phoneNumber, String email, String address,
-                   String patientId, String bloodGroup,
-                   String emergencyContact, LocalDate registrationDate,
-                   String insuranceId) {
+    public Patient() {
 
-        super(id, firstName, lastName, dateOfBirth,
-                gender, phoneNumber, email, address);
-
-        this.patientId = patientId;
-        this.bloodGroup = bloodGroup;
-        this.emergencyContact = emergencyContact;
-        this.registrationDate = registrationDate;
-        this.insuranceId = insuranceId;
+        super();
 
         this.allergies = new ArrayList<>();
         this.medicalRecords = new ArrayList<>();

@@ -19,8 +19,8 @@ public class Nurse extends Person{
                  String nurseId, String departmentId,
                  String shift, String qualification) {
 
-        super(id, firstName, lastName, dateOfBirth,
-                gender, phoneNumber, email, address);
+        super(
+        );
 
         this.nurseId = nurseId;
         this.departmentId = departmentId;

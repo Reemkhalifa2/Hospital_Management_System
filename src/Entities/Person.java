@@ -14,9 +14,7 @@ public class Person {
     private String address;
 
     //constructor
-    public Person(String id,String firstName,String lastName,
-                  LocalDate dateOfBirth,String gender,
-                  String phoneNumber,String email,String address){
+    public Person(){
 
         this.id = id;
         this.firstName = firstName;

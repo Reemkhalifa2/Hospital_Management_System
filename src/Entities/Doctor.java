@@ -26,7 +26,7 @@ public class Doctor extends Person{
                   String qualification , Integer experienceYears , String departmentId,
                   double consultationFee) {
 
-        super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address);
+        super();
 
         this.doctorId = doctorId;
         this.specialization = specialization;
@@ -76,21 +76,8 @@ public class Doctor extends Person{
         System.out.println("Enter insurance ID:");
         String insuranceId = scanner.nextLine();
 
-        Patient patient= new Patient(
-                id,
-                firstName,
-                lastName,
-                dateOfBirth,
-                gender,
-                phone,
-                email,
-                address,
-                patientId,
-                bloodGroup,
-                emergencyContact,
-                LocalDate.now(),
-                insuranceId
-        );
+        Patient patient= new Patient();
+
         return patient;
 
     }
