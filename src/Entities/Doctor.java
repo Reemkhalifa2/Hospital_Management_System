@@ -12,7 +12,7 @@ public class Doctor extends Person{
     private String departmentId;
     private double consultationFee;
     private List<String> availableSlots;
-    private List<String> assignedPatients;
+    private List<Patient> assignedPatients;
 
 
     public Doctor(String id, String firstName, String lastName,
