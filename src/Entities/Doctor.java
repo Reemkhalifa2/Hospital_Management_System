@@ -19,7 +19,8 @@ public class Doctor extends Person{
                   LocalDate dateOfBirth, String gender, String phoneNumber,
                   String email, String address , String doctorId, String specialization,
                   String qualification , Integer experienceYears , String departmentId,
-                  String consultationFee) {
+                  double consultationFee) {
+
         super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address);
         this.doctorId = doctorId;
         this.specialization = specialization;
