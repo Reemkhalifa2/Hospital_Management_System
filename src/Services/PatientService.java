@@ -5,12 +5,14 @@ import Utilities.Constants;
 
 import java.io.Console;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class PatientService {
     static Scanner scanner = new Scanner(System.in);
-    private List<Patient> patients;
+    private List<Patient> patients = new ArrayList<>();
 
 
     public void addPatients(){
@@ -61,6 +63,16 @@ public class PatientService {
         System.out.println("Enter insurance ID:");
         String insuranceId = scanner.nextLine();
 
+        System.out.println("Do have any allergies? (yes/no)");
+        String hasAllergies = scanner.nextLine();
+
+        List<String> allergies = new ArrayList<>();
+        if(hasAllergies.equalsIgnoreCase("yes")){
+            System.out.println("Enter allergies separated by commas:");
+            String allergiesInput = scanner.nextLine();
+            allergies.add(Arrays.toString(allergiesInput.split(",")));
+        }
+
         Patient patient= new Patient(
                 id,
                 firstName,
@@ -74,8 +86,10 @@ public class PatientService {
                 bloodGroup,
                 emergencyContact,
                 LocalDate.now(),
-                insuranceId
+                insuranceId,
+                allergies
         );
+
 
         System.out.println(Constants.PATIENT_ADDED_SUCCESSFULLY);
         return patient;
