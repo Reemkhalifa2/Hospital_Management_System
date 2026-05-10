@@ -7,6 +7,26 @@ public class Person {
     String firstName;
     String lastName;
     LocalDate dateOfBirth;
+    String gender;
+    String phoneNumber;
+    String email;
+    String address;
+
+    //constructor
+    public Person(String id,String firstName,String lastName,
+                  LocalDate dateOfBirth,String gender,
+                  String phoneNumber,String email,String address){
+
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.address = address;
+    }
+    // getters ans setters
 
     public String getAddress() {
         return address;
@@ -72,9 +92,6 @@ public class Person {
         this.id = id;
     }
 
-    String gender;
-    String phoneNumber;
-    String email;
-    String address;
+
 
 }
