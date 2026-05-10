@@ -10,7 +10,7 @@ public class Doctor extends Person{
     private String qualification;
     private Integer experienceYears;
     private String departmentId;
-    private String consultationFee;
+    private double consultationFee;
     private List<String> availableSlots;
     private List<String> assignedPatients;
 
@@ -22,6 +22,7 @@ public class Doctor extends Person{
                   double consultationFee) {
 
         super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address);
+
         this.doctorId = doctorId;
         this.specialization = specialization;
         this.qualification = qualification;
@@ -30,5 +31,26 @@ public class Doctor extends Person{
         this.consultationFee = consultationFee;
         this.availableSlots = new ArrayList<>();
         this.assignedPatients = new ArrayList<>();
+    }
+
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println(doctorId);
+        System.out.println(specialization);
+        System.out.println(qualification);
+        System.out.println(experienceYears);
+        System.out.println(departmentId);
+        System.out.println(consultationFee);
+
+        System.out.println("Available Slots");
+        for(String slot : availableSlots){
+            System.out.print(slot + ",");
+        }
+
+        System.out.println("Assigned Patients");
+        for(String patient : assignedPatients){
+            System.out.print(patient + ",");
+        }
     }
 }
