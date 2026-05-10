@@ -93,7 +93,19 @@ public class Person {
         this.id = id;
     }
 
+    public void displayInfo(){
+        System.out.println("ID             :"+ id);
+        System.out.println("First Name     :"+ firstName);
+        System.out.println("Last Name      :"+lastName );
+        System.out.println("Date of Birth  :"+dateOfBirth );
+        System.out.println("Gender         :"+ gender);
+        System.out.println("Phone Number   :"+ phoneNumber);
+        System.out.println("Email          :"+email );
+        System.out.println("Address        :"+ address);
+    }
 
+
+    //toString Method
     @Override
     public String toString() {
         return "Person{" +
@@ -108,13 +120,14 @@ public class Person {
                 '}';
     }
 
+    // equals method
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
         return Objects.equals(id, person.id) && Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName) && Objects.equals(dateOfBirth, person.dateOfBirth) && Objects.equals(gender, person.gender) && Objects.equals(phoneNumber, person.phoneNumber) && Objects.equals(email, person.email) && Objects.equals(address, person.address);
     }
-
+    //hashcode method
     @Override
     public int hashCode() {
         return Objects.hash(id);
