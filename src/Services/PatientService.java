@@ -14,7 +14,6 @@ public class PatientService {
     static Scanner scanner = new Scanner(System.in);
     private List<Patient> patients = new ArrayList<>();
 
-
     public void addPatients(){
         patients.add(addPatient());
         System.out.println("Press q to quit or enter key to continue:");
@@ -51,8 +50,6 @@ public class PatientService {
         System.out.println("Enter address:");
         String address = scanner.nextLine();
 
-        System.out.println("Enter patient ID:");
-        String patientId = scanner.nextLine();
 
         System.out.println("Enter blood group:");
         String bloodGroup = scanner.nextLine();
@@ -82,7 +79,6 @@ public class PatientService {
                 phone,
                 email,
                 address,
-                patientId,
                 bloodGroup,
                 emergencyContact,
                 LocalDate.now(),

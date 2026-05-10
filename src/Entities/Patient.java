@@ -9,7 +9,6 @@ import java.util.Scanner;
 
 public class Patient extends Person{
     static Scanner scanner = new Scanner(System.in);
-    private String patientId;
     private String bloodGroup;
     private List<String> allergies = new ArrayList<>();
     private String emergencyContact;
@@ -39,14 +38,13 @@ public class Patient extends Person{
     public Patient(String id, String firstName, String lastName,
                    LocalDate dateOfBirth, String gender,
                    String phoneNumber, String email, String address,
-                   String patientId, String bloodGroup,
+                   String bloodGroup,
                    String emergencyContact, LocalDate registrationDate,
                    String insuranceId, List<String> allergies) {
 
         super(id, firstName, lastName, dateOfBirth,
                 gender, phoneNumber, email, address);
 
-        this.patientId = patientId;
         this.bloodGroup = bloodGroup;
         this.emergencyContact = emergencyContact;
         this.registrationDate = registrationDate;
@@ -63,10 +61,7 @@ public class Patient extends Person{
     @Override
     public void displayInfo() {
         super.displayInfo();
-
-        System.out.println("Patient ID        :"+patientId);
         System.out.println("Blood Group       :"+bloodGroup );
-
         System.out.println("Allergies");
         for(String x : allergies){
             System.out.print(x + ",");
