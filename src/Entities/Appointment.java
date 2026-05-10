@@ -102,6 +102,15 @@ public class Appointment {
         System.out.println("Reason: " + reason);
         System.out.println("Notes: " + notes);
     }
+    public void reschedule(){
+
+    }
+    public void cancel(){
+
+    }
+    public void complete(){
+
+    }
 
 
 
