@@ -1,11 +1,15 @@
 package Entities;
 
+import Utilities.Constants;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Doctor extends Person{
+    static Scanner scanner = new Scanner(System.in);
+
     private String doctorId;
     private String specialization;
     private String qualification;
@@ -34,7 +38,6 @@ public class Doctor extends Person{
         this.assignedPatients = new ArrayList<>();
     }
     public Patient addPatient(){
-        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter patient id:");
         String id = scanner.nextLine();
@@ -93,10 +96,20 @@ public class Doctor extends Person{
 
     }
 
-    public void assignPatient(){
+    public void assignPatient(Patient patient) {
+        assignedPatients.add(patient);
+        System.out.println(Constants.ASSIGNED);
+    }
 
-       assignedPatients.add(addPatient());
 
+    public void removePatient(Patient patient) {
+        assignedPatients.remove(patient);
+        System.out.println(Constants.PATIENT_REMOVED);
+    }
+
+    public void updateAvailability(String slot) {
+        availableSlots.add(slot);
+        System.out.println(Constants.AVAILABILITY_UPDATED);
     }
 
 
