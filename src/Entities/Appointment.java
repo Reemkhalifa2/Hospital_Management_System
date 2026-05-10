@@ -1,8 +1,12 @@
 package Entities;
 
+import Utilities.Constants;
+
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Appointment {
+    static Scanner scanner = new Scanner(System.in);
 
     private String appointmentId;
     private String patientId;
@@ -103,12 +107,23 @@ public class Appointment {
         System.out.println("Notes: " + notes);
     }
     public void reschedule(){
+        System.out.println("Enter new appointment date (YYYY-MM-DD): ");
+        String newDate = scanner.nextLine();
+        LocalDate appointmentDate = LocalDate.parse(newDate);
+        setAppointmentDate(appointmentDate);
+        System.out.println("Enter new appointment time: ");
+        String newTime = scanner.nextLine();
+        setAppointmentTime(newTime);
+        setStatus("Rescheduled");
+        System.out.println(Constants.APPOINTMENT_RESCHEDULED_SUCCESSFULLY);
 
     }
     public void cancel(){
+        setStatus("Cancelled");
 
     }
     public void complete(){
+        setStatus("Completed");
 
     }
 

@@ -19,8 +19,8 @@ public class Nurse extends Person{
                  String nurseId, String departmentId,
                  String shift, String qualification) {
 
-        super(
-        );
+        super(id, firstName, lastName, dateOfBirth,
+                gender, phoneNumber, email, address);
 
         this.nurseId = nurseId;
         this.departmentId = departmentId;
@@ -49,6 +49,6 @@ public class Nurse extends Person{
     // Remove patient
     public void removePatient(Patient patient) {
         assignedPatients.remove(patient);
-        System.out.println(Constants.PATIENT_REMOVED);
+        System.out.println(Constants.PATIENT_REMOVED_SUCCESSFULLY);
     }
 }

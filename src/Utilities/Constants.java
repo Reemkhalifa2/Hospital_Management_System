@@ -5,9 +5,12 @@ public class Constants {
     public static String ADD_APPOINTMENT = "Add Appointment: ";
     public static String ENTER_INSURANCE = "Enter new Insurance: ";
     public static String ASSIGNED = "Patient assigned.";
-    public static String PATIENT_REMOVED = "Patient removed";
+    public static String PATIENT_REMOVED_SUCCESSFULLY = "Patient removed successfully";
     public static String PATIENT_ADDED_SUCCESSFULLY = "Patient added successfully";
     public static String AVAILABILITY_UPDATED = "Availability updated";
+    public static String APPOINTMENT_RESCHEDULED_SUCCESSFULLY = "Appointment rescheduled successfully";
+    public static String PATIENT_UPDATED_SUCCESSFULLY = "Patient updated successfully";
+    public static String PATIENT_NOT_FOUND = "Patient not found";
 
 
 }
