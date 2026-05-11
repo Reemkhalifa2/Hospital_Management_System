@@ -24,9 +24,14 @@ public class Constants {
 
 
     public static String RECORD_ADDED_SUCCESSFULLY = "Medical record added successfully";
-    public static String RECORD_UPDATED_SUCCESSFULLY = "Medical record  successfully";
-    public static String RECORD_NOT_FOUND = "Medical record  not found";
-    public static String RECORD_REMOVED_SUCCESSFULLY = "Medical record  removed successfully";
+    public static String RECORD_UPDATED_SUCCESSFULLY = "Medical record successfully";
+    public static String RECORD_NOT_FOUND = "Medical record not found";
+    public static String RECORD_REMOVED_SUCCESSFULLY = "Medical record removed successfully";
+
+    public static String APPOINTMENT_ADDED_SUCCESSFULLY = "Appointment added successfully";
+    public static String APPOINTMENT_UPDATED_SUCCESSFULLY = "Appointment successfully";
+    public static String APPOINTMENT_NOT_FOUND = "Appointment not found";
+    public static String APPOINTMENT_REMOVED_SUCCESSFULLY = "Appointment removed successfully";
 
 
 
