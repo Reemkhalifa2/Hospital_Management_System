@@ -156,15 +156,22 @@ public class DoctorService {
         System.out.println(Constants.DOCTOR_NOT_FOUND);
     }
 
-    public void displayAllDoctors(){
+    public void displayDoctors(){
         for(Doctor d : doctors){
             d.displayInfo();
         }
     }
 
-    public void getDoctorsBySpecialization(String specialization){
+    public void displayDoctors(String specialization){
         for(Doctor d : doctors){
             if(d.getSpecialization().equalsIgnoreCase(specialization)){
+                d.displayInfo();
+            }
+        }
+    }
+    public void displayDoctors(String departmentId, boolean showAvailableOnly) {
+        for(Doctor d : doctors){
+            if(d.getDepartmentId().equalsIgnoreCase(departmentId) && !d.getAvailableSlots().isEmpty()){
                 d.displayInfo();
             }
         }
