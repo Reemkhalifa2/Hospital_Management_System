@@ -11,7 +11,16 @@ import java.util.Scanner;
 
 public class PatientService {
     static Scanner scanner = new Scanner(System.in);
-    private List<Patient> patients = new ArrayList<>();
+
+    static public List<Patient> getPatients() {
+        return patients;
+    }
+
+    public void setPatients(List<Patient> patients) {
+        this.patients = patients;
+    }
+
+    private static List<Patient> patients = new ArrayList<>();
 
     public void addPatients(Patient patient){
         patients.add(addPatient());
