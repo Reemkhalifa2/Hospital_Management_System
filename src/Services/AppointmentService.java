@@ -107,7 +107,7 @@ public class AppointmentService {
         System.out.println(Constants.APPOINTMENT_NOT_FOUND);
     }
 
-    public void getAppointmentsByDate(LocalDate date){
+    public void displayAppointments(LocalDate date){
         for(Appointment a : appointmentList){
             if(a.getAppointmentDate().equals(date)){
                 a.displayInfo();
@@ -166,6 +166,24 @@ public class AppointmentService {
         }
         System.out.println(Constants.APPOINTMENT_NOT_FOUND);
     }
+
+    public void displayAppointments(String doctorId, LocalDate startDate, LocalDate endDate){
+        for(Appointment a : appointmentList){
+            if(a.getDoctorId().equals(doctorId)
+            && !a.getAppointmentDate().isBefore(startDate) && !a.getAppointmentDate().isAfter(endDate)){
+                a.displayInfo();
+                return;
+            }
+        }
+        System.out.println(Constants.APPOINTMENT_NOT_FOUND);
+    }
+
+
+
+
+
+
+
 
 
 
