@@ -132,11 +132,32 @@ public class PatientService {
         }
     }
 
-    public void displayAllPatients(){
+    public void displayPatients(){
         for(Patient p : patients){
             p.displayInfo();
         }
     }
+
+    public void displayPatients(String filter){
+        for(Patient p : patients) {
+            System.out.println("Filtered By "+ filter);
+            if (p.getInsuranceId().equals(filter)) {
+                System.out.println();
+            }
+            if (p.getBloodGroup().equals(filter)) {
+                System.out.println();
+            }
+            if (p.getGender().equals(filter)) {
+                System.out.println();
+            }
+            if (p.getRegistrationDate().equals(filter)) {
+                System.out.println();
+            }
+
+
+        }
+    }
+    
 
 
     public Patient addPatient(String firstName, String lastName, String phone){
