@@ -3,9 +3,21 @@ package Entities.Doctor;
 import java.time.LocalDate;
 
 public class GeneralPractitioner extends Doctor{
+    Boolean walkinAvailable;
+    Boolean homeVisitAvailable;
+    Boolean vaccinationCertified;
 
 
-    public GeneralPractitioner(String id, String firstName, String lastName, LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address, String specialization, String qualification, Integer experienceYears, String departmentId, double consultationFee) {
+    public GeneralPractitioner(String id, String firstName, String lastName, LocalDate dateOfBirth,
+                               String gender, String phoneNumber, String email, String address,
+                               String specialization, String qualification, Integer experienceYears,
+                               String departmentId, double consultationFee,Boolean walkinAvailable, Boolean homeVisitAvailable,
+                               Boolean vaccinationCertified) {
         super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, specialization, qualification, experienceYears, departmentId, consultationFee);
+            this.walkinAvailable = walkinAvailable;
+            this.homeVisitAvailable = homeVisitAvailable;
+            this.vaccinationCertified = vaccinationCertified;
     }
+
+
 }
