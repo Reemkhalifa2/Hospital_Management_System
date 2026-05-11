@@ -74,6 +74,21 @@ public class NurseService {
 
 
     }
+    public void editNurse(String nurseId, Nurse updatedNurse){
+        for(Nurse n : nurses){
+            if(n.getId().equals(nurseId)){
+
+                n.setPhoneNumber(updatedNurse.getPhoneNumber());
+                n.setEmail(updatedNurse.getEmail());
+                n.setAddress(updatedNurse.getAddress());
+
+                System.out.println(Constants.NURSE_UPDATED_SUCCESSFULLY);
+                return;
+            }
+        }
+        System.out.println(Constants.NURSE_NOT_FOUND);
+    }
+
 
 
 
