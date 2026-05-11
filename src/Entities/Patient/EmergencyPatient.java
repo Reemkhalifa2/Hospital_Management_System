@@ -10,7 +10,12 @@ public class EmergencyPatient extends Patient {
     Integer triageLevel;
     Boolean admittedViaER;
 
-    public EmergencyPatient(String id, String firstName, String lastName, LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address, String bloodGroup, String emergencyContact, LocalDate registrationDate, String insuranceId, List<String> allergies) {
+    public EmergencyPatient(String id, String firstName, String lastName, LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address, String bloodGroup, String emergencyContact, LocalDate registrationDate, String insuranceId, List<String> allergies,
+                            String emergencyType , String arrivalMode , Integer triageLevel , Boolean admittedViaER) {
         super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, bloodGroup, emergencyContact, registrationDate, insuranceId, allergies);
+            this.emergencyType = emergencyType;
+            this.arrivalMode = arrivalMode;
+            this.triageLevel = triageLevel;
+            this.admittedViaER = admittedViaER;
     }
 }
