@@ -159,6 +159,17 @@ public class PatientService {
 
     }
 
+    public void searchPatients(String firstName, String lastName){
+        for(Patient p : patients){
+            if(p.getFirstName().equals(firstName) && p.getLastName().equals(lastName)){
+                p.displayInfo();
+                return;
+            }
+        }
+        System.out.println(Constants.PATIENT_NOT_FOUND);
+
+    }
+
 
 
 
