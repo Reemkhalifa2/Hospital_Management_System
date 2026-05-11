@@ -128,6 +128,16 @@ public class DoctorService {
         System.out.println(Constants.DOCTOR_NOT_FOUND);
     }
 
+    public void  getDoctorById(String doctorId){
+        for(Doctor d : doctors){
+            if(d.getId().equals(doctorId)){
+                d.displayInfo();
+                return;
+            }
+        }
+        System.out.println(Constants.DOCTOR_NOT_FOUND);
+    }
+
 
 
 
