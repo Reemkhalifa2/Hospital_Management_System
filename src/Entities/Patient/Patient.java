@@ -157,5 +157,8 @@ public class Patient extends Person {
         System.out.println(Constants.ENTER_INSURANCE);
         this.insuranceId = scanner.nextLine();
     }
+    public void updateContact(String phone){
+        setPhoneNumber(phone);
+    }
 
 }
