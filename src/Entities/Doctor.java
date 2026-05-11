@@ -11,9 +11,6 @@ import java.util.Scanner;
 public class Doctor extends Person{
     static Scanner scanner = new Scanner(System.in);
     PatientService patientService = new PatientService();
-
-    private String doctorId;
-
     public String getSpecialization() {
         return specialization;
     }
@@ -34,13 +31,12 @@ public class Doctor extends Person{
 
     public Doctor(String id, String firstName, String lastName,
                   LocalDate dateOfBirth, String gender, String phoneNumber,
-                  String email, String address , String doctorId, String specialization,
+                  String email, String address , String specialization,
                   String qualification , Integer experienceYears , String departmentId,
                   double consultationFee) {
 
         super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address);
 
-        this.doctorId = doctorId;
         this.specialization = specialization;
         this.qualification = qualification;
         this.experienceYears = experienceYears;
@@ -74,7 +70,6 @@ public class Doctor extends Person{
     @Override
     public void displayInfo() {
         super.displayInfo();
-        System.out.println(doctorId);
         System.out.println(specialization);
         System.out.println(qualification);
         System.out.println(experienceYears);

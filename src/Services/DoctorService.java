@@ -84,7 +84,6 @@ public class DoctorService {
                 phone,
                 email,
                 address,
-                doctorId,
                 specialization,
                 qualification,
                 experienceYears,
