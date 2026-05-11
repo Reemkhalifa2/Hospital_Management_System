@@ -82,12 +82,12 @@ public class Patient extends Person {
     private LocalDate registrationDate;
     private String insuranceId;
     private List<String> medicalRecords;
+    private List<String> appointments;
 
     public void setAppointments(List<String> appointments) {
         this.appointments = appointments;
     }
 
-    private List<String> appointments;
 
     //call parent constructor
     public Patient() {
