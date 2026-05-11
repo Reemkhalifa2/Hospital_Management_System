@@ -100,6 +100,9 @@ public class DoctorService {
         doctor.setFirstName(name);
         doctor.setSpecialization(specialization);
         doctor.setPhoneNumber(phone);
+        doctors.add(doctor);
+
+
     }
 
 
