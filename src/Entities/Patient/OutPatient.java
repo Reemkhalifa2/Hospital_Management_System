@@ -8,7 +8,11 @@ public class OutPatient extends Patient{
     LocalDate lastVisitDate;
     String preferredDoctorId;
 
-    public OutPatient(String id, String firstName, String lastName, LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address, String bloodGroup, String emergencyContact, LocalDate registrationDate, String insuranceId, List<String> allergies) {
+    public OutPatient(String id, String firstName, String lastName, LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address, String bloodGroup, String emergencyContact, LocalDate registrationDate, String insuranceId, List<String> allergies,
+                      Integer visitCount, LocalDate lastVisitDate, String preferredDoctorId    ) {
         super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, bloodGroup, emergencyContact, registrationDate, insuranceId, allergies);
+            this.visitCount = visitCount;
+            this.lastVisitDate = lastVisitDate;
+            this.preferredDoctorId = preferredDoctorId;
     }
 }
