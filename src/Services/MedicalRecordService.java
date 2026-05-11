@@ -1,6 +1,8 @@
 package Services;
 
 import Entities.MedicalRecord;
+import Entities.Nurse;
+import Utilities.Constants;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -13,6 +15,7 @@ public class MedicalRecordService {
 
     public void addRecord(MedicalRecord record){
         medicalRecords.add(record);
+        System.out.println(Constants.RECORD_ADDED_SUCCESSFULLY);
     }
 
     public MedicalRecord addNewRecords(){
