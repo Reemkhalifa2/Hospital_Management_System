@@ -25,4 +25,16 @@ public class InPatient extends Patient{
         this.admittingDoctorId  = admittingDoctorId;
         this.dailyCharges = dailyCharges;
     }
+
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Admission Date: " + admissionDate);
+        System.out.println("Discharge Date: " + dischargeDate);
+        System.out.println("Room Number: " + roomNumber);
+        System.out.println("Bed Number: " + bedNumber);
+        System.out.println("Admitting Doctor ID: " + admittingDoctorId);
+        System.out.println("Daily Charges: " + dailyCharges);
+    }
+
 }
