@@ -67,9 +67,12 @@ public class AppointmentService {
             if(a.getAppointmentId().equals(appointmentId)){
                 a.setAppointmentDate(newDate);
                 a.setAppointmentTime(newTime);
+                a.setStatus("Rescheduled");
             }
         }
     }
+
+
 
 
 
