@@ -30,6 +30,12 @@ public class Doctor extends Person {
     private List<String> availableSlots;
     private List<Patient> assignedPatients;
 
+    //call parent constructor
+    public Doctor() {
+        super();
+
+    }
+
 
     public Doctor(String id, String firstName, String lastName,
                   LocalDate dateOfBirth, String gender, String phoneNumber,
