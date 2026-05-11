@@ -23,9 +23,11 @@ public class EmergencyPatient extends Patient {
     @Override
     public void displayInfo() {
         super.displayInfo();
+
         System.out.println("Emergency Type: " + emergencyType);
         System.out.println("Arrival Mode: " + arrivalMode);
         System.out.println("Triage Level: " + triageLevel);
         System.out.println("Admitted Via ER: " + admittedViaER);
+
     }
 }

@@ -10,11 +10,54 @@ import java.util.Scanner;
 
 public class Patient extends Person {
     static Scanner scanner = new Scanner(System.in);
-    private String bloodGroup;
-    private List<String> allergies = new ArrayList<>();
-    private String emergencyContact;
-    private LocalDate registrationDate;
-    private String insuranceId;
+
+    public List<String> getAppointments() {
+        return appointments;
+    }
+
+
+
+    public String getInsuranceId() {
+        return insuranceId;
+    }
+
+    public void setInsuranceId(String insuranceId) {
+        this.insuranceId = insuranceId;
+    }
+
+    public LocalDate getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(LocalDate registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+
+    public String getEmergencyContact() {
+        return emergencyContact;
+    }
+
+    public void setEmergencyContact(String emergencyContact) {
+        this.emergencyContact = emergencyContact;
+    }
+
+    public String getBloodGroup() {
+        return bloodGroup;
+    }
+
+    public void setBloodGroup(String bloodGroup) {
+        this.bloodGroup = bloodGroup;
+    }
+
+    public static Scanner getScanner() {
+        return scanner;
+    }
+
+    public static void setScanner(Scanner scanner) {
+        Patient.scanner = scanner;
+    }
+
+
 
     public List<String> getMedicalRecords() {
         return medicalRecords;
@@ -32,7 +75,17 @@ public class Patient extends Person {
         this.allergies = allergies;
     }
 
+    private String bloodGroup;
+    private List<String> allergies = new ArrayList<>();
+    private String emergencyContact;
+    private LocalDate registrationDate;
+    private String insuranceId;
     private List<String> medicalRecords;
+
+    public void setAppointments(List<String> appointments) {
+        this.appointments = appointments;
+    }
+
     private List<String> appointments;
 
     //call parent constructor
