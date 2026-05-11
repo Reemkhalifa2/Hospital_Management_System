@@ -27,6 +27,10 @@ public class Person {
         this.email = email;
         this.address = address;
     }
+
+    public Person() {
+
+    }
     // getters ans setters
 
     public String getAddress() {
