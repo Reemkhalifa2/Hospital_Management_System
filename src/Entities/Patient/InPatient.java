@@ -42,4 +42,9 @@ public class InPatient extends Patient{
         return Math.toIntExact(ChronoUnit.DAYS.between(admissionDate, dischargeDate));
     }
 
+    public Double calculateTotalCharges(){
+        return calculateStayDuration() * dailyCharges;
+
+    }
+
 }
