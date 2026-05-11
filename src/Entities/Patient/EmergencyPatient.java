@@ -18,4 +18,14 @@ public class EmergencyPatient extends Patient {
             this.triageLevel = triageLevel;
             this.admittedViaER = admittedViaER;
     }
+
+
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Emergency Type: " + emergencyType);
+        System.out.println("Arrival Mode: " + arrivalMode);
+        System.out.println("Triage Level: " + triageLevel);
+        System.out.println("Admitted Via ER: " + admittedViaER);
+    }
 }
