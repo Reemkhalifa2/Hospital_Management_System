@@ -200,6 +200,25 @@ public class DoctorService {
         doctor.getAssignedPatients().add(patient);
     }
 
+    public void  assignPatient(String doctorId, List<String> patientIds) {
+        for (Doctor doctor : doctors){
+            for(Patient p : getPatients()){
+                for(String x : patientIds){
+                    if(p.getId().equals(x)){
+                        if(doctor.getId().equals(doctorId)){
+                            doctor.getAssignedPatients().add(p);
+                        }
+
+                    }
+
+                }
+            }
+
+
+        }
+
+    }
+
 
 
 
