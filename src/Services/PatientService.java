@@ -148,6 +148,18 @@ public class PatientService {
 
     }
 
+    public Patient addPatient(String firstName, String lastName, String phone , String bloodGroup, String email){
+        Patient patient = new Patient();
+        patient.setFirstName(firstName);
+        patient.setLastName(lastName);
+        patient.setPhoneNumber(phone);
+        patient.setPhoneNumber(bloodGroup);
+        patient.setPhoneNumber(email);
+        return patient;
+
+    }
+
+
 
 
 
