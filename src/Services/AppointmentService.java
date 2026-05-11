@@ -127,6 +127,17 @@ public class AppointmentService {
         appointmentList.add(appointment);
     }
 
+    public void createAppointment(String patientId, String doctorId, LocalDate date, String time){
+        Appointment appointment = new Appointment();
+
+        appointment.setPatientId(patientId);
+        appointment.setDoctorId(doctorId);
+        appointment.setAppointmentDate(date);
+        appointment.setAppointmentTime(time);
+
+        appointmentList.add(appointment);
+    }
+
 
 
 
