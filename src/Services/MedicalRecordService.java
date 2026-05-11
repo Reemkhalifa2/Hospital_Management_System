@@ -66,8 +66,8 @@ public class MedicalRecordService {
         System.out.println(Constants.RECORD_NOT_FOUND);
     }
 
-    public void removeRecord(String recordId){
-        for(MedicalRecord n : medicalRecords) {
+    public void removeRecord(String recordId) {
+        for (MedicalRecord n : medicalRecords) {
             if (n.getRecordId().equals(recordId)) {
                 medicalRecords.remove(n);
                 System.out.println(Constants.RECORD_REMOVED_SUCCESSFULLY);
@@ -75,7 +75,19 @@ public class MedicalRecordService {
             }
         }
         System.out.println(Constants.RECORD_NOT_FOUND);
+
     }
+    public void getRecordsByPatientId(String patientId){
+        for(MedicalRecord m : medicalRecords) {
+            if (m.getPatientId().equals(patientId)) {
+                m.displayInfo();
+                return;
+            }
+        }
+        System.out.println(Constants.RECORD_NOT_FOUND);
+    }
+
+
 
 
 
