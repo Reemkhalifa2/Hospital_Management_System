@@ -97,12 +97,23 @@ public class DoctorService {
 
     public void addDoctor(String name, String specialization, String phone){
         Doctor doctor = new Doctor();
+
         doctor.setFirstName(name);
         doctor.setSpecialization(specialization);
         doctor.setPhoneNumber(phone);
+
         doctors.add(doctor);
+    }
 
+    public void addDoctor(String name, String specialization, String phone, double consultationFee){
+        Doctor doctor = new Doctor();
 
+        doctor.setFirstName(name);
+        doctor.setSpecialization(specialization);
+        doctor.setPhoneNumber(phone);
+        doctor.setConsultationFee(consultationFee);
+
+        doctors.add(doctor);
     }
 
 
