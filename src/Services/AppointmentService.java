@@ -1,7 +1,6 @@
 package Services;
 
 import Entities.Appointment;
-import Entities.MedicalRecord;
 import Utilities.Constants;
 
 import java.time.LocalDate;
@@ -10,7 +9,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class AppointmentService {
-    static Scanner scanner = new Scanner(System.in);
+
+    static Scanner scanner = new Scanner(System.in)
+            ;
     List<Appointment> appointmentList = new ArrayList<>();
 
     public void createAppointment(Appointment appointment){
@@ -115,6 +116,11 @@ public class AppointmentService {
             }
         }
         System.out.println(Constants.APPOINTMENT_NOT_FOUND);
+    }
+    public void displayAppointments(){
+        for(Appointment a : appointmentList){
+                a.displayInfo();
+        }
     }
 
     public void createAppointment(String patientId, String doctorId, LocalDate date){
