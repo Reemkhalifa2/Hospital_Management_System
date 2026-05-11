@@ -182,17 +182,21 @@ public class DoctorService {
         for (Doctor doctor : doctors){
 
             for(Patient p : getPatients()){
-
-                if(p.getId().equals(patientId)){
-
-                    if(doctor.getId().equals(doctorId)){
+                if(doctor.getId().equals(doctorId)){
+                    if(p.getId().equals(patientId)){
                         doctor.getAssignedPatients().add(p);
+                        System.out.println(Constants.PATIENT_ASSIGNED_SUCCESSFULLY);
+                        return;
                     }
+                    System.out.println(Constants.PATIENT_NOT_FOUND);
+
 
                 }
+                System.out.println(Constants.DOCTOR_NOT_FOUND);
+                }
 
-            }
         }
+
 
     }
 
@@ -202,16 +206,22 @@ public class DoctorService {
 
     public void  assignPatient(String doctorId, List<String> patientIds) {
         for (Doctor doctor : doctors){
-            for(Patient p : getPatients()){
-                for(String x : patientIds){
-                    if(p.getId().equals(x)){
-                        if(doctor.getId().equals(doctorId)){
+            if(doctor.getId().equals(doctorId)){
+                for(Patient p : getPatients()){
+                    for(String x : patientIds){
+                        if(p.getId().equals(x)){
                             doctor.getAssignedPatients().add(p);
+                            System.out.println(Constants.PATIENT_ASSIGNED_SUCCESSFULLY);
+                        }else{
+                            System.out.println(Constants.PATIENT_NOT_FOUND);
                         }
 
                     }
 
                 }
+
+            }else{
+                System.out.println(Constants.DOCTOR_NOT_FOUND);
             }
 
 
