@@ -87,6 +87,27 @@ public class AppointmentService {
         System.out.println(Constants.APPOINTMENT_NOT_FOUND);
     }
 
+    public void getAppointmentsByPatient(String patientId){
+        for(Appointment a : appointmentList){
+            if(a.getPatientId().equals(patientId)){
+                a.displayInfo();
+                return;
+            }
+        }
+        System.out.println(Constants.APPOINTMENT_NOT_FOUND);
+    }
+
+    public void  getAppointmentsByDoctor(String doctorId){
+        for(Appointment a : appointmentList){
+            if(a.getDoctorId().equals(doctorId)){
+                a.displayInfo();
+                return;
+            }
+        }
+        System.out.println(Constants.APPOINTMENT_NOT_FOUND);
+    }
+
+
 
 
 
