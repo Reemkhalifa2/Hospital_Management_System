@@ -117,6 +117,18 @@ public class AppointmentService {
         System.out.println(Constants.APPOINTMENT_NOT_FOUND);
     }
 
+    public void createAppointment(String patientId, String doctorId, LocalDate date){
+        Appointment appointment = new Appointment();
+
+        appointment.setPatientId(patientId);
+        appointment.setDoctorId(doctorId);
+        appointment.setAppointmentDate(date);
+
+        appointmentList.add(appointment);
+    }
+
+
+
 
 
 
