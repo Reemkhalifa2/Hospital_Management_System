@@ -110,6 +110,26 @@ public class NurseService {
         System.out.println(Constants.NURSE_NOT_FOUND);
     }
 
+    public void getNurseByDepartment(String departmentId){
+        for(Nurse n : nurses) {
+            if (n.getDepartmentId().equals(departmentId)) {
+               n.displayInfo();
+               return;
+            }
+        }
+        System.out.println(Constants.NURSE_NOT_FOUND);
+    }
+
+    public void  getNursesByShift(String shift){
+        for(Nurse n : nurses) {
+            if (n.getShift().equals(shift)) {
+               n.displayInfo();
+               return;
+            }
+        }
+        System.out.println(Constants.NURSE_NOT_FOUND);
+    }
+
 
 
 
