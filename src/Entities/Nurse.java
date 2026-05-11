@@ -8,7 +8,6 @@ import java.util.List;
 
 public class Nurse extends Person{
 
-    private String nurseId;
     private String departmentId;
     private String shift;
     private String qualification;
@@ -16,13 +15,12 @@ public class Nurse extends Person{
     public Nurse(String id, String firstName, String lastName,
                  LocalDate dateOfBirth, String gender,
                  String phoneNumber, String email, String address,
-                 String nurseId, String departmentId,
+               String departmentId,
                  String shift, String qualification) {
 
         super(id, firstName, lastName, dateOfBirth,
                 gender, phoneNumber, email, address);
 
-        this.nurseId = nurseId;
         this.departmentId = departmentId;
         this.shift = shift;
         this.qualification = qualification;
@@ -34,7 +32,6 @@ public class Nurse extends Person{
     public void displayInfo() {
         super.displayInfo();
 
-        System.out.println("Nurse ID: " + nurseId);
         System.out.println("Department ID: " + departmentId);
         System.out.println("Shift: " + shift);
         System.out.println("Qualification: " + qualification);
