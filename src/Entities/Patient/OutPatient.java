@@ -23,4 +23,17 @@ public class OutPatient extends Patient{
         System.out.println("Last Visit Date: " + lastVisitDate);
         System.out.println("Preferred Doctor ID: " + preferredDoctorId);
     }
+
+    public void scheduleFollowUp(){
+
+
+    }
+
+    public void updateVisitCount() {
+        this.visitCount++;
+        this.lastVisitDate = LocalDate.now();
+        System.out.println("Visit count updated to: " + visitCount);
+    }
+
+
 }
