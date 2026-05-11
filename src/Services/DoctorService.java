@@ -144,6 +144,14 @@ public class DoctorService {
         }
     }
 
+    public void getDoctorsBySpecialization(String specialization){
+        for(Doctor d : doctors){
+            if(d.getSpecialization().equalsIgnoreCase(specialization)){
+                d.displayInfo();
+            }
+        }
+    }
+
 
 
 
