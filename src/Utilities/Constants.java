@@ -35,6 +35,14 @@ public class Constants {
     public static String APPOINTMENT_CANCELLED_SUCCESSFULLY = "Appointment cancelled successfully";
 
 
+    public static String DEPARTMENT_ADDED_SUCCESSFULLY = "Department added successfully";
+    public static String DEPARTMENT_UPDATED_SUCCESSFULLY = "Department successfully";
+    public static String DEPARTMENT_NOT_FOUND = "Department not found";
+    public static String DEPARTMENT_REMOVED_SUCCESSFULLY = "Department removed successfully";
+    public static String DEPARTMENT_RESCHEDULED_SUCCESSFULLY = "Department rescheduled successfully";
+    public static String DEPARTMENT_CANCELLED_SUCCESSFULLY = "Department cancelled successfully";
+
+
 
 
 }
