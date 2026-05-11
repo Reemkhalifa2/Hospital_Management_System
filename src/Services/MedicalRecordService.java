@@ -50,6 +50,21 @@ public class MedicalRecordService {
 
     }
 
+    public void editMedicalRecord(String recordId, MedicalRecord updatedRecord){
+        for(MedicalRecord m : medicalRecords){
+            if(m.getRecordId().equals(recordId)){
+
+                m.setDiagnosis(updatedRecord.getDiagnosis());
+                m.setPrescription(updatedRecord.getPrescription());
+                m.setNotes(updatedRecord.getNotes());
+
+
+                System.out.println(Constants.RECORD_UPDATED_SUCCESSFULLY);
+                return;
+            }
+        }
+        System.out.println(Constants.RECORD_NOT_FOUND);
+    }
 
 
 
