@@ -11,10 +11,16 @@ public class Constants {
     public static String APPOINTMENT_RESCHEDULED_SUCCESSFULLY = "Appointment rescheduled successfully";
     public static String PATIENT_UPDATED_SUCCESSFULLY = "Patient updated successfully";
     public static String PATIENT_NOT_FOUND = "Patient not found";
+
     public static String DOCTOR_ADDED_SUCCESSFULLY = "Doctor added successfully";
     public static String DOCTOR_UPDATED_SUCCESSFULLY = "Doctor updated successfully";
     public static String DOCTOR_NOT_FOUND = "Doctor not found";
     public static String DOCTOR_REMOVED_SUCCESSFULLY = "Doctor removed successfully";
+
+    public static String NURSE_ADDED_SUCCESSFULLY = "Nurse added successfully";
+    public static String NURSE_UPDATED_SUCCESSFULLY = "Nurse updated successfully";
+    public static String NURSE_NOT_FOUND = "Nurse not found";
+    public static String NURSE_REMOVED_SUCCESSFULLY = "Nurse removed successfully";
 
 
 
