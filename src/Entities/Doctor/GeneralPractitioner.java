@@ -33,5 +33,11 @@ public class GeneralPractitioner extends Doctor{
         }
     }
 
+    public void administerVaccine(){
+        if(vaccinationCertified){
+            System.out.println("Vaccination Certified");
+        }
+    }
+
 
 }
