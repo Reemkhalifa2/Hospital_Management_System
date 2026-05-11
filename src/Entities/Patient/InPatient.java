@@ -1,6 +1,7 @@
 package Entities.Patient;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 public class InPatient extends Patient{
@@ -35,6 +36,10 @@ public class InPatient extends Patient{
         System.out.println("Bed Number: " + bedNumber);
         System.out.println("Admitting Doctor ID: " + admittingDoctorId);
         System.out.println("Daily Charges: " + dailyCharges);
+    }
+
+    public Integer calculateStayDuration(){
+        return Math.toIntExact(ChronoUnit.DAYS.between(admissionDate, dischargeDate));
     }
 
 }
