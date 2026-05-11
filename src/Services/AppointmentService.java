@@ -1,8 +1,10 @@
 package Services;
 
 import Entities.Appointment;
+import Entities.MedicalRecord;
 import Utilities.Constants;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -15,6 +17,43 @@ public class AppointmentService {
         appointmentList.add(appointment);
         System.out.println(Constants.APPOINTMENT_ADDED_SUCCESSFULLY);
     }
+
+    public Appointment addNewAppointment(){
+
+        System.out.println("Enter appointment Id: ");
+        String appointmentId = scanner.nextLine();
+
+        System.out.println("Enter patient Id: ");
+        String patientId = scanner.nextLine();
+
+        System.out.println("Enter Doctor Id: ");
+        String doctorId = scanner.nextLine();
+
+        LocalDate appointmentDate = LocalDate.now();
+
+        System.out.println("Enter Appointment Time: ");
+        String appointmentTime = scanner.nextLine();
+
+        System.out.println("Enter status (Scheduled/Completed/Cancelled/Rescheduled): ");
+        String status = scanner.nextLine();
+
+        System.out.println("Enter reason: ");
+        String reason = scanner.nextLine();
+
+        System.out.println("Enter notes: ");
+        String notes = scanner.nextLine();
+
+        Appointment appointment = new Appointment(
+                appointmentId,patientId,doctorId,appointmentDate,appointmentTime,status,reason,notes
+        );
+
+        return appointment;
+    }
+
+
+
+
+
 
 
 
