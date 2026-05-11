@@ -169,23 +169,28 @@ public class PatientService {
 
 
 
-    public Patient addPatient(String firstName, String lastName, String phone){
+    public void addPatient(String firstName, String lastName, String phone){
+
         Patient patient = new Patient();
+
         patient.setFirstName(firstName);
         patient.setLastName(lastName);
         patient.setPhoneNumber(phone);
-        return patient;
+
+        patients.add(patient);
 
     }
 
-    public Patient addPatient(String firstName, String lastName, String phone , String bloodGroup, String email){
+    public void addPatient(String firstName, String lastName, String phone , String bloodGroup, String email){
         Patient patient = new Patient();
+
         patient.setFirstName(firstName);
         patient.setLastName(lastName);
         patient.setPhoneNumber(phone);
         patient.setPhoneNumber(bloodGroup);
         patient.setPhoneNumber(email);
-        return patient;
+
+        patients.add(patient);
 
     }
     public void searchPatients(String keyword) {
