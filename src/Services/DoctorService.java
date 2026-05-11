@@ -196,6 +196,11 @@ public class DoctorService {
 
     }
 
+    public void  assignPatient(Doctor doctor, Patient patient){
+        doctor.getAssignedPatients().add(patient);
+    }
+
+
 
 
 
