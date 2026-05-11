@@ -13,6 +13,11 @@ public class Doctor extends Person{
     PatientService patientService = new PatientService();
 
     private String doctorId;
+
+    public String getSpecialization() {
+        return specialization;
+    }
+
     private String specialization;
     private String qualification;
     private Integer experienceYears;
