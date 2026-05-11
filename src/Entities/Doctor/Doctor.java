@@ -1,5 +1,7 @@
-package Entities;
+package Entities.Doctor;
 
+import Entities.Patient;
+import Entities.Person;
 import Services.PatientService;
 import Utilities.Constants;
 
@@ -8,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Doctor extends Person{
+public class Doctor extends Person {
     static Scanner scanner = new Scanner(System.in);
     PatientService patientService = new PatientService();
     public String getSpecialization() {

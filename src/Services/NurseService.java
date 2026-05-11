@@ -1,6 +1,5 @@
 package Services;
 
-import Entities.Doctor;
 import Entities.Nurse;
 import Utilities.Constants;
 

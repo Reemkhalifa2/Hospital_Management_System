@@ -1,6 +1,6 @@
 package Services;
 
-import Entities.Doctor;
+import Entities.Doctor.Doctor;
 import Utilities.Constants;
 
 import java.time.LocalDate;

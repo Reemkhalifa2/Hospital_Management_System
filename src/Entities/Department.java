@@ -1,5 +1,7 @@
 package Entities;
 
+import Entities.Doctor.Doctor;
+
 import java.util.ArrayList;
 import java.util.List;
 
