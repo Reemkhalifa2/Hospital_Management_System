@@ -132,6 +132,10 @@ public class Appointment {
         setStatus("Completed");
 
     }
+    public void addNotes(String notes){
+        this.notes = notes;
+    }
+
 
 
 
