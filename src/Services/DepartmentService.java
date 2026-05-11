@@ -24,6 +24,17 @@ public class DepartmentService {
         System.out.println(Constants.DEPARTMENT_NOT_FOUND);
     }
 
+    public void displayAllDepartments(){
+        for(Department d : departments){
+                d.displayInfo();
+            }
+        }
+    }
+
+
+
+
+
 
 
 
