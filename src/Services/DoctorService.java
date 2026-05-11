@@ -1,6 +1,8 @@
 package Services;
 
+import Entities.Appointment;
 import Entities.Doctor.Doctor;
+import Entities.Patient.Patient;
 import Utilities.Constants;
 
 import java.time.LocalDate;
@@ -8,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+
+import static Services.PatientService.getPatients;
 
 public class DoctorService {
     static Scanner scanner = new Scanner(System.in);
@@ -173,5 +177,29 @@ public class DoctorService {
             }
         }
     }
+
+    public void assignPatient(String doctorId, String patientId){
+        for (Doctor doctor : doctors){
+
+            for(Patient p : getPatients()){
+
+                if(p.getId().equals(patientId)){
+
+                    if(doctor.getId().equals(doctorId)){
+                        doctor.getAssignedPatients().add(p);
+                    }
+
+                }
+
+            }
+        }
+
+    }
+
+
+
+
+
+
 
 }
