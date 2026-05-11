@@ -90,6 +90,10 @@ public class Patient extends Person {
     private List<String> appointments;
 
     //call parent constructor
+    public Patient() {
+        super();
+
+    }
     public Patient(String id, String firstName, String lastName,
                    LocalDate dateOfBirth, String gender,
                    String phoneNumber, String email, String address,
