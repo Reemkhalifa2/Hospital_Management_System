@@ -42,6 +42,9 @@ public class Constants {
     public static String DEPARTMENT_RESCHEDULED_SUCCESSFULLY = "Department rescheduled successfully";
     public static String DEPARTMENT_CANCELLED_SUCCESSFULLY = "Department cancelled successfully";
 
+    public static String SURGEON_CAN_OPERATE = "surgeon can operate";
+    public static String SURGEON_CANNOT_OPERATE = "surgeon can't operate";
+
 
 
 
