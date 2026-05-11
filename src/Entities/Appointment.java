@@ -82,6 +82,8 @@ public class Appointment {
     }
 
 
+    public Appointment(){;
+    }
 
     public Appointment(String appointmentId , String patientId,
                        String doctorId, LocalDate appointmentDate,String appointmentTime,
