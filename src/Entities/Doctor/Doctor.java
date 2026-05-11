@@ -119,9 +119,7 @@ public class Doctor extends Person {
 
 
     public void assignPatient() {
-        Patient patient = patientService.addPatient();
-        assignedPatients.add(patient);
-        System.out.println(Constants.ASSIGNED);
+
     }
 
 
