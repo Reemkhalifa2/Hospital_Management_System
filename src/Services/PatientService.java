@@ -106,7 +106,6 @@ public class PatientService {
         }
         System.out.println(Constants.PATIENT_NOT_FOUND);
 
-
     }
     public void removePatient(String patientId){
         for(Patient p : patients){
