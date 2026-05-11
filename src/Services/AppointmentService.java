@@ -62,6 +62,16 @@ public class AppointmentService {
         }
         System.out.println(Constants.APPOINTMENT_NOT_FOUND);
     }
+    public void rescheduleAppointment(String appointmentId, LocalDate newDate, String newTime){
+        for(Appointment a : appointmentList){
+            if(a.getAppointmentId().equals(appointmentId)){
+                a.setAppointmentDate(newDate);
+                a.setAppointmentTime(newTime);
+            }
+        }
+    }
+
+
 
 
 
