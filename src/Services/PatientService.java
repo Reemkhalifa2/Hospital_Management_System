@@ -158,6 +158,23 @@ public class PatientService {
         return patient;
 
     }
+    public void searchPatients(String keyword) {
+
+        for (Patient patient : patients) {
+
+            if (patient.getFirstName().equalsIgnoreCase(keyword)
+                    || patient.getLastName().equalsIgnoreCase(keyword)
+                    || patient.getPhoneNumber().equalsIgnoreCase(keyword)
+                    || patient.getBloodGroup().equalsIgnoreCase(keyword)
+                    || patient.getEmail().equalsIgnoreCase(keyword)
+                    || patient.getId().equalsIgnoreCase(keyword)) {
+
+                patient.displayInfo();
+                return;
+            }
+        }
+        System.out.println(Constants.PATIENT_NOT_FOUND);
+    }
 
     public void searchPatients(String firstName, String lastName){
         for(Patient p : patients){
