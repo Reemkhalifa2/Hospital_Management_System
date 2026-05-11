@@ -13,13 +13,13 @@ public class PatientService {
     static Scanner scanner = new Scanner(System.in);
     private List<Patient> patients = new ArrayList<>();
 
-    public void addPatients(){
+    public void addPatients(Patient patient){
         patients.add(addPatient());
         System.out.println("Press q to quit or enter key to continue:");
         if(scanner.nextLine().equalsIgnoreCase("q") ){
             return;
         }
-        addPatients();
+        addPatients(addPatient());
 
     }
     public Patient addPatient(){
@@ -137,6 +137,8 @@ public class PatientService {
             p.displayInfo();
         }
     }
+
+
 
 
 
