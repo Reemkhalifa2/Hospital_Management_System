@@ -95,16 +95,9 @@ public class PatientService {
         for(Patient p : patients){
 
             if(p.getId().equals(patientId)){
-                System.out.println("Enter new phone number:");
-                p.setPhoneNumber(scanner.nextLine());
-
-                System.out.println("Enter new email:");
-                String email = scanner.nextLine();
-                p.setEmail(email);
-
-                System.out.println("Enter new address:");
-                String address = scanner.nextLine();
-                p.setAddress(address);
+                p.setPhoneNumber(updatedPatient.getPhoneNumber());
+                p.setEmail(updatedPatient.getEmail());
+                p.setAddress(updatedPatient.getAddress());
 
                 System.out.println(Constants.PATIENT_UPDATED_SUCCESSFULLY);
                 return;
