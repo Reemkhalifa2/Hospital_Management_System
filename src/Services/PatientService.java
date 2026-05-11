@@ -139,6 +139,18 @@ public class PatientService {
     }
 
 
+    public Patient addPatient(String firstName, String lastName, String phone){
+        Patient patient = new Patient();
+        patient.setFirstName(firstName);
+        patient.setLastName(lastName);
+        patient.setPhoneNumber(phone);
+        return patient;
+
+    }
+
+
+
+
 
 
 
