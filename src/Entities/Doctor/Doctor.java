@@ -155,4 +155,8 @@ public class Doctor extends Person {
             patient.displayInfo();
         }
     }
+
+    public void updateFee(double fee){
+        this.consultationFee = fee;
+    }
 }
