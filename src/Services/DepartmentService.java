@@ -14,6 +14,17 @@ public class DepartmentService {
         System.out.println(Constants.DEPARTMENT_ADDED_SUCCESSFULLY);
     }
 
+    public void editDepartment(String departmentId, Department updatedDepartment) {
+        for (Department d : departments) {
+            if (d.getDepartmentId().equals(departmentId)) {
+                d.setBedCapacity(updatedDepartment.getBedCapacity());
+                d.setAvailableBeds(updatedDepartment.getAvailableBeds());
+                return;
+            }
+        }
+        System.out.println(Constants.DEPARTMENT_NOT_FOUND);
+    }
+
     public void removeDepartment(String departmentId) {
         for (Department d : departments) {
             if (d.getDepartmentId().equals(departmentId)) {
