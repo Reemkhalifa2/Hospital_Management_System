@@ -30,8 +30,14 @@ public class Consultant extends Doctor{
         }
     }
 
-    public void scheduleConsultation(){
-        System.out.println("Enter Consultation Duration: ");
-        consultationDuration = scanner.nextInt();
+    public void scheduleConsultation(String patientId, String type) {
+        System.out.println("Consultation scheduled for patient: " + patientId);
+        System.out.println("Type: " + type);
+        System.out.println("Duration: " + consultationDuration + " minutes");
+    }
+
+    public void provideSecondOpinion(){
+
+
     }
 }
