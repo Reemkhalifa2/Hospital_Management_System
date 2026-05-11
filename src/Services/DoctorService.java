@@ -96,6 +96,27 @@ public class DoctorService {
         return doctor;
     }
 
+    public void editDoctor(String doctorId, Doctor updatedDoctor){
+        for(Doctor d : doctors){
+            if(d.getId().equals(doctorId)){
+                System.out.println("Enter new phone number:");
+                d.setPhoneNumber(scanner.nextLine());
+
+                System.out.println("Enter new email:");
+                String email = scanner.nextLine();
+                d.setEmail(email);
+
+                System.out.println("Enter new address:");
+                String address = scanner.nextLine();
+                d.setAddress(address);
+
+                System.out.println(Constants.DOCTOR_UPDATED_SUCCESSFULLY);
+                return;
+            }
+        }
+        System.out.println(Constants.DOCTOR_NOT_FOUND);
+    }
+
 
 
 
