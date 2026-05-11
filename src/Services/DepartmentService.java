@@ -50,8 +50,17 @@ public class DepartmentService {
                 d.displayInfo();
             }
         }
-    }
 
+
+    public void assignDoctorToDepartment(String doctorId, String departmentId){
+        for(Department d : departments){
+            if(d.getDepartmentId().equals(departmentId)){
+                d.setHeadDoctorId(doctorId);
+                return;
+            }
+        }
+        System.out.println(Constants.DEPARTMENT_NOT_FOUND);
+    }
 
 
 
