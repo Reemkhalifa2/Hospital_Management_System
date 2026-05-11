@@ -89,6 +89,17 @@ public class NurseService {
         System.out.println(Constants.NURSE_NOT_FOUND);
     }
 
+    public void removeNurse(String nurseId){
+        for(Nurse n : nurses) {
+            if (n.getId().equals(nurseId)) {
+                nurses.remove(n);
+                System.out.println(Constants.NURSE_REMOVED_SUCCESSFULLY);
+                return;
+            }
+        }
+        System.out.println(Constants.NURSE_NOT_FOUND);
+    }
+
 
 
 
