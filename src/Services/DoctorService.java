@@ -138,6 +138,12 @@ public class DoctorService {
         System.out.println(Constants.DOCTOR_NOT_FOUND);
     }
 
+    public void displayAllDoctors(){
+        for(Doctor d : doctors){
+            d.displayInfo();
+        }
+    }
+
 
 
 
