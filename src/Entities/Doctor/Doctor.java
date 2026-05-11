@@ -159,4 +159,18 @@ public class Doctor extends Person {
     public void updateFee(double fee){
         this.consultationFee = fee;
     }
+
+    /*public void updateFee(double fee , String reason){
+        this.consultationFee = fee;
+    }*/
+
+    public void addAvailability(String slot){
+        this.availableSlots.add(slot);
+    }
+
+    public void addAvailability(List<String> slots){
+        this.availableSlots = slots;
+    }
+
+
 }
