@@ -117,6 +117,17 @@ public class DoctorService {
         System.out.println(Constants.DOCTOR_NOT_FOUND);
     }
 
+    public void removeDoctor(String doctorId){
+        for(Doctor d : doctors) {
+            if (d.getId().equals(doctorId)) {
+                doctors.remove(d);
+                System.out.println(Constants.DOCTOR_REMOVED_SUCCESSFULLY);
+                return;
+            }
+        }
+        System.out.println(Constants.DOCTOR_NOT_FOUND);
+    }
+
 
 
 
