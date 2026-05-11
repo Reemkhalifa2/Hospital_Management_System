@@ -152,6 +152,14 @@ public class DoctorService {
         }
     }
 
+    public void getAvailableDoctors(){
+        for(Doctor d : doctors){
+            if(!d.getAvailableSlots().isEmpty()){
+                d.displayInfo();
+            }
+        }
+    }
+
 
 
 
