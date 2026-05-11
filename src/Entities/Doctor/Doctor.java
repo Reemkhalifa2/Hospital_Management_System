@@ -13,8 +13,77 @@ import java.util.Scanner;
 public class Doctor extends Person {
     static Scanner scanner = new Scanner(System.in);
     PatientService patientService = new PatientService();
+
+    public List<Patient> getAssignedPatients() {
+        return assignedPatients;
+    }
+
+    public void setAssignedPatients(List<Patient> assignedPatients) {
+        this.assignedPatients = assignedPatients;
+    }
+
+    public List<String> getAvailableSlots() {
+        return availableSlots;
+    }
+
+    public void setAvailableSlots(List<String> availableSlots) {
+        this.availableSlots = availableSlots;
+    }
+
+    public double getConsultationFee() {
+        return consultationFee;
+    }
+
+    public void setConsultationFee(double consultationFee) {
+        this.consultationFee = consultationFee;
+    }
+
+    public String getDepartmentId() {
+        return departmentId;
+    }
+
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public Integer getExperienceYears() {
+        return experienceYears;
+    }
+
+    public void setExperienceYears(Integer experienceYears) {
+        this.experienceYears = experienceYears;
+    }
+
+    public String getQualification() {
+        return qualification;
+    }
+
+    public void setQualification(String qualification) {
+        this.qualification = qualification;
+    }
+
     public String getSpecialization() {
         return specialization;
+    }
+
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
+    }
+
+    public PatientService getPatientService() {
+        return patientService;
+    }
+
+    public void setPatientService(PatientService patientService) {
+        this.patientService = patientService;
+    }
+
+    public static Scanner getScanner() {
+        return scanner;
+    }
+
+    public static void setScanner(Scanner scanner) {
+        Doctor.scanner = scanner;
     }
 
     private String specialization;
@@ -22,11 +91,6 @@ public class Doctor extends Person {
     private Integer experienceYears;
     private String departmentId;
     private double consultationFee;
-
-    public List<String> getAvailableSlots() {
-        return availableSlots;
-    }
-
     private List<String> availableSlots;
     private List<Patient> assignedPatients;
 
@@ -35,7 +99,6 @@ public class Doctor extends Person {
         super();
 
     }
-
 
     public Doctor(String id, String firstName, String lastName,
                   LocalDate dateOfBirth, String gender, String phoneNumber,
