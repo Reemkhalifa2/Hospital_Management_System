@@ -99,16 +99,9 @@ public class DoctorService {
     public void editDoctor(String doctorId, Doctor updatedDoctor){
         for(Doctor d : doctors){
             if(d.getId().equals(doctorId)){
-                System.out.println("Enter new phone number:");
-                d.setPhoneNumber(scanner.nextLine());
-
-                System.out.println("Enter new email:");
-                String email = scanner.nextLine();
-                d.setEmail(email);
-
-                System.out.println("Enter new address:");
-                String address = scanner.nextLine();
-                d.setAddress(address);
+                d.setPhoneNumber(updatedDoctor.getPhoneNumber());
+                d.setEmail(updatedDoctor.getEmail());
+                d.setAddress(updatedDoctor.getAddress());
 
                 System.out.println(Constants.DOCTOR_UPDATED_SUCCESSFULLY);
                 return;
@@ -159,8 +152,5 @@ public class DoctorService {
             }
         }
     }
-
-
-
 
 }
