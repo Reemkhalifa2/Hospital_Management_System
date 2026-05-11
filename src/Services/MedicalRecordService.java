@@ -77,6 +77,12 @@ public class MedicalRecordService {
         System.out.println(Constants.RECORD_NOT_FOUND);
 
     }
+    public void getRecords(){
+        for(MedicalRecord m : medicalRecords) {
+                m.displayInfo();
+
+        }
+    }
     public void getRecordsByPatientId(String patientId){
         for(MedicalRecord m : medicalRecords) {
             if (m.getPatientId().equals(patientId)) {

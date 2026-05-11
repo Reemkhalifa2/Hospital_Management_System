@@ -72,6 +72,12 @@ public class NurseService {
 
 
     }
+
+    public void getNurse(){
+        for(Nurse nurse : nurses){
+            nurse.displayInfo();
+        }
+    }
     public void editNurse(String nurseId, Nurse updatedNurse){
         for(Nurse n : nurses){
             if(n.getId().equals(nurseId)){

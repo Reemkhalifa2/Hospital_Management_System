@@ -145,8 +145,4 @@ public class Appointment {
         this.notes = "Note : " + notes + "Added By: " +addedBy + "....."+timestamp;
     }
 
-
-
-
-
 }

@@ -6,6 +6,7 @@ import Utilities.Constants;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Nurse extends Person{
 
@@ -50,7 +51,7 @@ public class Nurse extends Person{
     // Assign patient
     public void assignPatient(Patient patient) {
         assignedPatients.add(patient);
-        System.out.println(Constants.ASSIGNED);
+        System.out.println(Constants.PATIENT_ASSIGNED_SUCCESSFULLY);
     }
 
     // Remove patient

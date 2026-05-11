@@ -10,8 +10,7 @@ import java.util.Scanner;
 
 public class AppointmentService {
 
-    static Scanner scanner = new Scanner(System.in)
-            ;
+    static Scanner scanner = new Scanner(System.in);
     List<Appointment> appointmentList = new ArrayList<>();
 
     public void createAppointment(Appointment appointment){
