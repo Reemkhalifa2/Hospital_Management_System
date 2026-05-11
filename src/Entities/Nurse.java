@@ -8,7 +8,16 @@ import java.util.List;
 
 public class Nurse extends Person{
 
+    public String getDepartmentId() {
+        return departmentId;
+    }
+
     private String departmentId;
+
+    public String getShift() {
+        return shift;
+    }
+
     private String shift;
     private String qualification;
     private List<Patient> assignedPatients;
