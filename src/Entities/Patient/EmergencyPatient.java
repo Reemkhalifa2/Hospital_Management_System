@@ -1,4 +1,4 @@
 package Entities.Patient;
 
-public class EmergencyPatient {
+public class EmergencyPatient extends Patient {
 }
