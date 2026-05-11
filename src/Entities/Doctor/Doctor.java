@@ -1,6 +1,6 @@
 package Entities.Doctor;
 
-import Entities.Patient;
+import Entities.Patient.Patient;
 import Entities.Person;
 import Services.PatientService;
 import Utilities.Constants;

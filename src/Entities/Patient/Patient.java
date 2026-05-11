@@ -1,5 +1,6 @@
-package Entities;
+package Entities.Patient;
 
+import Entities.Person;
 import Utilities.Constants;
 
 import java.time.LocalDate;
@@ -7,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Patient extends Person{
+public class Patient extends Person {
     static Scanner scanner = new Scanner(System.in);
     private String bloodGroup;
     private List<String> allergies = new ArrayList<>();

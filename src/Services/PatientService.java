@@ -1,9 +1,8 @@
 package Services;
 
-import Entities.Patient;
+import Entities.Patient.Patient;
 import Utilities.Constants;
 
-import java.io.Console;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;

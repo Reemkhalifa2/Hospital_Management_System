@@ -1,5 +1,6 @@
 package Entities;
 
+import Entities.Patient.Patient;
 import Utilities.Constants;
 
 import java.time.LocalDate;

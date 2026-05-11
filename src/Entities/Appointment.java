@@ -11,6 +11,11 @@ public class Appointment {
     private String appointmentId;
     private String patientId;
     private String doctorId;
+    private LocalDate appointmentDate;
+    private String appointmentTime;
+    private String status;
+    private String reason;
+    private String notes;
 
     public String getNotes() {
         return notes;
@@ -76,11 +81,7 @@ public class Appointment {
         this.appointmentId = appointmentId;
     }
 
-    private LocalDate appointmentDate;
-    private String appointmentTime;
-    private String status;
-    private String reason;
-    private String notes;
+
 
     public Appointment(String appointmentId , String patientId,
                        String doctorId, LocalDate appointmentDate,String appointmentTime,
