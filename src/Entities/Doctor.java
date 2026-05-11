@@ -23,6 +23,11 @@ public class Doctor extends Person{
     private Integer experienceYears;
     private String departmentId;
     private double consultationFee;
+
+    public List<String> getAvailableSlots() {
+        return availableSlots;
+    }
+
     private List<String> availableSlots;
     private List<Patient> assignedPatients;
 
