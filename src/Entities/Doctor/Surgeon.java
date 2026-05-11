@@ -1,10 +1,14 @@
 package Entities.Doctor;
 
+import Utilities.Constants;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Surgeon extends Doctor{
+    static Scanner scanner = new Scanner(System.in);
     private Integer surgeriesPerformed;
     private List<String> surgeryTypes;
     private Boolean operationTheatreAccess;
@@ -27,5 +31,23 @@ public class Surgeon extends Doctor{
         for(String x : surgeryTypes){
             System.out.print(x + " , ");
         }
+    }
+    public void updateSurgeryCount(){
+        surgeriesPerformed = surgeriesPerformed + 1 ;
+    }
+
+    public void performSurgery(){
+        if(operationTheatreAccess){
+            System.out.println(Constants.SURGEON_CAN_OPERATE);
+            System.out.println("Enter surgery type: ");
+            surgeryTypes.add(scanner.nextLine());
+            updateSurgeryCount();
+
+        }else{
+            System.out.println(Constants.SURGEON_CANNOT_OPERATE);
+        }
+
+
+
     }
 }
