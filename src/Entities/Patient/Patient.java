@@ -60,6 +60,7 @@ public class Patient extends Person {
 
 
     public List<String> getMedicalRecords() {
+
         return medicalRecords;
     }
 

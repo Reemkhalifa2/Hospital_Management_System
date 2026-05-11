@@ -1,5 +1,7 @@
 package Entities.Doctor;
 
+import Entities.Patient.Patient;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +39,7 @@ public class Consultant extends Doctor{
     }
 
     public void provideSecondOpinion(){
+
 
 
     }
