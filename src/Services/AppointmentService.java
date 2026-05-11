@@ -68,16 +68,23 @@ public class AppointmentService {
                 a.setAppointmentDate(newDate);
                 a.setAppointmentTime(newTime);
                 a.setStatus("Rescheduled");
+                System.out.println(Constants.APPOINTMENT_RESCHEDULED_SUCCESSFULLY);
+                return;
             }
         }
+        System.out.println(Constants.APPOINTMENT_NOT_FOUND);
+
     }
 
     public void cancelAppointment(String appointmentId){
         for(Appointment a : appointmentList){
             if(a.getAppointmentId().equals(appointmentId)){
                 a.setStatus("Cancelled");
+                System.out.println(Constants.APPOINTMENT_CANCELLED_SUCCESSFULLY);
+                return;
             }
         }
+        System.out.println(Constants.APPOINTMENT_NOT_FOUND);
     }
 
 

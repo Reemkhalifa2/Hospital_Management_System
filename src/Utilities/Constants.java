@@ -8,7 +8,6 @@ public class Constants {
     public static String PATIENT_REMOVED_SUCCESSFULLY = "Patient removed successfully";
     public static String PATIENT_ADDED_SUCCESSFULLY = "Patient added successfully";
     public static String AVAILABILITY_UPDATED = "Availability updated";
-    public static String APPOINTMENT_RESCHEDULED_SUCCESSFULLY = "Appointment rescheduled successfully";
     public static String PATIENT_UPDATED_SUCCESSFULLY = "Patient updated successfully";
     public static String PATIENT_NOT_FOUND = "Patient not found";
 
@@ -32,6 +31,8 @@ public class Constants {
     public static String APPOINTMENT_UPDATED_SUCCESSFULLY = "Appointment successfully";
     public static String APPOINTMENT_NOT_FOUND = "Appointment not found";
     public static String APPOINTMENT_REMOVED_SUCCESSFULLY = "Appointment removed successfully";
+    public static String APPOINTMENT_RESCHEDULED_SUCCESSFULLY = "Appointment rescheduled successfully";
+    public static String APPOINTMENT_CANCELLED_SUCCESSFULLY = "Appointment cancelled successfully";
 
 
 
