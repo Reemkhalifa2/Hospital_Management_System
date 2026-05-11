@@ -165,5 +165,10 @@ public class Patient extends Person {
         setPhoneNumber(phone);
         setEmail(email);
     }
+    public void updateContact(String phone, String email, String address){
+        setPhoneNumber(phone);
+        setEmail(email);
+        setAddress(address);
+    }
 
 }
