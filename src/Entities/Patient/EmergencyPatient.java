@@ -3,7 +3,7 @@ package Entities.Patient;
 import java.time.LocalDate;
 import java.util.List;
 
-public class EmergencyPatient extends Patient {
+public class EmergencyPatient extends InPatient {
 
     String emergencyType;
     String arrivalMode;
