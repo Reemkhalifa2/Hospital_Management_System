@@ -136,6 +136,10 @@ public class Appointment {
         this.notes = notes;
     }
 
+    public void addNotes(String notes, String addedBy) {
+        this.notes = notes + addedBy;
+    }
+
 
 
 
