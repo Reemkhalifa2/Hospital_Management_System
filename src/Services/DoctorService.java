@@ -95,6 +95,14 @@ public class DoctorService {
         return doctor;
     }
 
+    public void addDoctor(String name, String specialization, String phone){
+        Doctor doctor = new Doctor();
+        doctor.setFirstName(name);
+        doctor.setSpecialization(specialization);
+        doctor.setPhoneNumber(phone);
+    }
+
+
     public void editDoctor(String doctorId, Doctor updatedDoctor){
         for(Doctor d : doctors){
             if(d.getId().equals(doctorId)){
