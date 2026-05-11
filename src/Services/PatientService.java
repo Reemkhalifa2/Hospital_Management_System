@@ -157,7 +157,16 @@ public class PatientService {
 
         }
     }
-    
+
+    public void displayPatients(int limit){
+        while (limit!=0){
+            for(Patient p : patients){
+                p.displayInfo();
+                limit--;
+            }
+        }
+    }
+
 
 
     public Patient addPatient(String firstName, String lastName, String phone){
