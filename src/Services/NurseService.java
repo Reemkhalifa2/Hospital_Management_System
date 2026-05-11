@@ -100,6 +100,18 @@ public class NurseService {
         System.out.println(Constants.NURSE_NOT_FOUND);
     }
 
+    public void getNurseById(String nurseId){
+        for(Nurse n : nurses) {
+            if (n.getId().equals(nurseId)) {
+               n.displayInfo();
+               return;
+            }
+        }
+        System.out.println(Constants.NURSE_NOT_FOUND);
+    }
+
+
+
 
 
 
