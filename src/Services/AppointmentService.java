@@ -13,7 +13,7 @@ public class AppointmentService {
     static Scanner scanner = new Scanner(System.in);
     List<Appointment> appointmentList = new ArrayList<>();
 
-    public void addAppointment(Appointment appointment){
+    public void createAppointment(Appointment appointment){
         appointmentList.add(appointment);
         System.out.println(Constants.APPOINTMENT_ADDED_SUCCESSFULLY);
     }
