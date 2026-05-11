@@ -1,8 +1,13 @@
 package Entities.Doctor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Consultant extends Doctor{
+
+    private List<String> consultationTypes;
+    Boolean onlineConsultationAvailable;
+    Integer consultationDuration;
 
 
     public Consultant(String id, String firstName, String lastName, LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address, String specialization, String qualification, Integer experienceYears, String departmentId, double consultationFee) {
