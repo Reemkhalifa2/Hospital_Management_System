@@ -3,6 +3,7 @@ package Entities;
 import Utilities.Constants;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Appointment {
@@ -137,7 +138,11 @@ public class Appointment {
     }
 
     public void addNotes(String notes, String addedBy) {
-        this.notes = notes + addedBy;
+        this.notes = "Note : " + notes + "Added By: " +addedBy ;
+
+    }
+    public void addNotes(String notes, String addedBy, LocalDateTime timestamp){
+        this.notes = "Note : " + notes + "Added By: " +addedBy + "....."+timestamp;
     }
 
 
