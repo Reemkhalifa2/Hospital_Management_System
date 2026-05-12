@@ -1,10 +1,12 @@
 package Entities.Patient;
 
+import Behaviour.Displayable;
+
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
-public class InPatient extends Patient{
+public class InPatient extends Patient implements Displayable {
     LocalDate admissionDate;
     LocalDate dischargeDate;
     String roomNumber;
@@ -16,7 +18,7 @@ public class InPatient extends Patient{
     public InPatient(String id, String firstName, String lastName, LocalDate dateOfBirth,
                      String gender, String phoneNumber, String email, String address,
                      String bloodGroup, String emergencyContact, LocalDate registrationDate,
-                     String insuranceId, List<String> allergies) {
+                     String insuranceId, List<String> allergies ) {
         super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, bloodGroup, emergencyContact, registrationDate, insuranceId, allergies);
 
         this.admissionDate = admissionDate;
@@ -36,6 +38,11 @@ public class InPatient extends Patient{
         System.out.println("Bed Number: " + bedNumber);
         System.out.println("Admitting Doctor ID: " + admittingDoctorId);
         System.out.println("Daily Charges: " + dailyCharges);
+    }
+
+    @Override
+    public void displaySummary() {
+
     }
 
     public Integer calculateStayDuration(){
