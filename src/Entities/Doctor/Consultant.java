@@ -44,9 +44,9 @@ public class Consultant extends Doctor implements Displayable {
         System.out.println("Duration: " + consultationDuration + " minutes");
     }
 
-    public void provideSecondOpinion(){
+    public void provideSecondOpinion(String patientCase) {
 
-
-
+        System.out.println("Providing second opinion for case:");
+        System.out.println(patientCase);
     }
 }
