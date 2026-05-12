@@ -73,16 +73,19 @@ public class EmergencyPatient extends InPatient implements Displayable {
     @Override
     public void displayInfo() {
         super.displayInfo();
+    }
 
+    @Override
+    public void displaySummary() {
+        System.out.println("===== Emergency Summary =====");
+        System.out.println("Patient ID: " + getId());
+        System.out.println("Name: " + getFirstName() + " " + getLastName());
         System.out.println("Emergency Type: " + emergencyType);
         System.out.println("Arrival Mode: " + arrivalMode);
         System.out.println("Triage Level: " + triageLevel);
         System.out.println("Admitted Via ER: " + admittedViaER);
 
-    }
 
-    @Override
-    public void displaySummary() {
 
     }
 }
