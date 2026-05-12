@@ -100,6 +100,12 @@ public class HelperUtils {
         return num >= min && num <= max;
     }
 
+    public static Boolean isPositive(int num) {
+        return num > 0;
+    }
+
+
+
 
 
 
