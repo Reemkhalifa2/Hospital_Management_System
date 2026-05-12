@@ -4,8 +4,11 @@ import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entities.Patient.InPatient;
 import Entities.Patient.Patient;
+import Menu.Menu;
 import Utilities.Constants;
 import Utilities.HelperUtils;
+import Utilities.InputHandler;
+import Utilities.MenuMessage;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -35,12 +38,13 @@ public class PatientService implements Manageable, Searchable {
             }
         }
         patients.add(patient);
-        System.out.println(Constants.PATIENT_ADDED_SUCCESSFULLY);}
-    public static Patient addPatient(){
+        System.out.println(Constants.PATIENT_ADDED_SUCCESSFULLY);
+    }
+    /*public static Patient addPatient(){
         scanner.nextLine();
 
-        /*System.out.println("Enter patient id:");
-        String id = scanner.nextLine();*/
+        *//*System.out.println("Enter patient id:");
+        String id = scanner.nextLine();*//*
 
         System.out.println("Enter first name:");
         String firstName = scanner.nextLine();
@@ -101,7 +105,7 @@ public class PatientService implements Manageable, Searchable {
 
         return patient;
 
-    }
+    }*/
     public void updatePatient(String patientId, Patient updatedPatient){
         for(Patient p : patients){
 
@@ -235,24 +239,29 @@ public class PatientService implements Manageable, Searchable {
     }
 
     public static void handlePatientMenu(){
-        int option = scanner.nextInt();
-        switch (option) {
+        Boolean patientExit = true;
+        while (patientExit) {
+            int option = scanner.nextInt();
+            switch (option) {
 
-            case 1 -> {
-                //register new Patient
-                    addPatients(addPatient());
+                case 1 -> {
+
+
+                }
+                case 2 -> {
+                    //register new InPatient
+                    InPatient inPatient = (InPatient) addPatient();
+                    addPatients(inPatient);
                     handlePatientMenu();
+                }
+                case 3 -> {
+                    return;
+                }
             }
-            case 2 -> {
-                //register new InPatient
-                InPatient inPatient = (InPatient) addPatient();
-                addPatients(inPatient);
-                handlePatientMenu();
-            }
-            case 3 -> {
-                return;
-            }
+
         }
+
+
 
 
 
@@ -285,4 +294,49 @@ public class PatientService implements Manageable, Searchable {
 
 
     }
+
+
+    private static void registerPatient() {
+        String id    = HelperUtils.generateId("P");
+        String firstName    = InputHandler.getStringInput("First Name: ");
+        String lastName    = InputHandler.getStringInput("Last Name: ");
+        LocalDate DOB = InputHandler.getDateInput("Date of Birth: ");
+        String gender = InputHandler.getStringInput("Gender: ");
+        String phone  = InputHandler.getStringInput("Phone: ");
+        String email  = InputHandler.getStringInput("Email: ");
+        String address   = InputHandler.getStringInput("Address: ");
+        String bloodGroup  = InputHandler.getStringInput("Blood Group: ");
+        String emergencyContact     = InputHandler.getStringInput("Emergency Contact: ");
+        String insuranceId    = InputHandler.getStringInput("Insurance ID: ");
+        Boolean hasAllergies = InputHandler.getConfirmation("Do have any allergies? ");
+        List<String> allergies = new ArrayList<>();
+        if(hasAllergies){
+            System.out.println("Enter allergies separated by commas:");
+            String allergiesInput = scanner.nextLine();
+            allergies.add(Arrays.toString(allergiesInput.split(",")));
+        }
+        Patient p = new Patient(id, firstName, lastName, DOB, gender, phone, email,address,
+                bloodGroup, emergencyContact,LocalDate.now(),insuranceId,allergies);
+        addPatients(p);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
