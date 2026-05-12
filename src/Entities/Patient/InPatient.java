@@ -65,7 +65,8 @@ public class InPatient extends Patient implements Displayable, Billable {
 
     @Override
     public void calculateCharges() {
-
+        Double totalCharges = calculateTotalCharges();
+        System.out.println("Total Charges: " + totalCharges);
     }
 
     @Override
