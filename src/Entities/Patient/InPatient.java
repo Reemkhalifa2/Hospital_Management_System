@@ -1,12 +1,13 @@
 package Entities.Patient;
 
+import Behaviour.Billable;
 import Behaviour.Displayable;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
-public class InPatient extends Patient implements Displayable {
+public class InPatient extends Patient implements Displayable, Billable {
     LocalDate admissionDate;
     LocalDate dischargeDate;
     String roomNumber;
@@ -54,4 +55,18 @@ public class InPatient extends Patient implements Displayable {
 
     }
 
+    @Override
+    public void calculateCharges() {
+
+    }
+
+    @Override
+    public void generateBill() {
+
+    }
+
+    @Override
+    public void processPayment(double amount) {
+
+    }
 }
