@@ -27,7 +27,7 @@ public class InputHandler {
             try {
                 return Integer.parseInt(raw);
             } catch (NumberFormatException e) {
-                System.out.println(Constants.INVALID_INTEGER);
+                System.out.println(Constants.INVALID_NUMBER);
             }
         }
     }
@@ -39,6 +39,20 @@ public class InputHandler {
             System.out.printf(Constants.NOT_IN_RANGE, min+ "-"+max);
         }
     }
+
+    public static double getDoubleInput(String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            String raw = scanner.nextLine().trim();
+            try {
+                return Double.parseDouble(raw);
+            } catch (NumberFormatException e) {
+                System.out.println(Constants.INVALID_NUMBER);
+            }
+        }
+    }
+
+
 
 
 
