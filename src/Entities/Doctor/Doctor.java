@@ -1,5 +1,6 @@
 package Entities.Doctor;
 
+import Behaviour.Displayable;
 import Entities.Patient.Patient;
 import Entities.Person;
 import Services.PatientService;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Doctor extends Person {
+public class Doctor extends Person implements Displayable {
     static Scanner scanner = new Scanner(System.in);
     PatientService patientService = new PatientService();
 
@@ -154,6 +155,11 @@ public class Doctor extends Person {
         for(Patient patient : assignedPatients){
             patient.displayInfo();
         }
+    }
+
+    @Override
+    public void displaySummary() {
+
     }
 
     public void updateFee(double fee){
