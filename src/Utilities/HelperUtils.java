@@ -48,6 +48,13 @@ public class HelperUtils {
         return prefix + UUID.randomUUID().toString().substring(0,length);
     }
 
+    public static String generateId(String prefix, String suffix){
+        return prefix + UUID.randomUUID() + suffix;
+    }
+
+
+
+
 
 
 
