@@ -3,6 +3,7 @@ package Services;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entities.Patient.InPatient;
+import Entities.Patient.OutPatient;
 import Entities.Patient.Patient;
 import Menu.Menu;
 import Utilities.Constants;
@@ -248,13 +249,10 @@ public class PatientService implements Manageable, Searchable {
                     registerPatient();
                 }
                 case 2 -> {
-                    //register new InPatient
-                    InPatient inPatient = (InPatient) addPatient();
-                    addPatients(inPatient);
-                    handlePatientMenu();
+                    registerInPatient();
                 }
                 case 3 -> {
-                    return;
+                    registerOutPatient();
                 }
             }
 
@@ -346,6 +344,32 @@ public class PatientService implements Manageable, Searchable {
                 bloodGroup,emergencyContact,LocalDate.now(),insuranceId,allergies,
                 LocalDate.now(),null,room, bed, drId, daily);
         addPatients(inPatient);
+    }
+
+    private static void registerOutPatient() {
+        String id     = HelperUtils.generateId("InP");
+        String firstName    = InputHandler.getStringInput("First Name: ");
+        String lastName    = InputHandler.getStringInput("Last Name: ");
+        LocalDate DOB = InputHandler.getDateInput("Date of Birth: ");
+        String gender = InputHandler.getStringInput("Gender: ");
+        String phone  = InputHandler.getStringInput("Phone: ");
+        String email  = InputHandler.getStringInput("Email: ");
+        String address   = InputHandler.getStringInput("Address: ");
+        String bloodGroup  = InputHandler.getStringInput("Blood Group: ");
+        String emergencyContact     = InputHandler.getStringInput("Emergency Contact: ");
+        String insuranceId    = InputHandler.getStringInput("Insurance ID: ");
+        Boolean hasAllergies = InputHandler.getConfirmation("Do have any allergies? ");
+        List<String> allergies = new ArrayList<>();
+        if(hasAllergies){
+            System.out.println("Enter allergies separated by commas:");
+            String allergiesInput = scanner.nextLine();
+            allergies.add(Arrays.toString(allergiesInput.split(",")));
+        }
+        String prefDr = InputHandler.getStringInput(" Preferred Doctor ID: ");
+        OutPatient outPatient = new OutPatient(id, firstName, lastName, DOB, gender, phone, email, address,
+                bloodGroup,emergencyContact,LocalDate.now(),insuranceId,allergies,null, null,
+                 prefDr);
+       addPatients(outPatient);
     }
 
 
