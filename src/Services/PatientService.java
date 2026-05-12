@@ -23,16 +23,13 @@ public class PatientService {
 
     private static List<Patient> patients = new ArrayList<>();
 
-    public static void addPatients(Patient patient){
-        patients.add(addPatient());
-        System.out.println("Press q to quit or enter key to continue:");
-        if(scanner.nextLine().equalsIgnoreCase("q") ){
-            return;
-        }
-        addPatients(addPatient());
+    public static void addPatients(Patient patient) {
+            patients.add(patient);
+            System.out.println(Constants.PATIENT_ADDED_SUCCESSFULLY);
 
     }
     public static Patient addPatient(){
+        scanner.nextLine();
 
         System.out.println("Enter patient id:");
         String id = scanner.nextLine();
@@ -58,7 +55,6 @@ public class PatientService {
 
         System.out.println("Enter address:");
         String address = scanner.nextLine();
-
 
         System.out.println("Enter blood group:");
         String bloodGroup = scanner.nextLine();
@@ -95,8 +91,6 @@ public class PatientService {
                 allergies
         );
 
-
-        System.out.println(Constants.PATIENT_ADDED_SUCCESSFULLY);
         return patient;
 
     }
@@ -233,19 +227,24 @@ public class PatientService {
     }
 
     public static void handlePatientMenu(){
-        String option = scanner.nextLine();
+        int option = scanner.nextInt();
         switch (option) {
 
-            case "1.1" -> {
+            case 1 -> {
                 //register new Patient
-                Patient patient = addPatient();
-                addPatients(patient);
+                    addPatients(addPatient());
+                    handlePatientMenu();
             }
-            case "1.1" -> {
+            case 2 -> {
                 //register new InPatient
                 InPatient inPatient = (InPatient) addPatient();
                 addPatients(inPatient);
+                handlePatientMenu();
             }
+            case 3 -> {
+                return;
+            }
+        }
 
 
 
