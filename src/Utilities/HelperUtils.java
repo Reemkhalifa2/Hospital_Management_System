@@ -91,6 +91,16 @@ public class HelperUtils {
         return date.equals(today);
     }
 
+    //Numeric Validation Methods
+    public static Boolean isValidNumber(int num, int min, int max){
+        return num >= min && num <= max;
+    }
+
+
+
+
+
+
 
 
 
