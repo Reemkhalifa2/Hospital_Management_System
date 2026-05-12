@@ -39,6 +39,10 @@ public class HelperUtils {
     public static UUID generateId(){
         return UUID.randomUUID();
     }
+    
+    public static String generateId(String prefix){
+        return prefix+UUID.randomUUID();
+    }
 
 
 
