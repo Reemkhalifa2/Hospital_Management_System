@@ -4,12 +4,16 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeParseException;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 public class HelperUtils {
     //Null Check Methods
     public static Boolean isNull(Object obj){
         return obj == null;
+    }
+    public static Boolean isNull(List<String> list){
+        return list.isEmpty() ;
     }
 
     public static Boolean isNull(String str){
