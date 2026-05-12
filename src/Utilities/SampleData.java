@@ -1,5 +1,6 @@
 package Utilities;
 
+import Entities.Appointment;
 import Entities.Department;
 import Entities.Doctor.Consultant;
 import Entities.Doctor.GeneralPractitioner;
@@ -429,6 +430,8 @@ public class SampleData {
                 "BSc Nursing"
         );
 
+        // Department sample data
+
         Department dep1 = new Department(
                 "DEP01",
                 "Cardiology",
@@ -448,6 +451,63 @@ public class SampleData {
                 "General Medicine",
                 "D003",
                 70
+        );
+
+        //Appointment sample data
+
+        Appointment a1 = new Appointment(
+                "A001",
+                "P001",
+                "D001",
+                LocalDate.of(2026,5,15),
+                "09:00 AM",
+                "Scheduled",
+                "Heart Checkup",
+                "Patient experiencing chest pain"
+        );
+
+        Appointment a2 = new Appointment(
+                "A002",
+                "P002",
+                "D002",
+                LocalDate.of(2026,5,16),
+                "11:30 AM",
+                "Completed",
+                "Skin Allergy",
+                "Prescribed allergy medication"
+        );
+
+        Appointment a3 = new Appointment(
+                "A003",
+                "P003",
+                "D003",
+                LocalDate.of(2026,5,17),
+                "02:00 PM",
+                "Scheduled",
+                "General Fever",
+                "Follow-up after medication"
+        );
+
+        Appointment a4 = new Appointment(
+                "A004",
+                "P005",
+                "D004",
+                LocalDate.of(2026,5,18),
+                "10:15 AM",
+                "Cancelled",
+                "Routine Checkup",
+                "Patient cancelled due to travel"
+        );
+
+        Appointment a5 = new Appointment(
+                "A005",
+                "P008",
+                "D005",
+                LocalDate.of(2026,5,19),
+                "01:00 PM",
+                "Scheduled",
+                "Knee Surgery Consultation",
+                "MRI results attached"
         );
 
 
