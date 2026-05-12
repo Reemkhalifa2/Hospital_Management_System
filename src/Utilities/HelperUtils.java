@@ -1,5 +1,7 @@
 package Utilities;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.Date;
 import java.util.UUID;
 
@@ -57,6 +59,21 @@ public class HelperUtils {
     public static Boolean isValidDate(Date date){
         return date != null;
     }
+
+    public static Boolean isValidDate(String dateStr){
+        if (dateStr == null || dateStr.isEmpty()) {
+            return false;
+        }
+
+        try {
+            LocalDate.parse(dateStr);
+            return true;
+        } catch (DateTimeParseException e) {
+            return false;
+        }
+    }
+
+
 
 
 
