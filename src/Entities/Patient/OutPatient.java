@@ -21,13 +21,16 @@ public class OutPatient extends Patient implements Displayable {
     @Override
     public void displayInfo() {
         super.displayInfo();
-        System.out.println("Visit Count: " + visitCount);
-        System.out.println("Last Visit Date: " + lastVisitDate);
-        System.out.println("Preferred Doctor ID: " + preferredDoctorId);
     }
 
     @Override
     public void displaySummary() {
+        System.out.println("===== Out Patient Summary =====");
+        System.out.println("Patient ID: " + getId());
+        System.out.println("Name: " + getFirstName() + " " + getLastName());
+        System.out.println("Visit Count: " + visitCount);
+        System.out.println("Last Visit Date: " + lastVisitDate);
+        System.out.println("Preferred Doctor ID: " + preferredDoctorId);
 
     }
 
