@@ -1,5 +1,6 @@
 package Entities.Patient;
 
+import Behaviour.Displayable;
 import Entities.Person;
 import Utilities.Constants;
 
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Patient extends Person {
+public class Patient extends Person implements Displayable {
     static Scanner scanner = new Scanner(System.in);
 
     public List<String> getAppointments() {
@@ -140,6 +141,11 @@ public class Patient extends Person {
         for(String x : appointments){
             System.out.print(x + ",");
         }
+
+    }
+
+    @Override
+    public void displaySummary() {
 
     }
 
