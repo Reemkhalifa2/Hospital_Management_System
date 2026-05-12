@@ -96,6 +96,12 @@ public class HelperUtils {
         return num >= min && num <= max;
     }
 
+    public static Boolean isValidNumber(double num, double min, double max){
+        return num >= min && num <= max;
+    }
+
+
+
 
 
 
