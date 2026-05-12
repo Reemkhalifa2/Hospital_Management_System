@@ -47,6 +47,8 @@ public class Constants {
 
 
     public static String ENTER_OPTION = "Enter your option";
+    public static String EMPTY_INPUT = "Input cannot be empty. Try again.";
+    public static String INVALID_INTEGER = "Please enter a valid integer";
 
 
 
