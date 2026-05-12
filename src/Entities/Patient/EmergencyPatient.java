@@ -11,14 +11,62 @@ public class EmergencyPatient extends InPatient implements Displayable {
     String arrivalMode;
     Integer triageLevel;
     Boolean admittedViaER;
+    public EmergencyPatient(
+            String id,
+            String firstName,
+            String lastName,
+            LocalDate dateOfBirth,
+            String gender,
+            String phoneNumber,
+            String email,
+            String address,
+            String bloodGroup,
+            String emergencyContact,
+            LocalDate registrationDate,
+            String insuranceId,
+            List<String> allergies,
 
-    public EmergencyPatient(String id, String firstName, String lastName, LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address, String bloodGroup, String emergencyContact, LocalDate registrationDate, String insuranceId, List<String> allergies,
-                            String emergencyType , String arrivalMode , Integer triageLevel , Boolean admittedViaER) {
-        super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, bloodGroup, emergencyContact, registrationDate, insuranceId, allergies);
-            this.emergencyType = emergencyType;
-            this.arrivalMode = arrivalMode;
-            this.triageLevel = triageLevel;
-            this.admittedViaER = admittedViaER;
+            // InPatient fields
+            LocalDate admissionDate,
+            LocalDate dischargeDate,
+            String roomNumber,
+            String bedNumber,
+            String admittingDoctorId,
+            Double dailyCharges,
+
+            // EmergencyPatient fields
+            String emergencyType,
+            String arrivalMode,
+            Integer triageLevel,
+            Boolean admittedViaER
+    ) {
+
+        super(
+                id,
+                firstName,
+                lastName,
+                dateOfBirth,
+                gender,
+                phoneNumber,
+                email,
+                address,
+                bloodGroup,
+                emergencyContact,
+                registrationDate,
+                insuranceId,
+                allergies,
+                admissionDate,
+                dischargeDate,
+                roomNumber,
+                bedNumber,
+                admittingDoctorId,
+                dailyCharges
+        );
+
+        this.emergencyType = emergencyType;
+        this.arrivalMode = arrivalMode;
+        this.triageLevel = triageLevel;
+        this.admittedViaER = admittedViaER;
     }
 
 
