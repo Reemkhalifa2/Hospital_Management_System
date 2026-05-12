@@ -1,5 +1,6 @@
 package Entities;
 
+import Behaviour.Displayable;
 import Entities.Patient.Patient;
 import Utilities.Constants;
 
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Nurse extends Person{
+public class Nurse extends Person implements Displayable {
 
     public String getDepartmentId() {
         return departmentId;
@@ -46,6 +47,11 @@ public class Nurse extends Person{
         System.out.println("Department ID: " + departmentId);
         System.out.println("Shift: " + shift);
         System.out.println("Qualification: " + qualification);
+    }
+
+    @Override
+    public void displaySummary() {
+
     }
 
     // Assign patient
