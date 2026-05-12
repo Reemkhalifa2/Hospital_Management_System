@@ -1,5 +1,6 @@
 package Services;
 
+import Entities.Patient.InPatient;
 import Entities.Patient.Patient;
 import Utilities.Constants;
 
@@ -22,7 +23,7 @@ public class PatientService {
 
     private static List<Patient> patients = new ArrayList<>();
 
-    public void addPatients(Patient patient){
+    public static void addPatients(Patient patient){
         patients.add(addPatient());
         System.out.println("Press q to quit or enter key to continue:");
         if(scanner.nextLine().equalsIgnoreCase("q") ){
@@ -31,7 +32,7 @@ public class PatientService {
         addPatients(addPatient());
 
     }
-    public Patient addPatient(){
+    public static Patient addPatient(){
 
         System.out.println("Enter patient id:");
         String id = scanner.nextLine();
@@ -228,6 +229,25 @@ public class PatientService {
             }
         }
         System.out.println(Constants.PATIENT_NOT_FOUND);
+
+    }
+
+    public static void handlePatientMenu(){
+        String option = scanner.nextLine();
+        switch (option) {
+
+            case "1.1" -> {
+                //register new Patient
+                Patient patient = addPatient();
+                addPatients(patient);
+            }
+            case "1.1" -> {
+                //register new InPatient
+                InPatient inPatient = (InPatient) addPatient();
+                addPatients(inPatient);
+            }
+
+
 
     }
 
