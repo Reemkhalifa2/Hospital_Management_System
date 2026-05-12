@@ -1,12 +1,13 @@
 package Entities;
 
+import Behaviour.Displayable;
 import Utilities.Constants;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
-public class Appointment {
+public class Appointment implements Displayable {
     static Scanner scanner = new Scanner(System.in);
 
     private String appointmentId;
@@ -110,6 +111,12 @@ public class Appointment {
         System.out.println("Reason: " + reason);
         System.out.println("Notes: " + notes);
     }
+
+    @Override
+    public void displaySummary() {
+
+    }
+
     public void reschedule(){
         System.out.println("Enter new appointment date (YYYY-MM-DD): ");
         String newDate = scanner.nextLine();
