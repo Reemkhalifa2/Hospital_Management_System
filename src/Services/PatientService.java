@@ -2,6 +2,7 @@ package Services;
 
 import Behaviour.Manageable;
 import Behaviour.Searchable;
+import Entities.Patient.EmergencyPatient;
 import Entities.Patient.InPatient;
 import Entities.Patient.OutPatient;
 import Entities.Patient.Patient;
@@ -347,7 +348,7 @@ public class PatientService implements Manageable, Searchable {
     }
 
     private static void registerOutPatient() {
-        String id     = HelperUtils.generateId("InP");
+        String id     = HelperUtils.generateId("OutP");
         String firstName    = InputHandler.getStringInput("First Name: ");
         String lastName    = InputHandler.getStringInput("Last Name: ");
         LocalDate DOB = InputHandler.getDateInput("Date of Birth: ");
@@ -370,6 +371,72 @@ public class PatientService implements Manageable, Searchable {
                 bloodGroup,emergencyContact,LocalDate.now(),insuranceId,allergies,null, null,
                  prefDr);
        addPatients(outPatient);
+    }
+
+    private static void registerEmergencyPatient() {
+
+        String id = HelperUtils.generateId("EmergP");
+
+        String firstName = InputHandler.getStringInput("First Name: ");
+        String lastName = InputHandler.getStringInput("Last Name: ");
+        LocalDate DOB = InputHandler.getDateInput("Date of Birth: ");
+        String gender = InputHandler.getStringInput("Gender: ");
+        String phone = InputHandler.getStringInput("Phone: ");
+        String email = InputHandler.getStringInput("Email: ");
+        String address = InputHandler.getStringInput("Address: ");
+
+        String bloodGroup = InputHandler.getStringInput("Blood Group: ");
+        String emergencyContact = InputHandler.getStringInput("Emergency Contact: ");
+        String insuranceId = InputHandler.getStringInput("Insurance ID: ");
+
+        Boolean hasAllergies = InputHandler.getConfirmation("Do you have any allergies? ");
+        List<String> allergies = new ArrayList<>();
+
+        if (hasAllergies) {
+            System.out.println("Enter allergies separated by commas:");
+            String allergiesInput = scanner.nextLine();
+
+            allergies = Arrays.asList(allergiesInput.split(","));
+        }
+
+        String room = InputHandler.getStringInput("Room Number: ");
+        String bed = InputHandler.getStringInput("Bed Number: ");
+        String drId = InputHandler.getStringInput("Admitting Doctor ID: ");
+
+        String eType = InputHandler.getStringInput("Emergency Type: ");
+        String mode = InputHandler.getStringInput("Arrival Mode: ");
+
+        int triage = InputHandler.getIntInput("Triage Level (1-5): ", 1, 5);
+
+        Boolean admittedViaER = InputHandler.getConfirmation("Admitted via ER? ");
+
+        EmergencyPatient emergencyPatient = new EmergencyPatient(
+                id,
+                firstName,
+                lastName,
+                DOB,
+                gender,
+                phone,
+                email,
+                address,
+                bloodGroup,
+                emergencyContact,
+                LocalDate.now(),
+                insuranceId,
+                allergies,
+                LocalDate.now(),
+                null,
+                room,
+                bed,
+                drId,
+                7.0,
+                eType,
+                mode,
+                triage,
+                admittedViaER
+        );
+
+        addPatients(emergencyPatient);
     }
 
 
