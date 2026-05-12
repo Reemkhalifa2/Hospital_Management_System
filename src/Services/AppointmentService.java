@@ -1,5 +1,6 @@
 package Services;
 
+import Behaviour.Appointable;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entities.Appointment;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class AppointmentService implements Manageable , Searchable {
+public class AppointmentService implements Manageable , Searchable , Appointable {
 
     static Scanner scanner = new Scanner(System.in);
     List<Appointment> appointmentList = new ArrayList<>();
@@ -75,6 +76,11 @@ public class AppointmentService implements Manageable , Searchable {
             }
         }
         System.out.println(Constants.APPOINTMENT_NOT_FOUND);
+
+    }
+
+    @Override
+    public void scheduleAppointment(Appointment appointment) {
 
     }
 
