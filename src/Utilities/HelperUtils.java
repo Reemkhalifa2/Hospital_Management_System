@@ -114,6 +114,12 @@ public class HelperUtils {
         return num < 0;
     }
 
+    //Input Validation Methods
+    public static boolean isValidAge(int age) {
+        return age >= 0 && age <= 120;
+    }
+
+
 
 
 
