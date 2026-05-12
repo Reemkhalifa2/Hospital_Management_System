@@ -1,5 +1,6 @@
 package Utilities;
 
+import java.util.Date;
 import java.util.UUID;
 
 public class HelperUtils {
@@ -51,6 +52,12 @@ public class HelperUtils {
     public static String generateId(String prefix, String suffix){
         return prefix + UUID.randomUUID() + suffix;
     }
+
+    // Date Validation Method
+    public static Boolean isValidDate(Date date){
+        return date != null;
+    }
+
 
 
 
