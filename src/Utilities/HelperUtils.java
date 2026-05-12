@@ -17,5 +17,9 @@ public class HelperUtils {
         return str != null && !str.trim().isEmpty();
     }
 
+    public static boolean isValidString(String str) {
+        return str != null && !str.trim().isEmpty();
+    }
+
 
 }
