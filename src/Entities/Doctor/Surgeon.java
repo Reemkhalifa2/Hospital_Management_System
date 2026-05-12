@@ -27,12 +27,21 @@ public class Surgeon extends Doctor implements Displayable {
     @Override
     public void displayInfo() {
         super.displayInfo();
+
+    }
+
+    @Override
+    public void displaySummary() {
+        System.out.println("===== Doctor Summary =====");
+        System.out.println("Doctor ID: " + getId());
+        System.out.println("Name: " + getFirstName() + " " + getLastName());
         System.out.println("Surgeries Performed: " + surgeriesPerformed);
         System.out.println("Operation Theatre Access: " + operationTheatreAccess);
         for(String x : surgeryTypes){
             System.out.print(x + " , ");
         }
     }
+
     public void updateSurgeryCount(){
         surgeriesPerformed = surgeriesPerformed + 1 ;
     }
