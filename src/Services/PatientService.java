@@ -108,7 +108,7 @@ public class PatientService implements Manageable, Searchable {
         return patient;
 
     }*/
-    public void updatePatient(String patientId, Patient updatedPatient){
+    public static void updatePatient(String patientId, Patient updatedPatient){
         for(Patient p : patients){
 
             if(p.getId().equals(patientId)){
@@ -132,14 +132,18 @@ public class PatientService implements Manageable, Searchable {
             }
         }
     }
-    public void getPatientById(String patientId){
+    public static Patient  getPatientById(String patientId){
+        Patient patient = new Patient();
         for(Patient p : patients){
             if(p.getId().equals(patientId)){
-                p.displayInfo();
-                return;
+                patient= p;
+            }else{
+                System.out.println(Constants.PATIENT_NOT_FOUND);
+                break;
             }
         }
-        System.out.println(Constants.PATIENT_NOT_FOUND);
+
+        return patient;
     }
 
     public void searchPatientsByName(String name){
@@ -268,6 +272,9 @@ public class PatientService implements Manageable, Searchable {
                 case 6->{
                     String key = InputHandler.getStringInput("Search keyword: ");
                     searchPatients(key);
+                }
+                case 7->{
+                    updatePatient();
                 }
 
             }
@@ -452,6 +459,13 @@ public class PatientService implements Manageable, Searchable {
         );
 
         addPatients(emergencyPatient);
+    }
+
+    private static void updatePatient() {
+        String id = InputHandler.getStringInput("Patient ID to update: ");
+        Patient existing = getPatientById(id);
+        if (HelperUtils.isNull(existing)) { System.out.println(Constants.PATIENT_NOT_FOUND); return; }
+        updatePatient(id,existing);
     }
 
 
