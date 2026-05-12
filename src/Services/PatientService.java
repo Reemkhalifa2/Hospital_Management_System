@@ -151,7 +151,7 @@ public class PatientService implements Manageable, Searchable {
     }
 
 
-    public void displayPatients(){
+    public static void displayPatients(){
         if (HelperUtils.isNull(patients)) { System.out.println("No patients registered."); return; }
         for(Patient p : patients){
             p.displayInfo();
@@ -213,8 +213,10 @@ public class PatientService implements Manageable, Searchable {
         patients.add(patient);
 
     }
-    public void searchPatients(String keyword) {
-
+    public static void searchPatients(String keyword) {
+        if (HelperUtils.isNull(patients)) {
+            System.out.println("No patients registered.");
+            return;}
         for (Patient patient : patients) {
 
             if (patient.getFirstName().equalsIgnoreCase(keyword)
@@ -258,7 +260,14 @@ public class PatientService implements Manageable, Searchable {
                     registerOutPatient();
                 }
                 case 4->{
-                    registerPatient();
+                    registerEmergencyPatient();
+                }
+                case 5->{
+                    displayPatients();
+                }
+                case 6->{
+                    String key = InputHandler.getStringInput("Search keyword: ");
+                    searchPatients(key);
                 }
 
             }
