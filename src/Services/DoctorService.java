@@ -6,6 +6,7 @@ import Entities.Appointment;
 import Entities.Doctor.Doctor;
 import Entities.Patient.Patient;
 import Utilities.Constants;
+import Utilities.HelperUtils;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -26,8 +27,7 @@ public class DoctorService implements Manageable, Searchable {
 
     public Doctor addDoctor() {
 
-        System.out.println("Enter doctor id:");
-        String doctorId = scanner.nextLine();
+
 
         System.out.println("Enter first name:");
         String firstName = scanner.nextLine();
@@ -82,7 +82,7 @@ public class DoctorService implements Manageable, Searchable {
         List<String> assignedPatients = new ArrayList<>();
 
         Doctor doctor = new Doctor(
-                doctorId,
+                HelperUtils.generateId("Dc."),
                 firstName,
                 lastName,
                 dateOfBirth,
