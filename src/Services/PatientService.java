@@ -245,8 +245,7 @@ public class PatientService implements Manageable, Searchable {
             switch (option) {
 
                 case 1 -> {
-
-
+                    registerPatient();
                 }
                 case 2 -> {
                     //register new InPatient
@@ -318,6 +317,35 @@ public class PatientService implements Manageable, Searchable {
         Patient p = new Patient(id, firstName, lastName, DOB, gender, phone, email,address,
                 bloodGroup, emergencyContact,LocalDate.now(),insuranceId,allergies);
         addPatients(p);
+    }
+
+    private static void registerInPatient() {
+        String id     = HelperUtils.generateId("InP");
+        String firstName    = InputHandler.getStringInput("First Name: ");
+        String lastName    = InputHandler.getStringInput("Last Name: ");
+        LocalDate DOB = InputHandler.getDateInput("Date of Birth: ");
+        String gender = InputHandler.getStringInput("Gender: ");
+        String phone  = InputHandler.getStringInput("Phone: ");
+        String email  = InputHandler.getStringInput("Email: ");
+        String address   = InputHandler.getStringInput("Address: ");
+        String bloodGroup  = InputHandler.getStringInput("Blood Group: ");
+        String emergencyContact     = InputHandler.getStringInput("Emergency Contact: ");
+        String insuranceId    = InputHandler.getStringInput("Insurance ID: ");
+        Boolean hasAllergies = InputHandler.getConfirmation("Do have any allergies? ");
+        List<String> allergies = new ArrayList<>();
+        if(hasAllergies){
+            System.out.println("Enter allergies separated by commas:");
+            String allergiesInput = scanner.nextLine();
+            allergies.add(Arrays.toString(allergiesInput.split(",")));
+        }
+        String room   = InputHandler.getStringInput(" Room Number: ");
+        String bed    = InputHandler.getStringInput(" Bed Number: ");
+        String drId   = InputHandler.getStringInput("Admitting Doctor ID: ");
+        double daily  = InputHandler.getDoubleInput("Daily Charges : ");
+        InPatient inPatient  = new InPatient(id, firstName, lastName, DOB, gender, phone, email, address,
+                bloodGroup,emergencyContact,LocalDate.now(),insuranceId,allergies,
+                LocalDate.now(),null,room, bed, drId, daily);
+        addPatients(inPatient);
     }
 
 
