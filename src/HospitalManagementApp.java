@@ -1,5 +1,7 @@
 import Menu.Menu;
 import Services.PatientService;
+import Utilities.Constants;
+import Utilities.InputHandler;
 
 import java.util.Scanner;
 
@@ -11,10 +13,10 @@ public class HospitalManagementApp {
     public static void main(String[] args) {
         PatientService patientService = new PatientService();
         Menu menu = new Menu();
-        boolean exit = false;
-        while (exit) {
+        boolean Continue = true;
+        while (Continue) {
             menu.displayMenu();
-            int choice = scanner.nextInt();
+            int choice = InputHandler.getIntInput(Constants.ENTER_OPTION, 1, 8);
             switch (choice) {
                 case 1 -> patientService.handlePatientMenu();
             /*    case 2 -> doctorMenu();
@@ -25,7 +27,7 @@ public class HospitalManagementApp {
                 case 7 -> reportsMenu();*/
                 case 8 -> {
                     System.out.println("Exit.....");
-                    exit = false;
+                    Continue = false;
                 }
                 default -> System.out.println("Invalid choice.");
             }
