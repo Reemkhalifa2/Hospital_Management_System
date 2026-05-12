@@ -110,6 +110,9 @@ public class HelperUtils {
     public static Boolean isNegative(double num) {
         return num < 0;
     }
+    public static Boolean isNegative(int num) {
+        return num < 0;
+    }
 
 
 
