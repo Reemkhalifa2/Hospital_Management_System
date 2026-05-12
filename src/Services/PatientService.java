@@ -150,7 +150,9 @@ public class PatientService implements Manageable, Searchable {
         }
     }
 
+
     public void displayPatients(){
+        if (HelperUtils.isNull(patients)) { System.out.println("No patients registered."); return; }
         for(Patient p : patients){
             p.displayInfo();
         }
@@ -258,7 +260,7 @@ public class PatientService implements Manageable, Searchable {
                 case 4->{
                     registerPatient();
                 }
-                
+
             }
 
         }
