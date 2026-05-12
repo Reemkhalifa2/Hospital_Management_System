@@ -1,12 +1,13 @@
 package Entities.Doctor;
 
+import Behaviour.Displayable;
 import Entities.Patient.Patient;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Consultant extends Doctor{
+public class Consultant extends Doctor implements Displayable {
 
     private List<String> consultationTypes;
     Boolean onlineConsultationAvailable;
@@ -30,6 +31,11 @@ public class Consultant extends Doctor{
         for(String x : consultationTypes) {
             System.out.print(x + " , ");
         }
+    }
+
+    @Override
+    public void displaySummary() {
+
     }
 
     public void scheduleConsultation(String patientId, String type) {
