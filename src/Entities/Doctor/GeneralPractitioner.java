@@ -1,8 +1,10 @@
 package Entities.Doctor;
 
+import Behaviour.Displayable;
+
 import java.time.LocalDate;
 
-public class GeneralPractitioner extends Doctor{
+public class GeneralPractitioner extends Doctor implements Displayable {
     Boolean walkinAvailable;
     Boolean homeVisitAvailable;
     Boolean vaccinationCertified;
