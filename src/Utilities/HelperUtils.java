@@ -1,6 +1,7 @@
 package Utilities;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeParseException;
 import java.util.Date;
 import java.util.UUID;
@@ -116,6 +117,17 @@ public class HelperUtils {
 
     //Input Validation Methods
     public static boolean isValidAge(int age) {
+        return age >= 0 && age <= 120;
+    }
+
+    public static boolean isValidAge(LocalDate dateOfBirth) {
+
+        if (dateOfBirth == null) {
+            return false;
+        }
+
+        int age = Period.between(dateOfBirth, LocalDate.now()).getYears();
+
         return age >= 0 && age <= 120;
     }
 
