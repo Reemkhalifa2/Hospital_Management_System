@@ -19,5 +19,20 @@ public class InputHandler {
         return input;
     }
 
+    /** Reads an integer from the console. */
+    public static int getIntInput(String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            String raw = scanner.nextLine().trim();
+            try {
+                return Integer.parseInt(raw);
+            } catch (NumberFormatException e) {
+                System.out.println(Constants.INVALID_INTEGER);
+            }
+        }
+    }
+
+
+
 
 }
