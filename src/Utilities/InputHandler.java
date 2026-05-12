@@ -68,6 +68,16 @@ public class InputHandler {
         }
     }
 
+    public static boolean getConfirmation(String prompt) {
+        while (true) {
+            System.out.print(prompt + " (y/n): ");
+            String raw = scanner.nextLine().trim();
+            if (raw.equalsIgnoreCase("y")) return true;
+            if (raw.equalsIgnoreCase("n")) return false;
+            System.out.println("Please enter 'y' or 'n'");
+        }
+    }
+
 
 
 
