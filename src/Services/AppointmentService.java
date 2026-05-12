@@ -1,5 +1,7 @@
 package Services;
 
+import Behaviour.Manageable;
+import Behaviour.Searchable;
 import Entities.Appointment;
 import Utilities.Constants;
 
@@ -8,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class AppointmentService {
+public class AppointmentService implements Manageable , Searchable {
 
     static Scanner scanner = new Scanner(System.in);
     List<Appointment> appointmentList = new ArrayList<>();
@@ -184,28 +186,28 @@ public class AppointmentService {
     }
 
 
+    @Override
+    public void add(Object entity) {
 
+    }
 
+    @Override
+    public void remove(String id) {
 
+    }
 
+    @Override
+    public Void getAll() {
+        return null;
+    }
 
+    @Override
+    public void search(String keyword) {
 
+    }
 
+    @Override
+    public void searchById(String id) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 }

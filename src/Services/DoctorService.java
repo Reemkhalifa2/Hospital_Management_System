@@ -1,5 +1,7 @@
 package Services;
 
+import Behaviour.Manageable;
+import Behaviour.Searchable;
 import Entities.Appointment;
 import Entities.Doctor.Doctor;
 import Entities.Patient.Patient;
@@ -13,7 +15,7 @@ import java.util.Scanner;
 
 import static Services.PatientService.getPatients;
 
-public class DoctorService {
+public class DoctorService implements Manageable, Searchable {
     static Scanner scanner = new Scanner(System.in);
     private List<Doctor> doctors = new ArrayList<>();
 
@@ -237,10 +239,28 @@ public class DoctorService {
     }
 
 
+    @Override
+    public void add(Object entity) {
 
+    }
 
+    @Override
+    public void remove(String id) {
 
+    }
 
+    @Override
+    public Void getAll() {
+        return null;
+    }
 
+    @Override
+    public void search(String keyword) {
 
+    }
+
+    @Override
+    public void searchById(String id) {
+
+    }
 }

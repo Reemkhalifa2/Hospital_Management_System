@@ -1,5 +1,7 @@
 package Services;
 
+import Behaviour.Manageable;
+import Behaviour.Searchable;
 import Entities.Department;
 import Utilities.Constants;
 
@@ -7,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class DepartmentService {
+public class DepartmentService implements Manageable, Searchable {
     static Scanner scanner = new Scanner(System.in);
     List<Department> departments = new ArrayList<>();
 
@@ -95,11 +97,28 @@ public class DepartmentService {
     }
 
 
+    @Override
+    public void add(Object entity) {
 
+    }
 
+    @Override
+    public void remove(String id) {
 
+    }
 
+    @Override
+    public Void getAll() {
+        return null;
+    }
 
+    @Override
+    public void search(String keyword) {
 
+    }
 
+    @Override
+    public void searchById(String id) {
+
+    }
 }
