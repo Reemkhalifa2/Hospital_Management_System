@@ -16,21 +16,26 @@ import java.util.Scanner;
 public class PatientService implements Manageable, Searchable {
     static Scanner scanner = new Scanner(System.in);
 
-    static public List<Patient> getPatients() {
+    /*static public List<Patient> getPatients() {
         return patients;
     }
 
     public void setPatients(List<Patient> patients) {
         this.patients = patients;
-    }
+    }*/
 
     private static List<Patient> patients = new ArrayList<>();
 
     public static void addPatients(Patient patient) {
-            patients.add(patient);
-            System.out.println(Constants.PATIENT_ADDED_SUCCESSFULLY);
-
-    }
+        if (HelperUtils.isNull(patient)) { System.out.println("Cannot add null patient."); return; }
+        for(Patient p : patients){
+            if (p.getId().equals(patient.getId())) {
+                System.out.println("Patient with ID " + patient.getId() + " already exists.");
+                return;
+            }
+        }
+        patients.add(patient);
+        System.out.println(Constants.PATIENT_ADDED_SUCCESSFULLY);}
     public static Patient addPatient(){
         scanner.nextLine();
 
@@ -276,6 +281,8 @@ public class PatientService implements Manageable, Searchable {
 
     @Override
     public void searchById(String id) {
+
+
 
     }
 }
