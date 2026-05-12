@@ -5,6 +5,7 @@ import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entities.Appointment;
 import Utilities.Constants;
+import Utilities.HelperUtils;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -36,9 +37,18 @@ public class AppointmentService implements Manageable , Searchable , Appointable
 
         System.out.println("Enter Appointment Time: ");
         String appointmentTime = scanner.nextLine();
+        if (!HelperUtils.isValidString(appointmentTime, "\\d{2}:\\d{2}")) {
+            System.out.println("Invalid time format (HH:MM)");
+            return null;
+        }
 
         System.out.println("Enter status (Scheduled/Completed/Cancelled/Rescheduled): ");
         String status = scanner.nextLine();
+        List<String> validStatus = List.of("Scheduled", "Completed", "Cancelled", "Rescheduled");
+        if (!validStatus.contains(status)) {
+            System.out.println("Invalid status value");
+            return null;
+        }
 
         System.out.println("Enter reason: ");
         String reason = scanner.nextLine();
@@ -55,7 +65,8 @@ public class AppointmentService implements Manageable , Searchable , Appointable
 
     public void editAppointment(String appointmentId, Appointment updatedAppointment){
         for(Appointment a : appointmentList){
-            if(a.getAppointmentId().equals(appointmentId)){
+            if (HelperUtils.isNotNull(a.getAppointmentId())
+                    && a.getAppointmentId().equals(appointmentId)){
 
                 a.setNotes(updatedAppointment.getNotes());
                 a.setReason(updatedAppointment.getReason());
@@ -67,7 +78,8 @@ public class AppointmentService implements Manageable , Searchable , Appointable
     }
     public void rescheduleAppointment(String appointmentId, LocalDate newDate, String newTime){
         for(Appointment a : appointmentList){
-            if(a.getAppointmentId().equals(appointmentId)){
+            if (HelperUtils.isNotNull(a.getAppointmentId())
+                    && a.getAppointmentId().equals(appointmentId)){
                 a.setAppointmentDate(newDate);
                 a.setAppointmentTime(newTime);
                 a.setStatus("Rescheduled");
@@ -86,7 +98,8 @@ public class AppointmentService implements Manageable , Searchable , Appointable
 
     public void cancelAppointment(String appointmentId){
         for(Appointment a : appointmentList){
-            if(a.getAppointmentId().equals(appointmentId)){
+            if (HelperUtils.isNotNull(a.getAppointmentId())
+                    && a.getAppointmentId().equals(appointmentId)){
                 a.setStatus("Cancelled");
                 System.out.println(Constants.APPOINTMENT_CANCELLED_SUCCESSFULLY);
                 return;
