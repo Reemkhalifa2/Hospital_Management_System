@@ -1,5 +1,6 @@
 package Entities.Doctor;
 
+import Behaviour.Displayable;
 import Utilities.Constants;
 
 import java.time.LocalDate;
@@ -7,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Surgeon extends Doctor{
+public class Surgeon extends Doctor implements Displayable {
     static Scanner scanner = new Scanner(System.in);
     private Integer surgeriesPerformed;
     private List<String> surgeryTypes;
