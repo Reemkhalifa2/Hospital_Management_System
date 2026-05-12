@@ -1,5 +1,10 @@
 package Utilities;
 
+import Entities.Department;
+import Entities.Doctor.Consultant;
+import Entities.Doctor.GeneralPractitioner;
+import Entities.Doctor.Surgeon;
+import Entities.Nurse;
 import Entities.Patient.EmergencyPatient;
 import Entities.Patient.InPatient;
 import Entities.Patient.OutPatient;
@@ -207,6 +212,242 @@ public class SampleData {
                 "Ambulance",
                 1,
                 true
+        );
+
+
+        //Doctors sample data
+
+        Consultant d1 = new Consultant(
+                "D001",
+                "Ahmed",
+                "Salim",
+                LocalDate.of(1980,5,12),
+                "Male",
+                "91111111",
+                "ahmed@hospital.com",
+                "Muscat",
+                "Cardiology",
+                "MBBS",
+                15,
+                "DEP01",
+                25.0
+        );
+
+        Consultant d2 = new Consultant(
+                "D002",
+                "Mariam",
+                "Ali",
+                LocalDate.of(1985,3,20),
+                "Female",
+                "92222222",
+                "mariam@hospital.com",
+                "Seeb",
+                "Dermatology",
+                "MD",
+                12,
+                "DEP02",
+                20.0
+        );
+
+        GeneralPractitioner d3 = new GeneralPractitioner(
+                "D003",
+                "Hassan",
+                "Khalid",
+                LocalDate.of(1978,9,15),
+                "Male",
+                "93333333",
+                "hassan@hospital.com",
+                "Nizwa",
+                "General Medicine",
+                "MBBS",
+                18,
+                "DEP03",
+                18.5,
+                true,
+                true,
+                true
+        );
+
+        GeneralPractitioner d4 = new GeneralPractitioner(
+                "D004",
+                "Fatma",
+                "Saeed",
+                LocalDate.of(1990,11,25),
+                "Female",
+                "94444444",
+                "fatma@hospital.com",
+                "Sohar",
+                "Family Medicine",
+                "MBBS",
+                8,
+                "DEP03",
+                15.0,
+                true,
+                false,
+                true
+        );
+
+        Surgeon d5 = new Surgeon(
+                "D005",
+                "Salem",
+                "Nasser",
+                LocalDate.of(1975,1,30),
+                "Male",
+                "95555555",
+                "salem@hospital.com",
+                "Muscat",
+                "Orthopedic Surgery",
+                "PhD",
+                20,
+                "DEP04",
+                40.0,
+                350,
+                true
+        );
+
+        Surgeon d6 = new Surgeon(
+                "D006",
+                "Noor",
+                "Hamed",
+                LocalDate.of(1988,7,14),
+                "Female",
+                "96666666",
+                "noor@hospital.com",
+                "Sur",
+                "Neurosurgery",
+                "MD",
+                10,
+                "DEP04",
+                50.0,
+                120,
+                true
+        );
+
+        Consultant d7 = new Consultant(
+                "D007",
+                "Omar",
+                "Rashid",
+                LocalDate.of(1982,6,18),
+                "Male",
+                "97777777",
+                "omar@hospital.com",
+                "Ibri",
+                "Pediatrics",
+                "MBBS",
+                14,
+                "DEP05",
+                22.0
+        );
+
+        GeneralPractitioner d8 = new GeneralPractitioner(
+                "D008",
+                "Aisha",
+                "Mohammed",
+                LocalDate.of(1992,2,8),
+                "Female",
+                "98888888",
+                "aisha@hospital.com",
+                "Barka",
+                "General Practice",
+                "MBBS",
+                6,
+                "DEP03",
+                17.0,
+                false,
+                true,
+                false
+        );
+
+        //sample data for databases
+        Nurse n1 = new Nurse(
+                "N001",
+                "Layla",
+                "Ahmed",
+                LocalDate.of(1995,4,10),
+                "Female",
+                "91112222",
+                "layla@hospital.com",
+                "Muscat",
+                "DEP01",
+                "Morning",
+                "BSc Nursing"
+        );
+
+        Nurse n2 = new Nurse(
+                "N002",
+                "Khalid",
+                "Salim",
+                LocalDate.of(1992,8,21),
+                "Male",
+                "92223333",
+                "khalid@hospital.com",
+                "Seeb",
+                "DEP02",
+                "Night",
+                "Diploma Nursing"
+        );
+
+        Nurse n3 = new Nurse(
+                "N003",
+                "Maha",
+                "Nasser",
+                LocalDate.of(1998,1,15),
+                "Female",
+                "93334444",
+                "maha@hospital.com",
+                "Nizwa",
+                "DEP03",
+                "Evening",
+                "BSc Nursing"
+        );
+
+        Nurse n4 = new Nurse(
+                "N004",
+                "Saeed",
+                "Ali",
+                LocalDate.of(1990,11,5),
+                "Male",
+                "94445555",
+                "saeed@hospital.com",
+                "Sohar",
+                "DEP04",
+                "Morning",
+                "MSc Nursing"
+        );
+
+        Nurse n5 = new Nurse(
+                "N005",
+                "Huda",
+                "Mohammed",
+                LocalDate.of(1997,6,30),
+                "Female",
+                "95556666",
+                "huda@hospital.com",
+                "Sur",
+                "DEP05",
+                "Night",
+                "BSc Nursing"
+        );
+
+        Department dep1 = new Department(
+                "DEP01",
+                "Cardiology",
+                "D001",
+                50
+        );
+
+        Department dep2 = new Department(
+                "DEP02",
+                "Dermatology",
+                "D002",
+                30
+        );
+
+        Department dep3 = new Department(
+                "DEP03",
+                "General Medicine",
+                "D003",
+                70
         );
 
 
