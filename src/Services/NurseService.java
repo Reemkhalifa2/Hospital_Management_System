@@ -4,6 +4,7 @@ import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entities.Nurse;
 import Utilities.Constants;
+import Utilities.HelperUtils;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -21,9 +22,9 @@ public class NurseService implements Manageable, Searchable {
 
     public Nurse addNurses(){
 
-        System.out.println("Enter Nurse id:");
+        /*System.out.println("Enter Nurse id:");
         String nurseId = scanner.nextLine();
-
+*/
         System.out.println("Enter first name:");
         String firstName = scanner.nextLine();
 
@@ -57,7 +58,7 @@ public class NurseService implements Manageable, Searchable {
 
 
         Nurse nurse = new Nurse(
-                nurseId,
+                HelperUtils.generateId("N."),
                 firstName,
                 lastName,
                 dateOfBirth,
