@@ -46,6 +46,11 @@ public class Constants {
     public static String SURGEON_CANNOT_OPERATE = "surgeon can't operate";
 
 
+    public static String ENTER_OPTION = "Enter your option";
+
+
+
+
 
 
 }
