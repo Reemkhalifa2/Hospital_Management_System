@@ -21,8 +21,12 @@ public class HelperUtils {
         return str != null && !str.trim().isEmpty();
     }
     public static boolean isValidString(String str, int minLength) {
-        return str != null && str.trim().length() >= minLength;
+        return str != null && str.length() >= minLength;
     }
+    public static boolean isValidString(String str, int minLength, int maxLength) {
+        return str != null && str.length() >= minLength && str.length() <= maxLength;
+    }
+
 
 
 
