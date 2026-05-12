@@ -82,6 +82,19 @@ public class InPatient extends Patient implements Displayable, Billable {
 
     @Override
     public void processPayment(double amount) {
+        Double totalBill = calculateTotalCharges();
+
+        if (amount >= totalBill) {
+            System.out.println("Payment successful.");
+            System.out.println("Paid Amount: " + amount);
+
+            if (amount > totalBill) {
+                System.out.println("Change Returned: " + (amount - totalBill));
+            }
+        } else {
+            System.out.println("Insufficient payment.");
+            System.out.println("Remaining Balance: " + (totalBill - amount));
+        }
 
     }
 }
