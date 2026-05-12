@@ -77,6 +77,13 @@ public class HelperUtils {
         return  date.after(minDate) && date.before(maxDate) ;
     }
 
+    public static Boolean isFutureDate(Date date){
+        Date today = new Date();
+        return date.after(today);
+    }
+
+
+
 
 
 
