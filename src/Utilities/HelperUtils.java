@@ -81,6 +81,10 @@ public class HelperUtils {
         Date today = new Date();
         return date.after(today);
     }
+    public static Boolean isPastDate(Date date){
+        Date today = new Date();
+        return date.before(today);
+    }
 
 
 
