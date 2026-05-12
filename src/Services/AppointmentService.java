@@ -18,14 +18,14 @@ public class AppointmentService implements Manageable , Searchable , Appointable
     List<Appointment> appointmentList = new ArrayList<>();
 
     public void createAppointment(Appointment appointment){
+        // Integrate HelperUtils Throughout the System
+        if(HelperUtils.isNotNull(appointment)){
         appointmentList.add(appointment);
-        System.out.println(Constants.APPOINTMENT_ADDED_SUCCESSFULLY);
+        System.out.println(Constants.APPOINTMENT_ADDED_SUCCESSFULLY);}
     }
 
     public Appointment addNewAppointment(){
 
-        System.out.println("Enter appointment Id: ");
-        String appointmentId = scanner.nextLine();
 
         System.out.println("Enter patient Id: ");
         String patientId = scanner.nextLine();
@@ -37,6 +37,8 @@ public class AppointmentService implements Manageable , Searchable , Appointable
 
         System.out.println("Enter Appointment Time: ");
         String appointmentTime = scanner.nextLine();
+
+        // Integrate HelperUtils Throughout the System
         if (!HelperUtils.isValidString(appointmentTime, "\\d{2}:\\d{2}")) {
             System.out.println("Invalid time format (HH:MM)");
             return null;
@@ -57,7 +59,15 @@ public class AppointmentService implements Manageable , Searchable , Appointable
         String notes = scanner.nextLine();
 
         Appointment appointment = new Appointment(
-                appointmentId,patientId,doctorId,appointmentDate,appointmentTime,status,reason,notes
+                // Integrate HelperUtils Throughout the System
+                HelperUtils.generateId("A",4),
+                patientId,
+                doctorId,
+                appointmentDate,
+                appointmentTime,
+                status,
+                reason,
+                notes
         );
 
         return appointment;

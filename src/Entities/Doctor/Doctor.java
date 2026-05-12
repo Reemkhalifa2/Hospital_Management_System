@@ -20,6 +20,7 @@ public class Doctor extends Person implements Displayable {
     }
 
     public void setAssignedPatients(List<Patient> assignedPatients) {
+
         this.assignedPatients = assignedPatients;
     }
 
@@ -52,9 +53,10 @@ public class Doctor extends Person implements Displayable {
     }
 
     public void setExperienceYears(Integer experienceYears) {
-        this.experienceYears = experienceYears;
+        if (Utilities.HelperUtils.isPositive(experienceYears)) {
+            this.experienceYears = experienceYears;
+        }
     }
-
     public String getQualification() {
         return qualification;
     }
