@@ -27,8 +27,6 @@ public class DoctorService implements Manageable, Searchable {
 
     public Doctor addDoctor() {
 
-
-
         System.out.println("Enter first name:");
         String firstName = scanner.nextLine();
 

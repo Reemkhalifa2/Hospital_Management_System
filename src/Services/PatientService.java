@@ -5,6 +5,7 @@ import Behaviour.Searchable;
 import Entities.Patient.InPatient;
 import Entities.Patient.Patient;
 import Utilities.Constants;
+import Utilities.HelperUtils;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -33,8 +34,8 @@ public class PatientService implements Manageable, Searchable {
     public static Patient addPatient(){
         scanner.nextLine();
 
-        System.out.println("Enter patient id:");
-        String id = scanner.nextLine();
+        /*System.out.println("Enter patient id:");
+        String id = scanner.nextLine();*/
 
         System.out.println("Enter first name:");
         String firstName = scanner.nextLine();
@@ -78,7 +79,7 @@ public class PatientService implements Manageable, Searchable {
         }
 
         Patient patient= new Patient(
-                id,
+                HelperUtils.generateId("P"),
                 firstName,
                 lastName,
                 dateOfBirth,
