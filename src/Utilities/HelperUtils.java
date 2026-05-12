@@ -1,6 +1,9 @@
 package Utilities;
 
+import java.util.UUID;
+
 public class HelperUtils {
+    //Null Check Methods
     public static Boolean isNull(Object obj){
         return obj == null;
     }
@@ -17,6 +20,7 @@ public class HelperUtils {
         return str != null && !str.trim().isEmpty();
     }
 
+    //String Validation Methods
     public static boolean isValidString(String str) {
         return str != null && !str.trim().isEmpty();
     }
@@ -30,6 +34,13 @@ public class HelperUtils {
     public static boolean isValidString(String str, String regex) {
         return str != null && str.matches(regex);
     }
+
+    //ID Generation Methods
+    public static UUID generateId(){
+        return UUID.randomUUID();
+    }
+
+
 
 
 
