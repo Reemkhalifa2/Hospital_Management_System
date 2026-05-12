@@ -20,6 +20,10 @@ public class HelperUtils {
     public static boolean isValidString(String str) {
         return str != null && !str.trim().isEmpty();
     }
+    public static boolean isValidString(String str, int minLength) {
+        return str != null && str.trim().length() >= minLength;
+    }
+
 
 
 }
