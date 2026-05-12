@@ -5,6 +5,7 @@ import Entities.Department;
 import Entities.Doctor.Consultant;
 import Entities.Doctor.GeneralPractitioner;
 import Entities.Doctor.Surgeon;
+import Entities.MedicalRecord;
 import Entities.Nurse;
 import Entities.Patient.EmergencyPatient;
 import Entities.Patient.InPatient;
@@ -508,6 +509,249 @@ public class SampleData {
                 "Scheduled",
                 "Knee Surgery Consultation",
                 "MRI results attached"
+        );
+
+        Appointment a6 = new Appointment(
+                "A006",
+                "P004",
+                "D001",
+                LocalDate.of(2026,5,20),
+                "09:30 AM",
+                "Scheduled",
+                "Asthma Checkup",
+                "Follow-up on inhaler usage"
+        );
+
+        Appointment a7 = new Appointment(
+                "A007",
+                "P006",
+                "D002",
+                LocalDate.of(2026,5,21),
+                "10:00 AM",
+                "Completed",
+                "Back Pain Review",
+                "Improvement observed"
+        );
+
+        Appointment a8 = new Appointment(
+                "A008",
+                "P007",
+                "D003",
+                LocalDate.of(2026,5,22),
+                "11:00 AM",
+                "Scheduled",
+                "Cold & Fever",
+                "Initial consultation"
+        );
+
+        Appointment a9 = new Appointment(
+                "A009",
+                "P008",
+                "D004",
+                LocalDate.of(2026,5,23),
+                "12:00 PM",
+                "Scheduled",
+                "Injury Follow-up",
+                "Check healing progress"
+        );
+
+        Appointment a10 = new Appointment(
+                "A010",
+                "P009",
+                "D005",
+                LocalDate.of(2026,5,24),
+                "01:30 PM",
+                "Completed",
+                "Anemia Check",
+                "Iron levels improving"
+        );
+
+        Appointment a11 = new Appointment(
+                "A011",
+                "P010",
+                "D006",
+                LocalDate.of(2026,5,25),
+                "02:15 PM",
+                "Scheduled",
+                "Fracture Review",
+                "X-ray follow-up needed"
+        );
+
+        Appointment a12 = new Appointment(
+                "A012",
+                "P003",
+                "D007",
+                LocalDate.of(2026,5,26),
+                "03:00 PM",
+                "Cancelled",
+                "General Checkup",
+                "Patient unavailable"
+        );
+
+        Appointment a13 = new Appointment(
+                "A013",
+                "P002",
+                "D008",
+                LocalDate.of(2026,5,27),
+                "09:00 AM",
+                "Scheduled",
+                "Skin Review",
+                "Monitor allergy reaction"
+        );
+
+        Appointment a14 = new Appointment(
+                "A014",
+                "P001",
+                "D002",
+                LocalDate.of(2026,5,28),
+                "10:45 AM",
+                "Completed",
+                "Hypertension Follow-up",
+                "Blood pressure stable"
+        );
+
+        Appointment a15 = new Appointment(
+                "A015",
+                "P005",
+                "D003",
+                LocalDate.of(2026,5,29),
+                "11:30 AM",
+                "Scheduled",
+                "General Consultation",
+                "Routine checkup"
+        );
+
+        //Medical records sample data
+        MedicalRecord mr1 = new MedicalRecord(
+                "MR001",
+                "P001",
+                "D001",
+                LocalDate.of(2026,5,1),
+                "Hypertension",
+                "Amlodipine 5mg",
+                "Blood pressure slightly high",
+                "Patient advised to reduce salt intake"
+        );
+
+        MedicalRecord mr2 = new MedicalRecord(
+                "MR002",
+                "P002",
+                "D002",
+                LocalDate.of(2026,5,2),
+                "Skin Allergy",
+                "Antihistamine tablets",
+                "Allergy test positive",
+                "Avoid seafood and dust exposure"
+        );
+
+        MedicalRecord mr3 = new MedicalRecord(
+                "MR003",
+                "P003",
+                "D003",
+                LocalDate.of(2026,5,3),
+                "Viral Fever",
+                "Paracetamol 500mg",
+                "Blood test normal",
+                "Rest and hydration recommended"
+        );
+
+        MedicalRecord mr4 = new MedicalRecord(
+                "MR004",
+                "P005",
+                "D004",
+                LocalDate.of(2026,5,4),
+                "Migraine",
+                "Ibuprofen",
+                "CT scan normal",
+                "Patient should avoid stress"
+        );
+
+        MedicalRecord mr5 = new MedicalRecord(
+                "MR005",
+                "P008",
+                "D005",
+                LocalDate.of(2026,5,5),
+                "Knee Injury",
+                "Pain relief medication",
+                "MRI shows ligament tear",
+                "Surgery may be required"
+        );
+
+        MedicalRecord mr6 = new MedicalRecord(
+                "MR006",
+                "P006",
+                "D006",
+                LocalDate.of(2026,5,6),
+                "Back Pain",
+                "Muscle Relaxant",
+                "X-ray normal",
+                "Physiotherapy recommended"
+        );
+
+        MedicalRecord mr7 = new MedicalRecord(
+                "MR007",
+                "P007",
+                "D007",
+                LocalDate.of(2026,5,7),
+                "Common Cold",
+                "Cough Syrup",
+                "Temperature slightly elevated",
+                "Drink warm fluids"
+        );
+
+        MedicalRecord mr8 = new MedicalRecord(
+                "MR008",
+                "P009",
+                "D008",
+                LocalDate.of(2026,5,8),
+                "Anemia",
+                "Iron Supplements",
+                "Hemoglobin level low",
+                "Follow-up after one month"
+        );
+
+        MedicalRecord mr9 = new MedicalRecord(
+                "MR009",
+                "P010",
+                "D005",
+                LocalDate.of(2026,5,9),
+                "Fracture",
+                "Painkillers",
+                "X-ray confirms arm fracture",
+                "Cast applied successfully"
+        );
+
+        MedicalRecord mr10 = new MedicalRecord(
+                "MR010",
+                "P001",
+                "D003",
+                LocalDate.of(2026,5,10),
+                "Diabetes",
+                "Metformin",
+                "Blood sugar elevated",
+                "Daily exercise advised"
+        );
+
+        MedicalRecord mr11 = new MedicalRecord(
+                "MR011",
+                "P004",
+                "D001",
+                LocalDate.of(2026,5,11),
+                "Asthma",
+                "Inhaler",
+                "Breathing test abnormal",
+                "Avoid dust and smoke"
+        );
+
+        MedicalRecord mr12 = new MedicalRecord(
+                "MR012",
+                "P002",
+                "D004",
+                LocalDate.of(2026,5,12),
+                "Vitamin D Deficiency",
+                "Vitamin D Capsules",
+                "Vitamin D level low",
+                "Sun exposure recommended"
         );
 
 
