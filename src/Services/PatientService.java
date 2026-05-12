@@ -255,6 +255,10 @@ public class PatientService implements Manageable, Searchable {
                 case 3 -> {
                     registerOutPatient();
                 }
+                case 4->{
+                    registerPatient();
+                }
+                
             }
 
         }
