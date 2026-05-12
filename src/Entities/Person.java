@@ -1,9 +1,11 @@
 package Entities;
 
+import Behaviour.Displayable;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Person {
+public class Person implements Displayable {
     private String id;
     private String firstName;
     private String lastName;
@@ -106,6 +108,11 @@ public class Person {
         System.out.println("Phone Number      :"+ phoneNumber);
         System.out.println("Email             :"+email );
         System.out.println("Address           :"+ address);
+    }
+
+    @Override
+    public void displaySummary() {
+
     }
 
 
