@@ -73,6 +73,11 @@ public class HelperUtils {
         }
     }
 
+    public static Boolean isValidDate(Date date, Date minDate, Date maxDate){
+        return  date.after(minDate) && date.before(maxDate) ;
+    }
+
+
 
 
 
