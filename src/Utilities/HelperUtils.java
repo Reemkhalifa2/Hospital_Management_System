@@ -27,6 +27,12 @@ public class HelperUtils {
         return str != null && str.length() >= minLength && str.length() <= maxLength;
     }
 
+    public static boolean isValidString(String str, String regex) {
+        return str != null && str.matches(regex);
+    }
+
+
+
 
 
 
