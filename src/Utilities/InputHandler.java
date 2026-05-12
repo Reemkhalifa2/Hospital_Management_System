@@ -12,7 +12,7 @@ public class InputHandler {
             input = scanner.nextLine().trim();
 
             if (input.isEmpty()) {
-                System.out.println();
+                System.out.println(Constants.EMPTY_INPUT);
             }
         }
 
