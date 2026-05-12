@@ -25,16 +25,20 @@ public class Consultant extends Doctor implements Displayable {
     @Override
     public void displayInfo() {
         super.displayInfo();
+
+    }
+
+    @Override
+    public void displaySummary() {
+        System.out.println("===== Doctor Summary =====");
+        System.out.println("Doctor ID: " + getId());
+        System.out.println("Name: " + getFirstName() + " " + getLastName());
         System.out.println("Online Consultation Available: " + onlineConsultationAvailable);
         System.out.println("Consultation Duration: " + consultationDuration);
         System.out.println("Consultation Types");
         for(String x : consultationTypes) {
             System.out.print(x + " , ");
         }
-    }
-
-    @Override
-    public void displaySummary() {
 
     }
 
