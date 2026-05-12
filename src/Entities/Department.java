@@ -1,11 +1,12 @@
 package Entities;
 
+import Behaviour.Displayable;
 import Entities.Doctor.Doctor;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Department {
+public class Department implements Displayable {
 
     private String departmentId;
     private String departmentName;
@@ -106,5 +107,10 @@ public class Department {
         System.out.println("Available Beds: " + availableBeds);
         System.out.println("Doctors: " + doctors.size());
         System.out.println("Nurses: " + nurses.size());
+    }
+
+    @Override
+    public void displaySummary() {
+
     }
 }
