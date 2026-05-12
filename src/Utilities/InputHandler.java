@@ -1,5 +1,7 @@
 package Utilities;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class InputHandler {
@@ -48,6 +50,20 @@ public class InputHandler {
                 return Double.parseDouble(raw);
             } catch (NumberFormatException e) {
                 System.out.println(Constants.INVALID_NUMBER);
+            }
+        }
+    }
+
+
+    public static LocalDate getDateInput(String prompt) {
+        while (true) {
+            System.out.print(prompt + " (yyyy-MM-dd): ");
+            String raw = scanner.nextLine().trim();
+
+            try {
+                return LocalDate.parse(raw);
+            } catch (DateTimeParseException e) {
+                System.out.println(Constants.INVALID_DATE);
             }
         }
     }
