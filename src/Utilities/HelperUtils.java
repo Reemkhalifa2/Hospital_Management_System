@@ -6,7 +6,12 @@ public class HelperUtils {
     }
 
     public static Boolean isNull(String str){
-        return str == null&& str.isEmpty() ;
+        return str == null || str.isEmpty() ;
     }
+
+    public static boolean isNotNull(Object obj) {
+        return obj != null;
+    }
+
 
 }
