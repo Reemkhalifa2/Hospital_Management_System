@@ -44,6 +44,11 @@ public class HelperUtils {
         return prefix+UUID.randomUUID();
     }
 
+    public static String generateId(String prefix, int length){
+        return prefix + UUID.randomUUID().toString().substring(0,length);
+    }
+
+
 
 
 
