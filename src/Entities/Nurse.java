@@ -42,11 +42,13 @@ public class Nurse extends Person implements Displayable {
 
     @Override
     public void displayInfo() {
+        System.out.println("______________________________");
         super.displayInfo();
-
         System.out.println("Department ID     :" + departmentId);
         System.out.println("Shift             :" + shift);
         System.out.println("Qualification     :" + qualification);
+        System.out.println("______________________________");
+        System.out.println();
     }
 
     @Override
