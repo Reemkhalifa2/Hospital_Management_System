@@ -211,7 +211,7 @@ public class PatientService implements Manageable, Searchable, Editable {
         patients.add(patient);
 
     }
-    public static void searchPatients(String keyword) {
+    /*public static void searchPatients(String keyword) {
         if (HelperUtils.isNull(patients)) {
             System.out.println("No patients registered.");
             return;}
@@ -229,7 +229,7 @@ public class PatientService implements Manageable, Searchable, Editable {
             }
         }
         System.out.println(Constants.PATIENT_NOT_FOUND);
-    }
+    }*/
 
     public void searchPatients(String firstName, String lastName){
         for(Patient p : patients){
@@ -279,11 +279,39 @@ public class PatientService implements Manageable, Searchable, Editable {
 
     @Override
     public void search(String keyword) {
+        if (HelperUtils.isNull(patients)) {
+            System.out.println("No patients registered.");
+            return;}
+        for (Patient patient : patients) {
+
+            if (patient.getFirstName().equalsIgnoreCase(keyword)
+                    || patient.getLastName().equalsIgnoreCase(keyword)
+                    || patient.getPhoneNumber().equalsIgnoreCase(keyword)
+                    || patient.getBloodGroup().equalsIgnoreCase(keyword)
+                    || patient.getEmail().equalsIgnoreCase(keyword)
+                    || patient.getId().equalsIgnoreCase(keyword)) {
+
+                patient.displayInfo();
+                return;
+            }
+        }
+        System.out.println(Constants.PATIENT_NOT_FOUND);
 
     }
 
     @Override
     public void searchById(String id) {
+        if (HelperUtils.isNull(patients)) {
+            System.out.println("No patients registered.");
+            return;}
+        for (Patient patient : patients) {
+
+            if (patient.getId().equalsIgnoreCase(id)) {
+                patient.displayInfo();
+                return;
+            }
+        }
+        System.out.println(Constants.PATIENT_NOT_FOUND);
 
 
 
