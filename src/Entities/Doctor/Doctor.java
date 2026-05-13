@@ -146,17 +146,19 @@ public class Doctor extends Person implements Displayable {
 
     @Override
     public void displayInfo() {
+        System.out.println("______________________________");
         super.displayInfo();
-        System.out.println(specialization);
-        System.out.println(qualification);
-        System.out.println(experienceYears);
-        System.out.println(departmentId);
-        System.out.println(consultationFee);
-
-        System.out.println("Available Slots");
+        System.out.println("Specialization    :" + specialization);
+        System.out.println("Qualification     :" + qualification);
+        System.out.println("Experience Years  :" + experienceYears);
+        System.out.println("Department ID     :" + departmentId);
+        System.out.println("Consultation Fee  :" + consultationFee);
+        System.out.println("Available Slots   :");
         for(String slot : availableSlots){
             System.out.print(slot + ",");
         }
+        System.out.println("______________________________");
+        System.out.println();
 
         /*System.out.println("Assigned Patients");
         for(String patient : assignedPatients){
