@@ -405,7 +405,6 @@ public class PatientService implements Manageable, Searchable, Editable {
 
     private static void registerEmergencyPatient() {
 
-        String id = HelperUtils.generateId("EmergP");
 
         String firstName = InputHandler.getStringInput("First Name: ");
         String lastName = InputHandler.getStringInput("Last Name: ");
@@ -441,7 +440,7 @@ public class PatientService implements Manageable, Searchable, Editable {
         Boolean admittedViaER = InputHandler.getConfirmation("Admitted via ER? ");
 
         EmergencyPatient emergencyPatient = new EmergencyPatient(
-                id,
+                HelperUtils.generateId("EmergP",4),
                 firstName,
                 lastName,
                 DOB,
