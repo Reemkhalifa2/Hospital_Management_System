@@ -107,7 +107,7 @@ public class DoctorService implements Manageable, Searchable {
         boolean walkin = InputHandler.getConfirmation("Walk-in available?");
         boolean home   = InputHandler.getConfirmation("Home visits available?");
         boolean vacc   = InputHandler.getConfirmation("Vaccination certified?");
-        GeneralPractitioner gp = new GeneralPractitioner(id, firstName, lastName, dob, gender, phone, email, address,
+        GeneralPractitioner gp = new GeneralPractitioner(HelperUtils.generateId("GP-",4), firstName, lastName, dob, gender, phone, email, address,
                 specialization, qualification, experience, deptId, fee, walkin, home, vacc);
         addDoctor(gp);
     }
