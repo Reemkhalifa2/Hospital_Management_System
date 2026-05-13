@@ -109,7 +109,7 @@ public class NurseService implements Manageable, Searchable {
         for(Nurse n : nurses) {
             if (n.getDepartmentId().equals(departmentId)) {
                n.displayInfo();
-               return;
+
             }
         }
         System.out.println(Constants.NURSE_NOT_FOUND);
@@ -159,6 +159,11 @@ public class NurseService implements Manageable, Searchable {
             switch (option){
                 case 1 -> addNurses();
                 case 2-> getNurse();
+                case 3-> getNurse();
+                case 4-> {
+                    String deptId = InputHandler.getStringInput("Enter department ID: ");
+                    getNurseByDepartment(deptId);
+                }
             }
         }
     }
