@@ -3,6 +3,7 @@ package Services;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entities.Doctor.Doctor;
+import Entities.Doctor.Surgeon;
 import Entities.Patient.Patient;
 import Utilities.Constants;
 import Utilities.HelperUtils;
@@ -25,7 +26,7 @@ public class DoctorService implements Manageable, Searchable {
         System.out.println(Constants.DOCTOR_ADDED_SUCCESSFULLY);
     }
 
-    public void addDoctor() {
+    private void addDoctor() {
 
         String id    = HelperUtils.generateId("DOC-",4);
         String firstName    = InputHandler.getStringInput("First Name: ");
@@ -43,6 +44,25 @@ public class DoctorService implements Manageable, Searchable {
         Doctor d = new Doctor(id, firstName, lastName, dob, gender, phone, email, address,
                 specialization, qualification, experience, deptId, fee);
         add(d);
+    }
+    private void addSurgeon() {
+        String id    = HelperUtils.generateId("Surg-",4);
+        String firstName    = InputHandler.getStringInput("First Name: ");
+        String lastName    = InputHandler.getStringInput("Last Name: ");
+        LocalDate dob = InputHandler.getDateInput("Date of Birth");
+        String gender = InputHandler.getStringInput("Gender: ");
+        String phone  = InputHandler.getStringInput("Phone: ");
+        String email  = InputHandler.getStringInput("Email: ");
+        String address  = InputHandler.getStringInput("Address: ");
+        String specialization   = InputHandler.getStringInput("Specialization: ");
+        String qualification   = InputHandler.getStringInput("Qualification: ");
+        int    experience    = InputHandler.getIntInput("Experience (years): ", 0, 60);
+        String deptId   = InputHandler.getStringInput("Department ID: ");
+        double fee    = InputHandler.getDoubleInput("Consultation Fee: ");
+        boolean  operationTheatreAccess   = InputHandler.getConfirmation("Operation Theatre Access ?");
+        Surgeon s = new Surgeon(id, firstName, lastName, dob, gender, phone, email, address,
+                specialization, qualification, experience, deptId, fee, null, operationTheatreAccess);
+        add(s);
     }
 
     public void addDoctor(String name, String specialization, String phone){
@@ -214,6 +234,7 @@ public class DoctorService implements Manageable, Searchable {
             System.out.println(MenuMessage.PatientManagementMenu);
             int option = InputHandler.getIntInput(Constants.ENTER_OPTION,0,9);
             switch (option) {
+
 
 
 
