@@ -202,6 +202,28 @@ public class NurseService implements Manageable, Searchable , Editable {
     public void searchById(String id) {
 
     }
+    
+
+    @Override
+    public void edit(Object updatedData) {
+
+        if(!(updatedData instanceof Nurse)){
+            System.out.println("Invalid nurse data");
+            return;
+        }
+        Nurse updatedNurse = (Nurse) updatedData;
+        for(Nurse n : nurses){
+            if(n.getId().equals(updatedNurse.getId())){
+                n.setPhoneNumber(updatedNurse.getPhoneNumber());
+                n.setEmail(updatedNurse.getEmail());
+                n.setAddress(updatedNurse.getAddress());
+                System.out.println(Constants.NURSE_UPDATED_SUCCESSFULLY);
+                return;
+            }
+        }
+
+        System.out.println(Constants.NURSE_NOT_FOUND);
+    }
 
     public void handleNurseMenu(){
         Boolean nurseExit = true;
