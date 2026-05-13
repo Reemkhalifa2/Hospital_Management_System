@@ -123,13 +123,17 @@ public class NurseService implements Manageable, Searchable {
     }
 
     public void  getNursesByShift(String shift){
-        for(Nurse n : nurses) {
-            if (n.getShift().equals(shift)) {
-               n.displayInfo();
-               return;
+        boolean found = false;
+        for(Nurse n : nurses){
+            if(n.getShift().equals(shift)){
+                n.displayInfo();
+                found = true;
             }
+
         }
-        System.out.println(Constants.NURSE_NOT_FOUND);
+        if(!found){
+            System.out.println(Constants.NURSE_NOT_FOUND);
+        }
     }
 
 
@@ -176,6 +180,10 @@ public class NurseService implements Manageable, Searchable {
                 case 3-> {
                     String deptId = InputHandler.getStringInput("Enter department ID: ");
                     getNurseByDepartment(deptId);
+                }
+                case 4-> {
+                    String shift = InputHandler.getStringInput("Enter shift: ");
+                    getNursesByShift(shift);
                 }
             }
         }
