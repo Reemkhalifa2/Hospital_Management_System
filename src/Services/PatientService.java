@@ -417,6 +417,12 @@ public class PatientService implements Manageable, Searchable, Editable {
     @Override
     public void edit(Object updatedData) {
 
+        if(!(updatedData instanceof Patient)){
+            System.out.println("Invalid patient data");
+            return;
+        }
+
+        Patient updatedPatient = (Patient) updatedData;
 
     }
 
