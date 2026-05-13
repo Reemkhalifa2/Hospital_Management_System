@@ -314,7 +314,7 @@ public class DoctorService implements Manageable, Searchable {
         Boolean doctorMenu = true;
         while (doctorMenu) {
             System.out.println(MenuMessage.DoctorManagementMenu);
-            int option = InputHandler.getIntInput(Constants.ENTER_OPTION,0,9);
+            int option = InputHandler.getIntInput(Constants.ENTER_OPTION,0,10);
             switch (option) {
                 case 1-> addDoctor();
                 case 2-> addSurgeon();
@@ -332,8 +332,11 @@ public class DoctorService implements Manageable, Searchable {
                     assignPatient(doctorId,patientId);
                 }
                 case 9-> {
+                    updateDoctor();
+                }
+                case 10->{
                     String doctorId = InputHandler.getStringInput("Doctor ID: ");
-                    editDoctor(doctorId,updateDoctor());
+                    removeDoctor(doctorId);
                 }
 
 
