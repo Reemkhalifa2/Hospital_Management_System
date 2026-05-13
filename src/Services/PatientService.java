@@ -127,6 +127,7 @@ public class PatientService implements Manageable, Searchable {
     public void removePatient(String patientId){
         for(Patient p : patients){
             if(p.getId().equals(patientId)){
+
                 patients.remove(p);
                 System.out.println(Constants.PATIENT_REMOVED_SUCCESSFULLY);
             }
@@ -276,6 +277,10 @@ public class PatientService implements Manageable, Searchable {
                 case 7->{
                     updatePatient();
                 }
+                case 8->{
+                    String patientId = InputHandler.getStringInput("Enter patient Id: ");
+                    remove(patientId);
+                }
 
             }
 
@@ -294,7 +299,13 @@ public class PatientService implements Manageable, Searchable {
     }
 
     @Override
-    public void remove(String id) {
+    public static void remove(String id) {
+
+        Patient p = getPatientById(id);
+            if (HelperUtils.isNull(p)) { System.out.println(Constants.PATIENT_NOT_FOUND); return; }
+            patients.remove(p);
+            System.out.println(Constants.PATIENT_REMOVED_SUCCESSFULLY);
+
 
     }
 
@@ -310,6 +321,7 @@ public class PatientService implements Manageable, Searchable {
 
     @Override
     public void searchById(String id) {
+
 
 
 
