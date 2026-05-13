@@ -292,7 +292,7 @@ public class PatientService implements Manageable, Searchable, Editable {
 
 
     private static void registerPatient() {
-        String id    = HelperUtils.generateId("P");
+        String id    = HelperUtils.generateId("P",4);
         String firstName    = InputHandler.getStringInput("First Name: ");
         String lastName    = InputHandler.getStringInput("Last Name: ");
         LocalDate DOB = InputHandler.getDateInput("Date of Birth: ");
@@ -316,7 +316,7 @@ public class PatientService implements Manageable, Searchable, Editable {
     }
 
     private static void registerInPatient() {
-        String id     = HelperUtils.generateId("InP");
+        String id     = HelperUtils.generateId("InP",4);
         String firstName    = InputHandler.getStringInput("First Name: ");
         String lastName    = InputHandler.getStringInput("Last Name: ");
         LocalDate DOB = InputHandler.getDateInput("Date of Birth: ");
@@ -345,7 +345,7 @@ public class PatientService implements Manageable, Searchable, Editable {
     }
 
     private static void registerOutPatient() {
-        String id     = HelperUtils.generateId("OutP");
+        String id     = HelperUtils.generateId("OutP",4);
         String firstName    = InputHandler.getStringInput("First Name: ");
         String lastName    = InputHandler.getStringInput("Last Name: ");
         LocalDate DOB = InputHandler.getDateInput("Date of Birth: ");
