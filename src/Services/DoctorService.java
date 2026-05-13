@@ -17,6 +17,7 @@ public class DoctorService implements Manageable, Searchable {
     static Scanner scanner = new Scanner(System.in);
     private List<Doctor> doctors = new ArrayList<>();
 
+
     public void addDoctor(Doctor doctor) {
         doctors.add(doctor);
         System.out.println(Constants.DOCTOR_ADDED_SUCCESSFULLY);
@@ -228,7 +229,8 @@ public class DoctorService implements Manageable, Searchable {
 
     @Override
     public void add(Object entity) {
-
+        Doctor doctor = (Doctor) entity;
+        addDoctor(doctor);
     }
 
     @Override
@@ -238,11 +240,12 @@ public class DoctorService implements Manageable, Searchable {
 
     @Override
     public Void getAll() {
-        return null;
+
     }
 
     @Override
     public void search(String keyword) {
+
 
 
     }
