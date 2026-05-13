@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class doctorService implements Manageable, Searchable {
+public class DoctorService implements Manageable, Searchable {
     static Scanner scanner = new Scanner(System.in);
     private static List<Doctor> doctors = new ArrayList<>();
 

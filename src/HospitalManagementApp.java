@@ -1,5 +1,5 @@
 import Menu.Menu;
-import Services.doctorService;
+import Services.DoctorService;
 import Services.PatientService;
 import Utilities.Constants;
 import Utilities.InputHandler;
@@ -15,7 +15,7 @@ public class HospitalManagementApp {
     public static void main(String[] args) {
         SampleData.loadData();
         PatientService patientService = new PatientService();
-        doctorService doctorService = new doctorService();
+        DoctorService doctorService = new DoctorService();
         Menu menu = new Menu();
         boolean Continue = true;
         while (Continue) {

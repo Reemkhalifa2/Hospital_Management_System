@@ -17,17 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 
-
-import Entities.Doctor.Consultant;
-import Entities.Doctor.Doctor;
-import Entities.Doctor.GeneralPractitioner;
-import Entities.Doctor.Surgeon;
-import Entities.Patient.Patient;
 import Services.*;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class SampleData {
 
@@ -403,14 +393,14 @@ public class SampleData {
                 true,
                 false
         );
-        doctorService.addDoctor(d1);
-        doctorService.addDoctor(d2);
-        doctorService.addDoctor(d3);
-        doctorService.addDoctor(d4);
-        doctorService.addDoctor(d5);
-        doctorService.addDoctor(d6);
-        doctorService.addDoctor(d7);
-        doctorService.addDoctor(d8);
+        DoctorService.addDoctor(d1);
+        DoctorService.addDoctor(d2);
+        DoctorService.addDoctor(d3);
+        DoctorService.addDoctor(d4);
+        DoctorService.addDoctor(d5);
+        DoctorService.addDoctor(d6);
+        DoctorService.addDoctor(d7);
+        DoctorService.addDoctor(d8);
 
         //sample data for databases
         Nurse n1 = new Nurse(
