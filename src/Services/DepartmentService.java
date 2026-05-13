@@ -129,6 +129,20 @@ public class DepartmentService implements Manageable, Searchable {
     public void searchById(String id) {
 
     }
+    public void viewDepartmentDetails(){
+
+        String id = InputHandler.getStringInput("Enter Department ID: ");
+
+        for(Department d : departments){
+
+            if(d.getDepartmentId().equals(id)){
+                d.displayInfo();
+                return;
+            }
+        }
+
+        System.out.println(Constants.DEPARTMENT_NOT_FOUND);
+    }
 
     public void handleDepartmentMenu() {
         boolean departmentExit = true;
@@ -138,6 +152,9 @@ public class DepartmentService implements Manageable, Searchable {
             switch (option) {
                 case 1 -> addDepartment();
                 case 2 -> getDepartments();
+                case 3 -> viewDepartmentDetails();
+
+
 
             }
         }
