@@ -395,14 +395,14 @@ public class SampleData {
                 false
         );
 
-        departmentService.add(d1);
-        departmentService.add(d2);
-        departmentService.add(d3);
-        departmentService.add(d4);
-        departmentService.add(d5);
-        departmentService.add(d6);
-        departmentService.add(d7);
-        departmentService.add(d8);
+        doctorService.add(d1);
+        doctorService.add(d2);
+        doctorService.add(d3);
+        doctorService.add(d4);
+        doctorService.add(d5);
+        doctorService.add(d6);
+        doctorService.add(d7);
+        doctorService.add(d8);
 
 
         //sample data for databases
