@@ -137,6 +137,7 @@ public class DepartmentService implements Manageable, Searchable {
             int option = InputHandler.getIntInput(Constants.ENTER_OPTION, 0, 7);
             switch (option) {
                 case 1 -> addDepartment();
+                case 2 -> getDepartments();
 
             }
         }
