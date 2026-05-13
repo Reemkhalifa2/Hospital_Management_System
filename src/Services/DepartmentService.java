@@ -3,6 +3,8 @@ package Services;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entities.Department;
+import Entities.Doctor.Doctor;
+import Entities.Nurse;
 import Utilities.Constants;
 import Utilities.HelperUtils;
 import Utilities.InputHandler;
@@ -29,16 +31,18 @@ public class DepartmentService implements Manageable, Searchable {
         System.out.print("Enter Bed Capacity: ");
         int bedCapacity = InputHandler.getIntInput("Enter Bed Capacity: ");
 
-        List<String> doctors = new ArrayList<>();
-        List<String> nurses = new ArrayList<>();
+        List<Doctor> doctors = new ArrayList<>();
+        List<Nurse> nurses = new ArrayList<>();
 
-        System.out.print("Enter Available Beds: ");
-        int availableBeds = scanner.nextInt();
+        int availableBeds = InputHandler.getIntInput("Enter Available Beds: ");
         Department department = new Department(
                 HelperUtils.generateId("D-"),
                 departmentName,
                 headDoctorId,
-                bedCapacity
+                bedCapacity,
+                availableBeds,
+                doctors,
+                nurses
 
         );
 
