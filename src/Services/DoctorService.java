@@ -258,7 +258,12 @@ public class DoctorService implements Manageable, Searchable {
     @Override
     public void add(Object entity) {
         Doctor doctor = (Doctor) entity;
-        addDoctor(doctor);
+        for(Doctor d : doctors){
+            if (d.getId().equals(doctor.getId())) {
+                return;
+            }
+        }
+        doctors.add(doctor);
     }
 
     @Override
