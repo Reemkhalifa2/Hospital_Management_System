@@ -259,6 +259,13 @@ public class PatientService implements Manageable, Searchable, Editable {
 
     @Override
     public void add(Object entity) {
+        Patient patient = (Patient) entity;
+        for(Patient p : patients){
+            if (p.getId().equals(patient.getId())) {
+                return;
+            }
+        }
+        patients.add(patient);
 
     }
     @Override
@@ -369,7 +376,7 @@ public class PatientService implements Manageable, Searchable, Editable {
         String bed    = InputHandler.getStringInput(" Bed Number: ");
         String drId   = InputHandler.getStringInput("Admitting Doctor ID: ");
         double daily  = InputHandler.getDoubleInput("Daily Charges : ");
-        InPatient inPatient  = new InPatient(id, firstName, lastName, DOB, gender, phone, email, address,
+        InPatient inPatient  = new InPatient(HelperUtils.generateId("InP",4), firstName, lastName, DOB, gender, phone, email, address,
                 bloodGroup,emergencyContact,LocalDate.now(),insuranceId,allergies,
                 LocalDate.now(),null,room, bed, drId, daily);
         addPatients(inPatient);
