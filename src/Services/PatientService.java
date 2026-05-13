@@ -263,9 +263,9 @@ public class PatientService implements Manageable, Searchable {
     }
 
     public void handlePatientMenu(){
-        Boolean patientExit = true;
+        Boolean patientExit = false;
         while (patientExit) {
-            int option = scanner.nextInt();
+            int option = InputHandler.getIntInput(Constants.ENTER_OPTION,0,9);
             switch (option) {
 
                 case 1 -> {
@@ -293,6 +293,13 @@ public class PatientService implements Manageable, Searchable {
                 case 8->{
                     String patientId = InputHandler.getStringInput("Enter patient Id: ");
                     remove(patientId);
+                }
+                case 9->{
+                    String patientId = InputHandler.getStringInput("Enter patient Id: ");
+                    displayPatientHistory(patientId);
+                }
+                case 0 ->{
+                    patientExit = true;
                 }
 
             }
