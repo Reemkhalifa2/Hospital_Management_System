@@ -245,30 +245,15 @@ public class DoctorService implements Manageable, Searchable {
         System.out.println(Constants.PATIENT_ASSIGNED_SUCCESSFULLY);
     }
 
-    public void  assignPatient(String doctorId, List<String> patientIds) {
-        for (Doctor doctor : doctors){
-            if(doctor.getId().equals(doctorId)){
-                for(Patient p : getPatients()){
-                    for(String x : patientIds){
-                        if(p.getId().equals(x)){
-                            doctor.getAssignedPatients().add(p);
-                            System.out.println(Constants.PATIENT_ASSIGNED_SUCCESSFULLY);
-                        }else{
-                            System.out.println(Constants.PATIENT_NOT_FOUND);
-                        }
-
-                    }
-
-                }
-
-            }else{
-                System.out.println(Constants.DOCTOR_NOT_FOUND);
-            }
-
-
-        }
-
+    public void assignPatient(String doctorId, List<String> patientIds) {
+        Doctor d = getDoctorById(doctorId);
+        if (HelperUtils.isNull(d)) { System.out.println(Constants.DOCTOR_NOT_FOUND); return; }
+        if (HelperUtils.isNull(patientIds)) return;
+        //d.assignPatient(patientId)
+        patientIds.forEach(d::assignPatient);
+        System.out.println(Constants.PATIENT_ASSIGNED_SUCCESSFULLY);
     }
+
 
 
     @Override
