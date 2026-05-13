@@ -24,11 +24,10 @@ public class DepartmentService implements Manageable, Searchable {
 
         String departmentName = InputHandler.getStringInput("Enter Department Name: ");
 
-        System.out.print("Enter Head Doctor ID: ");
-        String headDoctorId = scanner.nextLine();
+        String headDoctorId = InputHandler.getStringInput("Enter Head Doctor ID: ");
 
         System.out.print("Enter Bed Capacity: ");
-        int bedCapacity = scanner.nextInt();
+        int bedCapacity = InputHandler.getIntInput("Enter Bed Capacity: ");
 
         List<String> doctors = new ArrayList<>();
         List<String> nurses = new ArrayList<>();
