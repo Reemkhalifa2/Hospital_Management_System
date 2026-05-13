@@ -2,6 +2,7 @@ package Services;
 
 import Behaviour.Manageable;
 import Behaviour.Searchable;
+import Entities.Doctor.Consultant;
 import Entities.Doctor.Doctor;
 import Entities.Doctor.Surgeon;
 import Entities.Patient.Patient;
@@ -63,6 +64,26 @@ public class DoctorService implements Manageable, Searchable {
         Surgeon s = new Surgeon(id, firstName, lastName, dob, gender, phone, email, address,
                 specialization, qualification, experience, deptId, fee, null, operationTheatreAccess);
         add(s);
+    }
+    private void addConsultant() {
+        String id    = HelperUtils.generateId("DOC-",4);
+        String firstName    = InputHandler.getStringInput("First Name: ");
+        String lastName    = InputHandler.getStringInput("Last Name: ");
+        LocalDate dob = InputHandler.getDateInput("Date of Birth");
+        String gender = InputHandler.getStringInput("Gender: ");
+        String phone  = InputHandler.getStringInput("Phone: ");
+        String email  = InputHandler.getStringInput("Email: ");
+        String address  = InputHandler.getStringInput("Address: ");
+        String specialization   = InputHandler.getStringInput("Specialization: ");
+        String qualification   = InputHandler.getStringInput("Qualification: ");
+        int    experience    = InputHandler.getIntInput("Experience (years): ", 0, 60);
+        String deptId   = InputHandler.getStringInput("Department ID: ");
+        double fee    = InputHandler.getDoubleInput("Consultation Fee: ");
+        boolean online = InputHandler.getConfirmation(" Online consultations?");
+        int dur        = InputHandler.getIntInput(" Duration (minutes): ", 15, 120);
+        Consultant c = new Consultant(id, firstName, lastName, dob, gender, phone, email, address,
+                specialization, qualification, experience, deptId, fee, new ArrayList<>(), online, dur);
+        add(c);
     }
 
     public void addDoctor(String name, String specialization, String phone){
