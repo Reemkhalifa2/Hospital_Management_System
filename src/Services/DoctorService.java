@@ -18,10 +18,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class DoctorService implements Manageable, Searchable {
-    static Scanner scanner = new Scanner(System.in);
     private static List<Doctor> doctors = new ArrayList<>();
-
-
     public static void addDoctor(Doctor doctor) {
         if (HelperUtils.isNull(doctor)) { System.out.println("Cannot add null doctor."); return; }
         for(Doctor d : doctors){
@@ -37,37 +34,45 @@ public class DoctorService implements Manageable, Searchable {
 
     private void addDoctor() {
 
-
         String firstName    = InputHandler.getStringInput("First Name: ");
         String lastName    = InputHandler.getStringInput("Last Name: ");
+
         LocalDate dob = InputHandler.getDateInput("Date of Birth");
         String gender = InputHandler.getStringInput("Gender: ");
+
         String phone  = InputHandler.getStringInput("Phone: ");
         String email  = InputHandler.getStringInput("Email: ");
         String address  = InputHandler.getStringInput("Address: ");
+
         String specialization   = InputHandler.getStringInput("Specialization: ");
         String qualification   = InputHandler.getStringInput("Qualification: ");
         int    experience    = InputHandler.getIntInput("Experience (years): ", 0, 60);
         String deptId   = InputHandler.getStringInput("Department ID: ");
         double fee    = InputHandler.getDoubleInput("Consultation Fee: ");
+
         Doctor d = new Doctor(HelperUtils.generateId("DOC-",4), firstName, lastName, dob, gender, phone, email, address,
                 specialization, qualification, experience, deptId, fee);
         addDoctor(d);
     }
     private void addSurgeon() {
+
         String firstName    = InputHandler.getStringInput("First Name: ");
         String lastName    = InputHandler.getStringInput("Last Name: ");
+
         LocalDate dob = InputHandler.getDateInput("Date of Birth");
         String gender = InputHandler.getStringInput("Gender: ");
+
         String phone  = InputHandler.getStringInput("Phone: ");
         String email  = InputHandler.getStringInput("Email: ");
         String address  = InputHandler.getStringInput("Address: ");
+
         String specialization   = InputHandler.getStringInput("Specialization: ");
         String qualification   = InputHandler.getStringInput("Qualification: ");
         int    experience    = InputHandler.getIntInput("Experience (years): ", 0, 60);
         String deptId   = InputHandler.getStringInput("Department ID: ");
         double fee    = InputHandler.getDoubleInput("Consultation Fee: ");
         boolean  operationTheatreAccess   = InputHandler.getConfirmation("Operation Theatre Access ?");
+
         Surgeon s = new Surgeon(HelperUtils.generateId("Surg-",4), firstName, lastName, dob, gender, phone, email, address,
                 specialization, qualification, experience, deptId, fee, null, operationTheatreAccess);
         add(s);
@@ -75,11 +80,14 @@ public class DoctorService implements Manageable, Searchable {
     private void addConsultant() {
         String firstName    = InputHandler.getStringInput("First Name: ");
         String lastName    = InputHandler.getStringInput("Last Name: ");
+
         LocalDate dob = InputHandler.getDateInput("Date of Birth");
         String gender = InputHandler.getStringInput("Gender: ");
+
         String phone  = InputHandler.getStringInput("Phone: ");
         String email  = InputHandler.getStringInput("Email: ");
         String address  = InputHandler.getStringInput("Address: ");
+
         String specialization   = InputHandler.getStringInput("Specialization: ");
         String qualification   = InputHandler.getStringInput("Qualification: ");
         int    experience    = InputHandler.getIntInput("Experience (years): ", 0, 60);
@@ -87,26 +95,33 @@ public class DoctorService implements Manageable, Searchable {
         double fee    = InputHandler.getDoubleInput("Consultation Fee: ");
         boolean online = InputHandler.getConfirmation(" Online consultations?");
         int dur        = InputHandler.getIntInput(" Duration (minutes): ", 15, 120);
+
         Consultant c = new Consultant(HelperUtils.generateId("Cons-",4), firstName, lastName, dob, gender, phone, email, address,
                 specialization, qualification, experience, deptId, fee, new ArrayList<>(), online, dur);
         addDoctor(c);
     }
+
     private void addGeneralPractitioner() {
         String firstName    = InputHandler.getStringInput("First Name: ");
         String lastName    = InputHandler.getStringInput("Last Name: ");
+
         LocalDate dob = InputHandler.getDateInput("Date of Birth");
         String gender = InputHandler.getStringInput("Gender: ");
+
         String phone  = InputHandler.getStringInput("Phone: ");
         String email  = InputHandler.getStringInput("Email: ");
         String address  = InputHandler.getStringInput("Address: ");
+
         String specialization   = InputHandler.getStringInput("Specialization: ");
         String qualification   = InputHandler.getStringInput("Qualification: ");
+
         int    experience    = InputHandler.getIntInput("Experience (years): ", 0, 60);
         String deptId   = InputHandler.getStringInput("Department ID: ");
         double fee    = InputHandler.getDoubleInput("Consultation Fee: ");
         boolean walkin = InputHandler.getConfirmation("Walk-in available?");
         boolean home   = InputHandler.getConfirmation("Home visits available?");
         boolean vacc   = InputHandler.getConfirmation("Vaccination certified?");
+
         GeneralPractitioner gp = new GeneralPractitioner(HelperUtils.generateId("GP-",4), firstName, lastName, dob, gender, phone, email, address,
                 specialization, qualification, experience, deptId, fee, walkin, home, vacc);
         addDoctor(gp);
@@ -147,27 +162,14 @@ public class DoctorService implements Manageable, Searchable {
 
 
     public static void updateDoctor() {
-
         String id = InputHandler.getStringInput("Doctor ID to update: ");
-
         Doctor existingDoctor = getDoctorById(id);
-
         if (HelperUtils.isNull(existingDoctor)) {
             return;
         }
-
         updateDoctor(existingDoctor);
     }
 
-
-//    public void editDoctor(String doctorId, Doctor updatedDoctor){
-//        Doctor existing = getDoctorById(doctorId);
-//        if (HelperUtils.isNull(existing)) { System.out.println(Constants.DOCTOR_NOT_FOUND
-//        ); return; }
-//        existing.setQualification(updatedDoctor.getQualification());
-//        existing.setExperienceYears(updatedDoctor.getExperienceYears());
-//        System.out.println(Constants.DOCTOR_UPDATED_SUCCESSFULLY);
-//    }
 
     public void removeDoctor(String doctorId){
         for(Doctor d : doctors) {
@@ -181,16 +183,12 @@ public class DoctorService implements Manageable, Searchable {
     }
 
     public static Doctor getDoctorById(String doctorId) {
-
         for (Doctor d : doctors) {
-
             if (d.getId().equals(doctorId)) {
                 return d;
             }
         }
-
         System.out.println(Constants.DOCTOR_NOT_FOUND);
-
         return null;
     }
 
@@ -267,14 +265,11 @@ public class DoctorService implements Manageable, Searchable {
         if (HelperUtils.isNull(doctor)) { System.out.println(Constants.DOCTOR_NOT_FOUND); return; }
         doctors.remove(doctor);
         System.out.println(Constants.DOCTOR_REMOVED_SUCCESSFULLY);
-
-
     }
 
     @Override
     public void getAll() {
         doctors.forEach(d -> d.displayInfo());
-
     }
 
     @Override
@@ -339,8 +334,6 @@ public class DoctorService implements Manageable, Searchable {
                     removeDoctor(doctorId);
                 }
 
-
-
                 case 0 ->{
                     doctorMenu = false;
                 }
@@ -350,7 +343,4 @@ public class DoctorService implements Manageable, Searchable {
         }
 
     }
-
-
-
 }
