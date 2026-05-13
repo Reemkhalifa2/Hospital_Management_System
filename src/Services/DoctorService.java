@@ -50,7 +50,7 @@ public class DoctorService implements Manageable, Searchable {
         int    experience    = InputHandler.getIntInput("Experience (years): ", 0, 60);
         String deptId   = InputHandler.getStringInput("Department ID: ");
         double fee    = InputHandler.getDoubleInput("Consultation Fee: ");
-        Doctor d = new Doctor(id, firstName, lastName, dob, gender, phone, email, address,
+        Doctor d = new Doctor(HelperUtils.generateId("DOC-",4), firstName, lastName, dob, gender, phone, email, address,
                 specialization, qualification, experience, deptId, fee);
         addDoctor(d);
     }
