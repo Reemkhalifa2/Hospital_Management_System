@@ -414,6 +414,7 @@ public class PatientService implements Manageable, Searchable, Editable {
 
 
     }
+
     @Override
     public void edit(Object updatedData) {
 
@@ -424,6 +425,22 @@ public class PatientService implements Manageable, Searchable, Editable {
 
         Patient updatedPatient = (Patient) updatedData;
 
+        for(Patient p : patients){
+
+            if(p.getId().equals(updatedPatient.getId())){
+
+                p.setPhoneNumber(updatedPatient.getPhoneNumber());
+                p.setEmail(updatedPatient.getEmail());
+                p.setAddress(updatedPatient.getAddress());
+                p.setEmergencyContact(updatedPatient.getEmergencyContact());
+                p.setInsuranceId(updatedPatient.getInsuranceId());
+
+                System.out.println(Constants.PATIENT_UPDATED_SUCCESSFULLY);
+                return;
+            }
+        }
+
+        System.out.println(Constants.PATIENT_NOT_FOUND);
     }
 
     @Override
