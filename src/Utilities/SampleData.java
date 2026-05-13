@@ -28,6 +28,7 @@ public class SampleData {
         PatientService patientService = new PatientService();
         MedicalRecordService medicalRecordService = new MedicalRecordService();
         AppointmentService appointmentService = new AppointmentService();
+        DoctorService doctorService = new DoctorService();
 
        /* departmentService.add(new Department("DEP-001", "Cardiology",     "DOC-001", 40));
         departmentService.add(new Department("DEP-002", "Neurology",      "DOC-002", 30));
@@ -393,14 +394,16 @@ public class SampleData {
                 true,
                 false
         );
-        DoctorService.addDoctor(d1);
-        DoctorService.addDoctor(d2);
-        DoctorService.addDoctor(d3);
-        DoctorService.addDoctor(d4);
-        DoctorService.addDoctor(d5);
-        DoctorService.addDoctor(d6);
-        DoctorService.addDoctor(d7);
-        DoctorService.addDoctor(d8);
+
+        departmentService.add(d1);
+        departmentService.add(d2);
+        departmentService.add(d3);
+        departmentService.add(d4);
+        departmentService.add(d5);
+        departmentService.add(d6);
+        departmentService.add(d7);
+        departmentService.add(d8);
+
 
         //sample data for databases
         Nurse n1 = new Nurse(
