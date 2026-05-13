@@ -45,7 +45,7 @@ public class NurseService implements Manageable, Searchable {
 
 
         Nurse nurse = new Nurse(
-                HelperUtils.generateId("N."),
+                HelperUtils.generateId("N-"),
                 firstName,
                 lastName,
                 dateOfBirth,
@@ -146,6 +146,10 @@ public class NurseService implements Manageable, Searchable {
 
     @Override
     public void searchById(String id) {
+
+    }
+
+    public void handleNurseMenu(){
 
     }
 }
