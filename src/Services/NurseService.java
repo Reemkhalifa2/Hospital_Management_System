@@ -172,7 +172,30 @@ public class NurseService implements Manageable, Searchable {
 
     @Override
     public void search(String keyword) {
+        boolean found = false;
+        for(Nurse n : nurses){
 
+            if(
+                    n.getFirstName().equalsIgnoreCase(keyword) ||
+                            n.getLastName().equalsIgnoreCase(keyword) ||
+                            n.getGender().equalsIgnoreCase(keyword) ||
+                            n.getPhoneNumber().equalsIgnoreCase(keyword) ||
+                            n.getEmail().equalsIgnoreCase(keyword) ||
+                            n.getAddress().equalsIgnoreCase(keyword) ||
+                            n.getDepartmentId().equalsIgnoreCase(keyword) ||
+                            n.getShift().equalsIgnoreCase(keyword) ||
+                            n.getQualification().equalsIgnoreCase(keyword) ||
+                            n.getDateOfBirth().toString().equalsIgnoreCase(keyword)
+            ){
+
+                n.displayInfo();
+                found = true;
+            }
+        }
+
+        if(!found){
+            System.out.println(Constants.NURSE_NOT_FOUND);
+        }
     }
 
     @Override
