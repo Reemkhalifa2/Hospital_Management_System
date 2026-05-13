@@ -167,6 +167,7 @@ public class NurseService implements Manageable, Searchable {
 
     @Override
     public void getAll() {
+        nurses.forEach(nurse -> nurse.displayInfo());
     }
 
     @Override
