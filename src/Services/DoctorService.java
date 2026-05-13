@@ -375,6 +375,31 @@ public class DoctorService implements Manageable, Searchable , Editable {
     @Override
     public void edit(Object updatedData) {
 
+        if(!(updatedData instanceof Doctor)){
+            System.out.println("Invalid doctor data");
+            return;
+        }
+
+        Doctor updatedDoctor = (Doctor) updatedData;
+
+        for(Doctor d : doctors){
+
+            if(d.getId().equals(updatedDoctor.getId())){
+
+                d.setPhoneNumber(updatedDoctor.getPhoneNumber());
+                d.setEmail(updatedDoctor.getEmail());
+                d.setAddress(updatedDoctor.getAddress());
+                d.setSpecialization(updatedDoctor.getSpecialization());
+                d.setQualification(updatedDoctor.getQualification());
+                d.setExperienceYears(updatedDoctor.getExperienceYears());
+                d.setConsultationFee(updatedDoctor.getConsultationFee());
+
+                System.out.println(Constants.DOCTOR_UPDATED_SUCCESSFULLY);
+                return;
+            }
+        }
+
+        System.out.println(Constants.DOCTOR_NOT_FOUND);
     }
 
     @Override
