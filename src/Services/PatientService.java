@@ -1,5 +1,6 @@
 package Services;
 
+import Behaviour.Editable;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entities.MedicalRecord;
@@ -19,7 +20,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class PatientService implements Manageable, Searchable {
+public class PatientService implements Manageable, Searchable, Editable {
     static Scanner scanner = new Scanner(System.in);
 
     /*static public List<Patient> getPatients() {
@@ -109,21 +110,12 @@ public class PatientService implements Manageable, Searchable {
         return patient;
 
     }*/
-    public static void updatePatient(String patientId, Patient updatedPatient){
-        for(Patient p : patients){
-
-            if(p.getId().equals(patientId)){
-                p.setPhoneNumber(updatedPatient.getPhoneNumber());
-                p.setEmail(updatedPatient.getEmail());
-                p.setAddress(updatedPatient.getAddress());
-
-                System.out.println(Constants.PATIENT_UPDATED_SUCCESSFULLY);
-                return;
-            }
-
-        }
-        System.out.println(Constants.PATIENT_NOT_FOUND);
-
+    public static void updatePatient( Patient updatedPatient){
+        updatedPatient.setEmail(InputHandler.getStringInput("Enter new email: "));
+        updatedPatient.setPhoneNumber(InputHandler.getStringInput("Enter new phone number: "));
+        updatedPatient.setEmergencyContact(InputHandler.getStringInput("Enter Emergency Contact: "));
+        updatedPatient.setAddress(InputHandler.getStringInput("Enter new address: "));
+        System.out.println(Constants.PATIENT_UPDATED_SUCCESSFULLY);
     }
     public void removePatient(String patientId){
         for(Patient p : patients){
@@ -262,55 +254,7 @@ public class PatientService implements Manageable, Searchable {
         }
     }
 
-    public void handlePatientMenu(){
-        Boolean patientExit = false;
-        while (patientExit) {
-            int option = InputHandler.getIntInput(Constants.ENTER_OPTION,0,9);
-            switch (option) {
 
-                case 1 -> {
-                    registerPatient();
-                }
-                case 2 -> {
-                    registerInPatient();
-                }
-                case 3 -> {
-                    registerOutPatient();
-                }
-                case 4->{
-                    registerEmergencyPatient();
-                }
-                case 5->{
-                    displayPatients();
-                }
-                case 6->{
-                    String key = InputHandler.getStringInput("Search keyword: ");
-                    searchPatients(key);
-                }
-                case 7->{
-                    updatePatient();
-                }
-                case 8->{
-                    String patientId = InputHandler.getStringInput("Enter patient Id: ");
-                    remove(patientId);
-                }
-                case 9->{
-                    String patientId = InputHandler.getStringInput("Enter patient Id: ");
-                    displayPatientHistory(patientId);
-                }
-                case 0 ->{
-                    patientExit = true;
-                }
-
-            }
-
-        }
-
-
-
-
-
-    }
 
 
     @Override
@@ -496,26 +440,66 @@ public class PatientService implements Manageable, Searchable {
         String id = InputHandler.getStringInput("Patient ID to update: ");
         Patient existing = getPatientById(id);
         if (HelperUtils.isNull(existing)) { System.out.println(Constants.PATIENT_NOT_FOUND); return; }
-        updatePatient(id,existing);
+        updatePatient(existing);
     }
 
 
+    public void handlePatientMenu(){
+        Boolean patientExit = true;
+        while (patientExit) {
+            System.out.println(MenuMessage.PatientManagementMenu);
+            int option = InputHandler.getIntInput(Constants.ENTER_OPTION,0,9);
+            switch (option) {
+
+                case 1 -> {
+                    registerPatient();
+                }
+                case 2 -> {
+                    registerInPatient();
+                }
+                case 3 -> {
+                    registerOutPatient();
+                }
+                case 4->{
+                    registerEmergencyPatient();
+                }
+                case 5->{
+                    displayPatients();
+                }
+                case 6->{
+                    String key = InputHandler.getStringInput("Search keyword: ");
+                    searchPatients(key);
+                }
+                case 7->{
+                    updatePatient();
+                }
+                case 8->{
+                    String patientId = InputHandler.getStringInput("Enter patient Id: ");
+                    remove(patientId);
+                }
+                case 9->{
+                    String patientId = InputHandler.getStringInput("Enter patient Id: ");
+                    displayPatientHistory(patientId);
+                }
+                case 0 ->{
+                    patientExit = false;
+                }
+
+            }
+
+        }
+
+    }
 
 
+    @Override
+    public void edit(Object updatedData) {
 
 
+    }
 
+    @Override
+    public void validate() {
 
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 }
