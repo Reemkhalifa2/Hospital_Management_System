@@ -274,25 +274,37 @@ public class DoctorService implements Manageable, Searchable {
 
     @Override
     public void search(String keyword) {
-        if (HelperUtils.isNull(doctors)) {
-            System.out.println("No Doctors registered.");
-            return;}
-        for (Doctor doctor : doctors) {
 
-            if (doctor.getFirstName().equalsIgnoreCase(keyword)
-                    || doctor.getLastName().equalsIgnoreCase(keyword)
-                    || doctor.getPhoneNumber().equalsIgnoreCase(keyword)
-                    || doctor.getEmail().equalsIgnoreCase(keyword)
-                    || doctor.getId().equalsIgnoreCase(keyword)) {
+        boolean found = false;
 
-                doctor.displayInfo();
-                return;
+        for(Doctor d : doctors){
+
+            if(
+
+                    d.getId().equalsIgnoreCase(keyword) ||
+                            d.getFirstName().equalsIgnoreCase(keyword) ||
+                            d.getLastName().equalsIgnoreCase(keyword) ||
+                            d.getGender().equalsIgnoreCase(keyword) ||
+                            d.getPhoneNumber().equalsIgnoreCase(keyword) ||
+                            d.getEmail().equalsIgnoreCase(keyword) ||
+                            d.getAddress().equalsIgnoreCase(keyword) ||
+                            d.getSpecialization().equalsIgnoreCase(keyword) ||
+                            d.getQualification().equalsIgnoreCase(keyword) ||
+                            d.getDepartmentId().equalsIgnoreCase(keyword) ||
+                            d.getDateOfBirth().toString().equalsIgnoreCase(keyword) ||
+                            String.valueOf(d.getExperienceYears()).equals(keyword) ||
+                            String.valueOf(d.getConsultationFee()).equals(keyword)
+
+            ){
+
+                d.displayInfo();
+                found = true;
             }
         }
-        System.out.println(Constants.DOCTOR_NOT_FOUND);
 
-
-
+        if(!found){
+            System.out.println(Constants.DOCTOR_NOT_FOUND);
+        }
     }
 
     @Override
