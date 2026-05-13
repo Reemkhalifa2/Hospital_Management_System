@@ -264,6 +264,7 @@ public class DoctorService implements Manageable, Searchable {
             }
         }
         doctors.add(doctor);
+
     }
 
     @Override
