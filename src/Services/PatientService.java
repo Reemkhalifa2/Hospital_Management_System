@@ -350,24 +350,36 @@ public class PatientService implements Manageable, Searchable, Editable {
     }
     @Override
     public void search(String keyword) {
-        if (HelperUtils.isNull(patients)) {
-            System.out.println("No patients registered.");
-            return;}
-        for (Patient patient : patients) {
 
-            if (patient.getFirstName().equalsIgnoreCase(keyword)
-                    || patient.getLastName().equalsIgnoreCase(keyword)
-                    || patient.getPhoneNumber().equalsIgnoreCase(keyword)
-                    || patient.getBloodGroup().equalsIgnoreCase(keyword)
-                    || patient.getEmail().equalsIgnoreCase(keyword)
-                    || patient.getId().equalsIgnoreCase(keyword)) {
+        boolean found = false;
 
-                patient.displayInfo();
-                return;
+        for(Patient p : patients){
+
+            if(
+
+                    p.getId().equalsIgnoreCase(keyword) ||
+                            p.getFirstName().equalsIgnoreCase(keyword) ||
+                            p.getLastName().equalsIgnoreCase(keyword) ||
+                            p.getGender().equalsIgnoreCase(keyword) ||
+                            p.getPhoneNumber().equalsIgnoreCase(keyword) ||
+                            p.getEmail().equalsIgnoreCase(keyword) ||
+                            p.getAddress().equalsIgnoreCase(keyword) ||
+                            p.getBloodGroup().equalsIgnoreCase(keyword) ||
+                            p.getEmergencyContact().equalsIgnoreCase(keyword) ||
+                            p.getInsuranceId().equalsIgnoreCase(keyword) ||
+                            p.getDateOfBirth().toString().equalsIgnoreCase(keyword) ||
+                            p.getRegistrationDate().toString().equalsIgnoreCase(keyword)
+
+            ){
+
+                p.displayInfo();
+                found = true;
             }
         }
-        System.out.println(Constants.PATIENT_NOT_FOUND);
 
+        if(!found){
+            System.out.println(Constants.PATIENT_NOT_FOUND);
+        }
     }
     @Override
     public void searchById(String id) {
