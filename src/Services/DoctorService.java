@@ -132,20 +132,7 @@ public class DoctorService implements Manageable, Searchable {
 
         doctors.add(doctor);
     }
-    public static Doctor updateDoctor( ){
-        Doctor doctor = new Doctor();
-
-        System.out.print("Enter First Name: ");
-        String firstName = scanner.nextLine();
-        doctor.setFirstName(firstName);
-
-        System.out.print("Enter Last Name: ");
-        String lastName = scanner.nextLine();
-        doctor.setLastName(lastName);
-
-        System.out.print("Enter Specialization: ");
-        String specialization = scanner.nextLine();
-        doctor.setSpecialization(specialization);
+    public static void updateDoctor(Doctor doctor) {
 
         System.out.print("Enter Qualification: ");
         String qualification = scanner.nextLine();
