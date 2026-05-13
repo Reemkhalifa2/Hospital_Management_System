@@ -223,7 +223,7 @@ public class DoctorService implements Manageable, Searchable {
 
     public void assignPatient(String doctorId, String patientId) {
         Doctor d = getDoctorById(doctorId);
-        if (HelperUtils.isNull(d)) { System.out.println(Constants.DOCTOR_NOT_FOUND); return; }
+        if (HelperUtils.isNull(d)) { return; }
         d.assignPatient(patientId);
         System.out.println(Constants.PATIENT_ASSIGNED_SUCCESSFULLY);
     }
