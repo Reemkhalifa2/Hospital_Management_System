@@ -131,7 +131,7 @@ public class NurseService implements Manageable, Searchable {
     public void add(Object entity) {
         Nurse nurse = (Nurse) entity;
         for(Nurse n : nurses){
-            if(!nurse.getId().equals(n.getId())){
+            if(nurse.getId().equals(n.getId())){
                 return;
             }
 
