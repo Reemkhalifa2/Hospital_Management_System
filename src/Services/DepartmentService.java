@@ -4,6 +4,7 @@ import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entities.Department;
 import Utilities.Constants;
+import Utilities.HelperUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +20,6 @@ public class DepartmentService implements Manageable, Searchable {
     }
 
     public Department addDepartment(){
-        System.out.print("Enter Department ID: ");
-        String departmentId = scanner.nextLine();
 
         System.out.print("Enter Department Name: ");
         String departmentName = scanner.nextLine();
@@ -37,7 +36,7 @@ public class DepartmentService implements Manageable, Searchable {
         System.out.print("Enter Available Beds: ");
         int availableBeds = scanner.nextInt();
         Department department = new Department(
-                departmentId,
+                HelperUtils.generateId("D-"),
                 departmentName,
                 headDoctorId,
                 bedCapacity
