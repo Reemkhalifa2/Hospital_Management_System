@@ -6,6 +6,8 @@ import Entities.Doctor.Doctor;
 import Entities.Patient.Patient;
 import Utilities.Constants;
 import Utilities.HelperUtils;
+import Utilities.InputHandler;
+import Utilities.MenuMessage;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -240,7 +242,7 @@ public class DoctorService implements Manageable, Searchable {
 
     @Override
     public Void getAll() {
-
+        return null ;
     }
 
     @Override
@@ -256,6 +258,25 @@ public class DoctorService implements Manageable, Searchable {
             if(doctor.getId().equals(id)){
                 doctor.displayInfo();
             }
+        }
+
+    }
+
+    public void handleDoctorMenu(){
+        Boolean doctorMenu = true;
+        while (doctorMenu) {
+            System.out.println(MenuMessage.PatientManagementMenu);
+            int option = InputHandler.getIntInput(Constants.ENTER_OPTION,0,9);
+            switch (option) {
+
+
+
+                case 0 ->{
+                    doctorMenu = false;
+                }
+
+            }
+
         }
 
     }
