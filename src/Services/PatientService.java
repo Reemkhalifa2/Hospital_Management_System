@@ -18,11 +18,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 public class PatientService implements Manageable, Searchable, Editable {
 
-    static Scanner scanner = new Scanner(System.in);
     private static List<Patient> patients = new ArrayList<>();
 
     public static void addPatients(Patient patient) {
@@ -55,8 +53,7 @@ public class PatientService implements Manageable, Searchable, Editable {
         Boolean hasAllergies = InputHandler.getConfirmation("Do have any allergies? ");
         List<String> allergies = new ArrayList<>();
         if(hasAllergies){
-            System.out.println("Enter allergies separated by commas:");
-            String allergiesInput = scanner.nextLine();
+            String allergiesInput = InputHandler.getStringInput("Enter allergies separated by commas: ");
             allergies.add(Arrays.toString(allergiesInput.split(",")));
         }
 
@@ -83,7 +80,7 @@ public class PatientService implements Manageable, Searchable, Editable {
         List<String> allergies = new ArrayList<>();
         if(hasAllergies){
             System.out.println("Enter allergies separated by commas:");
-            String allergiesInput = scanner.nextLine();
+            String allergiesInput = InputHandler.getStringInput("Enter allergies separated by commas: ");
             allergies.add(Arrays.toString(allergiesInput.split(",")));
         }
 
@@ -119,7 +116,7 @@ public class PatientService implements Manageable, Searchable, Editable {
         List<String> allergies = new ArrayList<>();
         if(hasAllergies){
             System.out.println("Enter allergies separated by commas:");
-            String allergiesInput = scanner.nextLine();
+            String allergiesInput = InputHandler.getStringInput("Enter allergies separated by commas: ");
             allergies.add(Arrays.toString(allergiesInput.split(",")));
         }
         String prefDr = InputHandler.getStringInput(" Preferred Doctor ID: ");
@@ -152,8 +149,7 @@ public class PatientService implements Manageable, Searchable, Editable {
 
         if (hasAllergies) {
             System.out.println("Enter allergies separated by commas:");
-            String allergiesInput = scanner.nextLine();
-
+            String allergiesInput = InputHandler.getStringInput("Enter allergies separated by commas: ");
             allergies = Arrays.asList(allergiesInput.split(","));
         }
 
