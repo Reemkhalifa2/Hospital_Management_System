@@ -127,13 +127,9 @@ public class PatientService implements Manageable, Searchable, Editable {
         }
     }*/
     public static Patient  getPatientById(String patientId){
-        Patient patient = new Patient();
         for(Patient p : patients){
             if(p.getId().equals(patientId)){
-                patient= p;
-            }else{
-                System.out.println(Constants.PATIENT_NOT_FOUND);
-                break;
+                return p ;
             }
         }
 
