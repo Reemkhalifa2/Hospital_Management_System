@@ -1,7 +1,9 @@
 import Menu.Menu;
+import Services.doctorService;
 import Services.PatientService;
 import Utilities.Constants;
 import Utilities.InputHandler;
+import Utilities.SampleData;
 
 import java.util.Scanner;
 
@@ -11,7 +13,9 @@ public class HospitalManagementApp {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        SampleData.loadData();
         PatientService patientService = new PatientService();
+        doctorService doctorService = new doctorService();
         Menu menu = new Menu();
         boolean Continue = true;
         while (Continue) {
@@ -19,8 +23,8 @@ public class HospitalManagementApp {
             int choice = InputHandler.getIntInput(Constants.ENTER_OPTION, 1, 8);
             switch (choice) {
                 case 1 -> patientService.handlePatientMenu();
-            /*    case 2 -> doctorMenu();
-                case 3 -> nurseMenu();
+                case 2 -> doctorService.handleDoctorMenu();
+             /*   case 3 -> nurseMenu();
                 case 4 -> appointmentMenu();
                 case 5 -> medicalRecordMenu();
                 case 6 -> departmentMenu();
