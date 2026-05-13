@@ -22,7 +22,7 @@ public class NurseService implements Manageable, Searchable {
         System.out.println(Constants.NURSE_ADDED_SUCCESSFULLY);
     }
 
-    public Nurse addNurses(){
+    public void addNurses(){
 
         String firstName = InputHandler.getStringInput("Enter first name: ");
 
@@ -59,7 +59,7 @@ public class NurseService implements Manageable, Searchable {
                 qualification
         );
 
-        return nurse;
+        addNurse(nurse);
 
 
     }
@@ -157,7 +157,7 @@ public class NurseService implements Manageable, Searchable {
             System.out.println(MenuMessage.NurseManagementMenu);
             int option = InputHandler.getIntInput(Constants.ENTER_OPTION,0,9);
             switch (option){
-                case 1 -> addNurse(addNurses());
+                case 1 -> addNurses();
 
             }
         }
