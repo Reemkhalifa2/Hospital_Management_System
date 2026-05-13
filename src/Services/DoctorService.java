@@ -148,18 +148,11 @@ public class DoctorService implements Manageable, Searchable , Editable {
 
         doctors.add(doctor);
     }
-    public static void updateDoctor(Doctor doctor) {
+    public void updateDoctor(){
 
-        doctor.setQualification(
-                InputHandler.getStringInput("Enter qualification: ")
-        );
+        String doctorId = InputHandler.getStringInput("Enter doctor ID: ");
 
-        doctor.setExperienceYears(
-                InputHandler.getIntInput("Enter years of experience: ")
-        );
-
-        System.out.println(Constants.DOCTOR_UPDATED_SUCCESSFULLY);
-    }
+        Doctor existingDoctor = getDoctorById(doctorId);
 
 
     public static void updateDoctor() {
