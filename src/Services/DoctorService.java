@@ -142,22 +142,6 @@ public class DoctorService implements Manageable, Searchable {
                 InputHandler.getIntInput("Enter years of experience: ")
         );
 
-
-        return doctor;
-
-    }
-
-
-    public void editDoctor(String doctorId, Doctor updatedDoctor){
-        Doctor existing = getDoctorById(doctorId);
-        if (HelperUtils.isNull(existing)) { System.out.println(Constants.DOCTOR_NOT_FOUND
-        ); return; }
-        existing.setFirstName(updatedDoctor.getFirstName());
-        existing.setLastName(updatedDoctor.getLastName());
-        existing.setSpecialization(updatedDoctor.getSpecialization());
-        existing.setQualification(updatedDoctor.getQualification());
-        existing.setExperienceYears(updatedDoctor.getExperienceYears());
-        existing.updateFee(updatedDoctor.getConsultationFee());
         System.out.println(Constants.DOCTOR_UPDATED_SUCCESSFULLY);
     }
 
