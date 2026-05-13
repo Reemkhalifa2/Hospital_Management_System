@@ -133,6 +133,33 @@ public class DoctorService implements Manageable, Searchable {
 
         doctors.add(doctor);
     }
+    public static Doctor updatePatient( ){
+        Doctor doctor = new Doctor();
+
+        System.out.print("Enter First Name: ");
+        String firstName = scanner.nextLine();
+        doctor.setFirstName(firstName);
+
+        System.out.print("Enter Last Name: ");
+        String lastName = scanner.nextLine();
+        doctor.setLastName(lastName);
+
+        System.out.print("Enter Specialization: ");
+        String specialization = scanner.nextLine();
+        doctor.setSpecialization(specialization);
+
+        System.out.print("Enter Qualification: ");
+        String qualification = scanner.nextLine();
+        doctor.setQualification(qualification);
+
+        System.out.print("Enter Experience Years: ");
+        int experienceYears = scanner.nextInt();
+        doctor.setExperienceYears(experienceYears);
+
+
+        return doctor;
+
+    }
 
 
     public void editDoctor(String doctorId, Doctor updatedDoctor){
@@ -302,6 +329,8 @@ public class DoctorService implements Manageable, Searchable {
             System.out.println(MenuMessage.PatientManagementMenu);
             int option = InputHandler.getIntInput(Constants.ENTER_OPTION,0,9);
             switch (option) {
+
+
 
 
 
