@@ -11,6 +11,10 @@ import java.util.Scanner;
 
 public class Nurse extends Person implements Displayable {
 
+    public Nurse() {
+        super();
+    }
+
     public String getDepartmentId() {
         return departmentId;
     }
