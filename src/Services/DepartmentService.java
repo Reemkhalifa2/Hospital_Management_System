@@ -108,8 +108,8 @@ public class DepartmentService implements Manageable, Searchable {
     }
 
     @Override
-    public Void getAll() {
-        return null;
+    public void getAll() {
+
     }
 
     @Override
