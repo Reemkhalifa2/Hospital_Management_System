@@ -8,7 +8,7 @@ import Entities.Patient.EmergencyPatient;
 import Entities.Patient.InPatient;
 import Entities.Patient.OutPatient;
 import Entities.Patient.Patient;
-import Menu.Menu;
+
 import Utilities.Constants;
 import Utilities.HelperUtils;
 import Utilities.InputHandler;
@@ -273,8 +273,13 @@ public class PatientService implements Manageable, Searchable, Editable {
     }
 
     @Override
-    public Void getAll() {
-        return null;
+    public void getAll() {
+        if (!HelperUtils.isNull(patients)) {
+            patients.forEach(p -> p.displayInfo());
+
+        }else {
+            System.out.println("No patients");
+        }
     }
 
     @Override
@@ -492,7 +497,7 @@ public class PatientService implements Manageable, Searchable, Editable {
                     registerEmergencyPatient();
                 }
                 case 5->{
-                    displayPatients();
+                    getAll();
                 }
                 case 6->{
                     String key = InputHandler.getStringInput("Search keyword: ");
