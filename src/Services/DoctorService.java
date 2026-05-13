@@ -134,9 +134,9 @@ public class DoctorService implements Manageable, Searchable {
     }
     public static void updateDoctor(Doctor doctor) {
 
-        System.out.print("Enter Qualification: ");
-        String qualification = scanner.nextLine();
-        doctor.setQualification(qualification);
+        doctor.setQualification(
+                InputHandler.getStringInput("Enter qualification: ")
+        );
 
         System.out.print("Enter Experience Years: ");
         int experienceYears = scanner.nextInt();
