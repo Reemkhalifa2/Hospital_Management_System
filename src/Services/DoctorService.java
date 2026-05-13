@@ -87,7 +87,7 @@ public class DoctorService implements Manageable, Searchable {
         double fee    = InputHandler.getDoubleInput("Consultation Fee: ");
         boolean online = InputHandler.getConfirmation(" Online consultations?");
         int dur        = InputHandler.getIntInput(" Duration (minutes): ", 15, 120);
-        Consultant c = new Consultant(id, firstName, lastName, dob, gender, phone, email, address,
+        Consultant c = new Consultant(HelperUtils.generateId("Cons-",4), firstName, lastName, dob, gender, phone, email, address,
                 specialization, qualification, experience, deptId, fee, new ArrayList<>(), online, dur);
         addDoctor(c);
     }
