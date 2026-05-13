@@ -201,6 +201,18 @@ public class NurseService implements Manageable, Searchable , Editable {
 
     @Override
     public void searchById(String id) {
+        boolean found = false;
+        for(Nurse n : nurses){
+            if(n.getId().equals(id)
+            ){
+                n.displayInfo();
+                found = true;
+            }
+        }
+
+        if(!found){
+            System.out.println(Constants.NURSE_NOT_FOUND);
+        }
 
     }
     public void updateNurse(){
