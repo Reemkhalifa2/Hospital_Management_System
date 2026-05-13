@@ -11,6 +11,18 @@ import Entities.Patient.EmergencyPatient;
 import Entities.Patient.InPatient;
 import Entities.Patient.OutPatient;
 import Entities.Patient.Patient;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+
+
+import Entities.Doctor.Consultant;
+import Entities.Doctor.Doctor;
+import Entities.Doctor.GeneralPractitioner;
+import Entities.Doctor.Surgeon;
+import Entities.Patient.Patient;
 import Services.*;
 
 import java.time.LocalDate;
@@ -19,24 +31,25 @@ import java.util.Arrays;
 
 public class SampleData {
 
-    public static void loadPatients() {
-        DoctorService doctorService = new DoctorService();
+
+    public static void loadData() {
+
         DepartmentService departmentService = new DepartmentService();
         PatientService patientService = new PatientService();
         MedicalRecordService medicalRecordService = new MedicalRecordService();
         AppointmentService appointmentService = new AppointmentService();
 
-        departmentService.add(new Department("DEP-001", "Cardiology",     "DOC-001", 40));
+       /* departmentService.add(new Department("DEP-001", "Cardiology",     "DOC-001", 40));
         departmentService.add(new Department("DEP-002", "Neurology",      "DOC-002", 30));
         departmentService.add(new Department("DEP-003", "Pediatrics",     "DOC-003", 25));
         departmentService.add(new Department("DEP-004", "Emergency",      "DOC-004", 20));
         departmentService.add(new Department("DEP-005", "General Medicine","DOC-005", 50));
-
+*/
 
         Patient p1 = new Patient("P",
                 "Ali",
                 "Ahmed",
-                LocalDate.of(2000,1,1),
+                LocalDate.of(2000, 1, 1),
                 "Male",
                 "99999999",
                 "ali@gmail.com",
@@ -52,7 +65,7 @@ public class SampleData {
                 "P",
                 "Sara",
                 "Mohammed",
-                LocalDate.of(1999,5,10),
+                LocalDate.of(1999, 5, 10),
                 "Female",
                 "98888888",
                 "sara@gmail.com",
@@ -68,7 +81,7 @@ public class SampleData {
                 "P",
                 "Omar",
                 "Salim",
-                LocalDate.of(1998,3,20),
+                LocalDate.of(1998, 3, 20),
                 "Male",
                 "97777777",
                 "omar@gmail.com",
@@ -84,7 +97,7 @@ public class SampleData {
                 "P",
                 "Hana",
                 "Nasser",
-                LocalDate.of(2014,8,22),
+                LocalDate.of(2014, 8, 22),
                 "Female",
                 "97777777",
                 "hana@gmail.com",
@@ -94,18 +107,18 @@ public class SampleData {
                 LocalDate.now(),
                 "INS004",
                 new ArrayList<>(Arrays.asList()),
-                LocalDate.of(2026,02,02),
-                LocalDate.of(2026,02,20),
+                LocalDate.of(2026, 02, 02),
+                LocalDate.of(2026, 02, 20),
                 "Room-05",
                 "Bed-1",
                 "D45446",
                 3.5
-                );
+        );
         OutPatient p5 = new OutPatient(
                 "P005",
                 "Mona",
                 "Khalid",
-                LocalDate.of(2001,4,15),
+                LocalDate.of(2001, 4, 15),
                 "Female",
                 "94444444",
                 "mona@gmail.com",
@@ -116,7 +129,7 @@ public class SampleData {
                 "INS005",
                 new ArrayList<>(Arrays.asList("Seafood")),
                 5,
-                LocalDate.of(2026,1,15),
+                LocalDate.of(2026, 1, 15),
                 "D100"
         );
 
@@ -124,7 +137,7 @@ public class SampleData {
                 "P006",
                 "Yousef",
                 "Said",
-                LocalDate.of(1997,11,2),
+                LocalDate.of(1997, 11, 2),
                 "Male",
                 "95555555",
                 "yousef@gmail.com",
@@ -135,7 +148,7 @@ public class SampleData {
                 "INS006",
                 new ArrayList<>(Arrays.asList()),
                 2,
-                LocalDate.of(2026,3,1),
+                LocalDate.of(2026, 3, 1),
                 "D101"
         );
 
@@ -143,7 +156,7 @@ public class SampleData {
                 "P007",
                 "Fatma",
                 "Ali",
-                LocalDate.of(2003,6,30),
+                LocalDate.of(2003, 6, 30),
                 "Female",
                 "96666666",
                 "fatma@gmail.com",
@@ -154,7 +167,7 @@ public class SampleData {
                 "INS007",
                 new ArrayList<>(Arrays.asList("Milk")),
                 7,
-                LocalDate.of(2026,2,10),
+                LocalDate.of(2026, 2, 10),
                 "D102"
         );
 
@@ -162,7 +175,7 @@ public class SampleData {
                 "P008",
                 "Majid",
                 "Hamad",
-                LocalDate.of(1995,9,12),
+                LocalDate.of(1995, 9, 12),
                 "Male",
                 "97778888",
                 "majid@gmail.com",
@@ -172,8 +185,8 @@ public class SampleData {
                 LocalDate.now(),
                 "INS008",
                 new ArrayList<>(Arrays.asList("Dust")),
-                LocalDate.of(2026,4,1),
-                LocalDate.of(2026,4,12),
+                LocalDate.of(2026, 4, 1),
+                LocalDate.of(2026, 4, 12),
                 "Room-10",
                 "Bed-2",
                 "D103",
@@ -184,7 +197,7 @@ public class SampleData {
                 "P009",
                 "Noor",
                 "Salem",
-                LocalDate.of(2002,12,5),
+                LocalDate.of(2002, 12, 5),
                 "Female",
                 "98889999",
                 "noor@gmail.com",
@@ -194,8 +207,8 @@ public class SampleData {
                 LocalDate.now(),
                 "INS009",
                 new ArrayList<>(Arrays.asList("Pollen")),
-                LocalDate.of(2026,1,20),
-                LocalDate.of(2026,1,28),
+                LocalDate.of(2026, 1, 20),
+                LocalDate.of(2026, 1, 28),
                 "Room-03",
                 "Bed-4",
                 "D104",
@@ -206,7 +219,7 @@ public class SampleData {
                 "P010",
                 "Saif",
                 "Rashid",
-                LocalDate.of(1990,7,18),
+                LocalDate.of(1990, 7, 18),
                 "Male",
                 "99990000",
                 "saif@gmail.com",
@@ -216,8 +229,8 @@ public class SampleData {
                 LocalDate.now(),
                 "INS010",
                 new ArrayList<>(Arrays.asList("Medicine")),
-                LocalDate.of(2026,5,1),
-                LocalDate.of(2026,5,5),
+                LocalDate.of(2026, 5, 1),
+                LocalDate.of(2026, 5, 5),
                 "ER-01",
                 "Bed-ER",
                 "D105",
@@ -227,15 +240,15 @@ public class SampleData {
                 1,
                 true
         );
-        patientService.add(p1);
-        patientService.add(p2);
-        patientService.add(p3);
-        patientService.add(p4);
-        patientService.add(p5);
-        patientService.add(p6);
-        patientService.add(p7);
-        patientService.add(p8);
-        patientService.add(p9);
+        patientService.addPatients(p1);
+        patientService.addPatients(p2);
+        patientService.addPatients(p3);
+        patientService.addPatients(p4);
+        patientService.addPatients(p5);
+        patientService.addPatients(p6);
+        patientService.addPatients(p7);
+        patientService.addPatients(p8);
+        patientService.addPatients(p9);
 
 
         //Doctors sample data
@@ -244,7 +257,7 @@ public class SampleData {
                 "D001",
                 "Ahmed",
                 "Salim",
-                LocalDate.of(1980,5,12),
+                LocalDate.of(1980, 5, 12),
                 "Male",
                 "91111111",
                 "ahmed@hospital.com",
@@ -253,14 +266,18 @@ public class SampleData {
                 "MBBS",
                 15,
                 "DEP01",
-                25.0
+                25.0,
+                new ArrayList<>(),
+                true,
+                4
+
         );
 
         Consultant d2 = new Consultant(
                 "D002",
                 "Mariam",
                 "Ali",
-                LocalDate.of(1985,3,20),
+                LocalDate.of(1985, 3, 20),
                 "Female",
                 "92222222",
                 "mariam@hospital.com",
@@ -269,14 +286,17 @@ public class SampleData {
                 "MD",
                 12,
                 "DEP02",
-                20.0
+                20.0,
+                new ArrayList<>(),
+                false,
+                2
         );
 
         GeneralPractitioner d3 = new GeneralPractitioner(
                 "D003",
                 "Hassan",
                 "Khalid",
-                LocalDate.of(1978,9,15),
+                LocalDate.of(1978, 9, 15),
                 "Male",
                 "93333333",
                 "hassan@hospital.com",
@@ -295,7 +315,7 @@ public class SampleData {
                 "D004",
                 "Fatma",
                 "Saeed",
-                LocalDate.of(1990,11,25),
+                LocalDate.of(1990, 11, 25),
                 "Female",
                 "94444444",
                 "fatma@hospital.com",
@@ -314,7 +334,7 @@ public class SampleData {
                 "D005",
                 "Salem",
                 "Nasser",
-                LocalDate.of(1975,1,30),
+                LocalDate.of(1975, 1, 30),
                 "Male",
                 "95555555",
                 "salem@hospital.com",
@@ -332,7 +352,7 @@ public class SampleData {
                 "D006",
                 "Noor",
                 "Hamed",
-                LocalDate.of(1988,7,14),
+                LocalDate.of(1988, 7, 14),
                 "Female",
                 "96666666",
                 "noor@hospital.com",
@@ -350,7 +370,7 @@ public class SampleData {
                 "D007",
                 "Omar",
                 "Rashid",
-                LocalDate.of(1982,6,18),
+                LocalDate.of(1982, 6, 18),
                 "Male",
                 "97777777",
                 "omar@hospital.com",
@@ -359,14 +379,17 @@ public class SampleData {
                 "MBBS",
                 14,
                 "DEP05",
-                22.0
+                22.0,
+                new ArrayList<>(),
+                true,
+                4
         );
 
         GeneralPractitioner d8 = new GeneralPractitioner(
                 "D008",
                 "Aisha",
                 "Mohammed",
-                LocalDate.of(1992,2,8),
+                LocalDate.of(1992, 2, 8),
                 "Female",
                 "98888888",
                 "aisha@hospital.com",
@@ -380,13 +403,21 @@ public class SampleData {
                 true,
                 false
         );
+        doctorService.addDoctor(d1);
+        doctorService.addDoctor(d2);
+        doctorService.addDoctor(d3);
+        doctorService.addDoctor(d4);
+        doctorService.addDoctor(d5);
+        doctorService.addDoctor(d6);
+        doctorService.addDoctor(d7);
+        doctorService.addDoctor(d8);
 
         //sample data for databases
         Nurse n1 = new Nurse(
                 "N001",
                 "Layla",
                 "Ahmed",
-                LocalDate.of(1995,4,10),
+                LocalDate.of(1995, 4, 10),
                 "Female",
                 "91112222",
                 "layla@hospital.com",
@@ -400,7 +431,7 @@ public class SampleData {
                 "N002",
                 "Khalid",
                 "Salim",
-                LocalDate.of(1992,8,21),
+                LocalDate.of(1992, 8, 21),
                 "Male",
                 "92223333",
                 "khalid@hospital.com",
@@ -414,7 +445,7 @@ public class SampleData {
                 "N003",
                 "Maha",
                 "Nasser",
-                LocalDate.of(1998,1,15),
+                LocalDate.of(1998, 1, 15),
                 "Female",
                 "93334444",
                 "maha@hospital.com",
@@ -428,7 +459,7 @@ public class SampleData {
                 "N004",
                 "Saeed",
                 "Ali",
-                LocalDate.of(1990,11,5),
+                LocalDate.of(1990, 11, 5),
                 "Male",
                 "94445555",
                 "saeed@hospital.com",
@@ -442,7 +473,7 @@ public class SampleData {
                 "N005",
                 "Huda",
                 "Mohammed",
-                LocalDate.of(1997,6,30),
+                LocalDate.of(1997, 6, 30),
                 "Female",
                 "95556666",
                 "huda@hospital.com",
@@ -481,7 +512,7 @@ public class SampleData {
                 "A001",
                 "P001",
                 "D001",
-                LocalDate.of(2026,5,15),
+                LocalDate.of(2026, 5, 15),
                 "09:00 AM",
                 "Scheduled",
                 "Heart Checkup",
@@ -492,7 +523,7 @@ public class SampleData {
                 "A002",
                 "P002",
                 "D002",
-                LocalDate.of(2026,5,16),
+                LocalDate.of(2026, 5, 16),
                 "11:30 AM",
                 "Completed",
                 "Skin Allergy",
@@ -503,7 +534,7 @@ public class SampleData {
                 "A003",
                 "P003",
                 "D003",
-                LocalDate.of(2026,5,17),
+                LocalDate.of(2026, 5, 17),
                 "02:00 PM",
                 "Scheduled",
                 "General Fever",
@@ -514,7 +545,7 @@ public class SampleData {
                 "A004",
                 "P005",
                 "D004",
-                LocalDate.of(2026,5,18),
+                LocalDate.of(2026, 5, 18),
                 "10:15 AM",
                 "Cancelled",
                 "Routine Checkup",
@@ -525,7 +556,7 @@ public class SampleData {
                 "A005",
                 "P008",
                 "D005",
-                LocalDate.of(2026,5,19),
+                LocalDate.of(2026, 5, 19),
                 "01:00 PM",
                 "Scheduled",
                 "Knee Surgery Consultation",
@@ -536,7 +567,7 @@ public class SampleData {
                 "A006",
                 "P004",
                 "D001",
-                LocalDate.of(2026,5,20),
+                LocalDate.of(2026, 5, 20),
                 "09:30 AM",
                 "Scheduled",
                 "Asthma Checkup",
@@ -547,7 +578,7 @@ public class SampleData {
                 "A007",
                 "P006",
                 "D002",
-                LocalDate.of(2026,5,21),
+                LocalDate.of(2026, 5, 21),
                 "10:00 AM",
                 "Completed",
                 "Back Pain Review",
@@ -558,7 +589,7 @@ public class SampleData {
                 "A008",
                 "P007",
                 "D003",
-                LocalDate.of(2026,5,22),
+                LocalDate.of(2026, 5, 22),
                 "11:00 AM",
                 "Scheduled",
                 "Cold & Fever",
@@ -569,7 +600,7 @@ public class SampleData {
                 "A009",
                 "P008",
                 "D004",
-                LocalDate.of(2026,5,23),
+                LocalDate.of(2026, 5, 23),
                 "12:00 PM",
                 "Scheduled",
                 "Injury Follow-up",
@@ -580,7 +611,7 @@ public class SampleData {
                 "A010",
                 "P009",
                 "D005",
-                LocalDate.of(2026,5,24),
+                LocalDate.of(2026, 5, 24),
                 "01:30 PM",
                 "Completed",
                 "Anemia Check",
@@ -591,7 +622,7 @@ public class SampleData {
                 "A011",
                 "P010",
                 "D006",
-                LocalDate.of(2026,5,25),
+                LocalDate.of(2026, 5, 25),
                 "02:15 PM",
                 "Scheduled",
                 "Fracture Review",
@@ -602,7 +633,7 @@ public class SampleData {
                 "A012",
                 "P003",
                 "D007",
-                LocalDate.of(2026,5,26),
+                LocalDate.of(2026, 5, 26),
                 "03:00 PM",
                 "Cancelled",
                 "General Checkup",
@@ -613,7 +644,7 @@ public class SampleData {
                 "A013",
                 "P002",
                 "D008",
-                LocalDate.of(2026,5,27),
+                LocalDate.of(2026, 5, 27),
                 "09:00 AM",
                 "Scheduled",
                 "Skin Review",
@@ -624,7 +655,7 @@ public class SampleData {
                 "A014",
                 "P001",
                 "D002",
-                LocalDate.of(2026,5,28),
+                LocalDate.of(2026, 5, 28),
                 "10:45 AM",
                 "Completed",
                 "Hypertension Follow-up",
@@ -635,7 +666,7 @@ public class SampleData {
                 "A015",
                 "P005",
                 "D003",
-                LocalDate.of(2026,5,29),
+                LocalDate.of(2026, 5, 29),
                 "11:30 AM",
                 "Scheduled",
                 "General Consultation",
@@ -647,7 +678,7 @@ public class SampleData {
                 "MR001",
                 "P001",
                 "D001",
-                LocalDate.of(2026,5,1),
+                LocalDate.of(2026, 5, 1),
                 "Hypertension",
                 "Amlodipine 5mg",
                 "Blood pressure slightly high",
@@ -658,7 +689,7 @@ public class SampleData {
                 "MR002",
                 "P002",
                 "D002",
-                LocalDate.of(2026,5,2),
+                LocalDate.of(2026, 5, 2),
                 "Skin Allergy",
                 "Antihistamine tablets",
                 "Allergy test positive",
@@ -669,7 +700,7 @@ public class SampleData {
                 "MR003",
                 "P003",
                 "D003",
-                LocalDate.of(2026,5,3),
+                LocalDate.of(2026, 5, 3),
                 "Viral Fever",
                 "Paracetamol 500mg",
                 "Blood test normal",
@@ -680,7 +711,7 @@ public class SampleData {
                 "MR004",
                 "P005",
                 "D004",
-                LocalDate.of(2026,5,4),
+                LocalDate.of(2026, 5, 4),
                 "Migraine",
                 "Ibuprofen",
                 "CT scan normal",
@@ -691,7 +722,7 @@ public class SampleData {
                 "MR005",
                 "P008",
                 "D005",
-                LocalDate.of(2026,5,5),
+                LocalDate.of(2026, 5, 5),
                 "Knee Injury",
                 "Pain relief medication",
                 "MRI shows ligament tear",
@@ -702,7 +733,7 @@ public class SampleData {
                 "MR006",
                 "P006",
                 "D006",
-                LocalDate.of(2026,5,6),
+                LocalDate.of(2026, 5, 6),
                 "Back Pain",
                 "Muscle Relaxant",
                 "X-ray normal",
@@ -713,7 +744,7 @@ public class SampleData {
                 "MR007",
                 "P007",
                 "D007",
-                LocalDate.of(2026,5,7),
+                LocalDate.of(2026, 5, 7),
                 "Common Cold",
                 "Cough Syrup",
                 "Temperature slightly elevated",
@@ -724,7 +755,7 @@ public class SampleData {
                 "MR008",
                 "P009",
                 "D008",
-                LocalDate.of(2026,5,8),
+                LocalDate.of(2026, 5, 8),
                 "Anemia",
                 "Iron Supplements",
                 "Hemoglobin level low",
@@ -735,7 +766,7 @@ public class SampleData {
                 "MR009",
                 "P010",
                 "D005",
-                LocalDate.of(2026,5,9),
+                LocalDate.of(2026, 5, 9),
                 "Fracture",
                 "Painkillers",
                 "X-ray confirms arm fracture",
@@ -746,7 +777,7 @@ public class SampleData {
                 "MR010",
                 "P001",
                 "D003",
-                LocalDate.of(2026,5,10),
+                LocalDate.of(2026, 5, 10),
                 "Diabetes",
                 "Metformin",
                 "Blood sugar elevated",
@@ -757,7 +788,7 @@ public class SampleData {
                 "MR011",
                 "P004",
                 "D001",
-                LocalDate.of(2026,5,11),
+                LocalDate.of(2026, 5, 11),
                 "Asthma",
                 "Inhaler",
                 "Breathing test abnormal",
@@ -768,7 +799,7 @@ public class SampleData {
                 "MR012",
                 "P002",
                 "D004",
-                LocalDate.of(2026,5,12),
+                LocalDate.of(2026, 5, 12),
                 "Vitamin D Deficiency",
                 "Vitamin D Capsules",
                 "Vitamin D level low",
@@ -776,6 +807,7 @@ public class SampleData {
         );
 
 
-
     }
+
 }
+
