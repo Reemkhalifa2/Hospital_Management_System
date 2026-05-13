@@ -240,15 +240,15 @@ public class SampleData {
                 1,
                 true
         );
-        patientService.addPatients(p1);
-        patientService.addPatients(p2);
-        patientService.addPatients(p3);
-        patientService.addPatients(p4);
-        patientService.addPatients(p5);
-        patientService.addPatients(p6);
-        patientService.addPatients(p7);
-        patientService.addPatients(p8);
-        patientService.addPatients(p9);
+        patientService.add(p1);
+        patientService.add(p2);
+        patientService.add(p3);
+        patientService.add(p4);
+        patientService.add(p5);
+        patientService.add(p6);
+        patientService.add(p7);
+        patientService.add(p8);
+        patientService.add(p9);
 
 
         //Doctors sample data
