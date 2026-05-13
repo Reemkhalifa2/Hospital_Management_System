@@ -136,17 +136,16 @@ public class DoctorService implements Manageable, Searchable {
 
 
     public void editDoctor(String doctorId, Doctor updatedDoctor){
-        for(Doctor d : doctors){
-            if(d.getId().equals(doctorId)){
-                d.setPhoneNumber(updatedDoctor.getPhoneNumber());
-                d.setEmail(updatedDoctor.getEmail());
-                d.setAddress(updatedDoctor.getAddress());
-
-                System.out.println(Constants.DOCTOR_UPDATED_SUCCESSFULLY);
-                return;
-            }
-        }
-        System.out.println(Constants.DOCTOR_NOT_FOUND);
+        Doctor existing = getDoctorById(doctorId);
+        if (HelperUtils.isNull(existing)) { System.out.println(Constants.DOCTOR_NOT_FOUND
+        ); return; }
+        existing.setFirstName(updatedDoctor.getFirstName());
+        existing.setLastName(updatedDoctor.getLastName());
+        existing.setSpecialization(updatedDoctor.getSpecialization());
+        existing.setQualification(updatedDoctor.getQualification());
+        existing.setExperienceYears(updatedDoctor.getExperienceYears());
+        existing.updateFee(updatedDoctor.getConsultationFee());
+        System.out.println(Constants.DOCTOR_UPDATED_SUCCESSFULLY);
     }
 
     public void removeDoctor(String doctorId){
@@ -251,6 +250,11 @@ public class DoctorService implements Manageable, Searchable {
 
     @Override
     public void remove(String id) {
+        Doctor doctor = getDoctorById(id);
+        if (HelperUtils.isNull(doctor)) { System.out.println(Constants.DOCTOR_NOT_FOUND); return; }
+        doctors.remove(doctor);
+        System.out.println(Constants.DOCTOR_REMOVED_SUCCESSFULLY);
+
 
     }
 
@@ -261,6 +265,22 @@ public class DoctorService implements Manageable, Searchable {
 
     @Override
     public void search(String keyword) {
+        if (HelperUtils.isNull(doctors)) {
+            System.out.println("No Doctors registered.");
+            return;}
+        for (Doctor doctor : doctors) {
+
+            if (doctor.getFirstName().equalsIgnoreCase(keyword)
+                    || doctor.getLastName().equalsIgnoreCase(keyword)
+                    || doctor.getPhoneNumber().equalsIgnoreCase(keyword)
+                    || doctor.getEmail().equalsIgnoreCase(keyword)
+                    || doctor.getId().equalsIgnoreCase(keyword)) {
+
+                doctor.displayInfo();
+                return;
+            }
+        }
+        System.out.println(Constants.DOCTOR_NOT_FOUND);
 
 
 
