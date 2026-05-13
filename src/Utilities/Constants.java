@@ -5,6 +5,7 @@ public class Constants {
     public static String ADD_APPOINTMENT = "Add Appointment: ";
     public static String ENTER_INSURANCE = "Enter new Insurance: ";
     public static String PATIENT_ASSIGNED_SUCCESSFULLY = "Patient assigned successfully.";
+    public static String PATIENT_ALREADY_SUCCESSFULLY = "Patient already assigned.";
     public static String PATIENT_REMOVED_SUCCESSFULLY = "Patient removed successfully";
     public static String PATIENT_ADDED_SUCCESSFULLY = "Patient added successfully";
     public static String AVAILABILITY_UPDATED = "Availability updated";
