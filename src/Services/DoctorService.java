@@ -172,13 +172,13 @@ public class DoctorService implements Manageable, Searchable {
 
 
     public void removeDoctor(String doctorId){
-        for(Doctor d : doctors) {
-            if (d.getId().equals(doctorId)) {
-                doctors.remove(d);
+        Doctor doctor = getDoctorById(doctorId);
+        if(HelperUtils.isNotNull(doctor)){
+                doctors.remove(doctor);
                 System.out.println(Constants.DOCTOR_REMOVED_SUCCESSFULLY);
                 return;
             }
-        }
+
         System.out.println(Constants.DOCTOR_NOT_FOUND);
     }
 
