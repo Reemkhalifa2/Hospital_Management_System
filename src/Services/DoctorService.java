@@ -73,7 +73,6 @@ public class DoctorService implements Manageable, Searchable {
         add(s);
     }
     private void addConsultant() {
-        String id    = HelperUtils.generateId("Cons-",4);
         String firstName    = InputHandler.getStringInput("First Name: ");
         String lastName    = InputHandler.getStringInput("Last Name: ");
         LocalDate dob = InputHandler.getDateInput("Date of Birth");
