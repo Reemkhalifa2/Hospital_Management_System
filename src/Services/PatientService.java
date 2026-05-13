@@ -496,7 +496,7 @@ public class PatientService implements Manageable, Searchable, Editable {
                 }
                 case 6->{
                     String key = InputHandler.getStringInput("Search keyword: ");
-                    searchPatients(key);
+                    search(key);
                 }
                 case 7->{
                     updatePatient();
