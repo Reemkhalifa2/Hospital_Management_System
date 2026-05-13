@@ -28,9 +28,9 @@ public class DoctorService implements Manageable, Searchable {
         if (HelperUtils.isNotNull(getDoctorById(doctor.getId()))){
             System.out.println("Doctor with ID " + doctor.getId() + " already exists."); return;
             }
-            doctors.add(doctor);
+        doctors.add(doctor);
         System.out.println(Constants.DOCTOR_ADDED_SUCCESSFULLY);
-        }
+
     }
 
     private void addDoctor() {
