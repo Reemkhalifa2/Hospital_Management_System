@@ -310,13 +310,26 @@ public class PatientService implements Manageable, Searchable, Editable {
             return;
         }
 
-    private static void updatePatient() {
-        String id = InputHandler.getStringInput("Patient ID to update: ");
-        Patient existing = getPatientById(id);
-        if (HelperUtils.isNull(existing)) { return; }else{
-            updatePatient(existing);
+        String phone = InputHandler.getStringInput("Enter new phone number: ");
 
-        }
+        String email = InputHandler.getStringInput("Enter new email: ");
+
+        String address = InputHandler.getStringInput("Enter new address: ");
+
+        String emergencyContact = InputHandler.getStringInput("Enter new emergency contact: ");
+
+        String insuranceId = InputHandler.getStringInput("Enter new insurance ID: ");
+
+        Patient updatedPatient = new Patient();
+
+        updatedPatient.setId(patientId);
+        updatedPatient.setPhoneNumber(phone);
+        updatedPatient.setEmail(email);
+        updatedPatient.setAddress(address);
+        updatedPatient.setEmergencyContact(emergencyContact);
+        updatedPatient.setInsuranceId(insuranceId);
+
+        edit(updatedPatient);
     }
 
 
