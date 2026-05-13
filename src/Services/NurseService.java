@@ -156,7 +156,9 @@ public class NurseService implements Manageable, Searchable {
         while (nurseExit){
             System.out.println(MenuMessage.NurseManagementMenu);
             int option = InputHandler.getIntInput(Constants.ENTER_OPTION,0,9);
-
+            switch (option){
+                
+            }
         }
     }
 }
