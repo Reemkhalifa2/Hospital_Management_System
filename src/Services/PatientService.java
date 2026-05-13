@@ -117,7 +117,7 @@ public class PatientService implements Manageable, Searchable, Editable {
         updatedPatient.setAddress(InputHandler.getStringInput("Enter new address: "));
         System.out.println(Constants.PATIENT_UPDATED_SUCCESSFULLY);
     }
-    public void removePatient(String patientId){
+    /*public void removePatient(String patientId){
         for(Patient p : patients){
             if(p.getId().equals(patientId)){
 
@@ -125,7 +125,7 @@ public class PatientService implements Manageable, Searchable, Editable {
                 System.out.println(Constants.PATIENT_REMOVED_SUCCESSFULLY);
             }
         }
-    }
+    }*/
     public static Patient  getPatientById(String patientId){
         Patient patient = new Patient();
         for(Patient p : patients){
