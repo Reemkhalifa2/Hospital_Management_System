@@ -348,9 +348,9 @@ public class PatientService implements Manageable, Searchable, Editable {
     public void remove(String id) {
 
         Patient p = getPatientById(id);
-            if (HelperUtils.isNull(p)) { System.out.println(Constants.PATIENT_NOT_FOUND); return; }
-            patients.remove(p);
-            System.out.println(Constants.PATIENT_REMOVED_SUCCESSFULLY);
+        if (HelperUtils.isNull(p)) { System.out.println(Constants.PATIENT_NOT_FOUND); return; }
+        patients.remove(p);
+        System.out.println(Constants.PATIENT_REMOVED_SUCCESSFULLY);
 
 
     }
