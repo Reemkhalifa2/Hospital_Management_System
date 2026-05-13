@@ -234,13 +234,15 @@ public class DoctorService implements Manageable, Searchable {
         Doctor d = getDoctorById(doctorId);
         if (HelperUtils.isNull(d)) { System.out.println(Constants.DOCTOR_NOT_FOUND); return; }
         d.assignPatient(patientId);
-        System.out.println("  [✓] Patient " + patientId + " assigned to Dr. " + d.getFullName());
+        System.out.println(Constants.PATIENT_ASSIGNED_SUCCESSFULLY);
     }
 
 
 
     public void  assignPatient(Doctor doctor, Patient patient){
-        doctor.getAssignedPatients().add(patient);
+        if (HelperUtils.isNull(doctor) || HelperUtils.isNull(patient)) return;
+        doctor.assignPatient(patient.getId());
+        System.out.println(Constants.PATIENT_ASSIGNED_SUCCESSFULLY);
     }
 
     public void  assignPatient(String doctorId, List<String> patientIds) {
@@ -326,12 +328,13 @@ public class DoctorService implements Manageable, Searchable {
     public void handleDoctorMenu(){
         Boolean doctorMenu = true;
         while (doctorMenu) {
-            System.out.println(MenuMessage.PatientManagementMenu);
+            System.out.println(MenuMessage.DoctorManagementMenu);
             int option = InputHandler.getIntInput(Constants.ENTER_OPTION,0,9);
             switch (option) {
-
-
-
+                case 1-> addDoctor();
+                case 2-> addSurgeon();
+                case 3-> addConsultant();
+                case 4-> addGeneralPractitioner();
 
 
 
