@@ -154,6 +154,11 @@ public class DepartmentService implements Manageable, Searchable {
                 case 1 -> addDepartment();
                 case 2 -> getDepartments();
                 case 3 -> viewDepartmentDetails();
+                case 4-> {
+                    String doctorId     = InputHandler.getStringInput("Enter doctor ID: ");
+                    String departmentId = InputHandler.getStringInput("Enter department ID: ");
+                    assignDoctorToDepartment(doctorId,departmentId);
+                }
 
 
 
