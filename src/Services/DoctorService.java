@@ -115,7 +115,7 @@ public class DoctorService implements Manageable, Searchable {
 
     public void addDoctor(String name, String specialization, String phone){
         Doctor doctor = new Doctor();
-
+        doctor.setId(HelperUtils.generateId("DOC",4));
         doctor.setFirstName(name);
         doctor.setSpecialization(specialization);
         doctor.setPhoneNumber(phone);
