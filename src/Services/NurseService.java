@@ -202,7 +202,25 @@ public class NurseService implements Manageable, Searchable , Editable {
     public void searchById(String id) {
 
     }
-    
+    public void updateNurse(){
+
+        String nurseId = InputHandler.getStringInput("Enter nurse ID: ");
+        Nurse existingNurse = getNurseById(nurseId);
+        if(HelperUtils.isNull(existingNurse)){
+            return;
+        }
+        String phone = InputHandler.getStringInput("Enter new phone number: ");
+        String email = InputHandler.getStringInput("Enter new email: ");
+        String address = InputHandler.getStringInput("Enter new address: ");
+        Nurse updatedNurse = new Nurse();
+        updatedNurse.setId(nurseId);
+        updatedNurse.setPhoneNumber(phone);
+        updatedNurse.setEmail(email);
+        updatedNurse.setAddress(address);
+
+        edit(updatedNurse);
+    }
+
 
     @Override
     public void edit(Object updatedData) {
