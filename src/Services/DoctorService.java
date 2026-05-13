@@ -371,4 +371,14 @@ public class DoctorService implements Manageable, Searchable , Editable {
         }
 
     }
+
+    @Override
+    public void edit(Object updatedData) {
+
+    }
+
+    @Override
+    public void validate() {
+
+    }
 }
