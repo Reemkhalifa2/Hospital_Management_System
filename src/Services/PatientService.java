@@ -2,6 +2,7 @@ package Services;
 
 import Behaviour.Manageable;
 import Behaviour.Searchable;
+import Entities.MedicalRecord;
 import Entities.Patient.EmergencyPatient;
 import Entities.Patient.InPatient;
 import Entities.Patient.OutPatient;
@@ -249,7 +250,19 @@ public class PatientService implements Manageable, Searchable {
 
     }
 
-    public static void handlePatientMenu(){
+    public void displayPatientHistory(String patientId) {
+        Patient p = getPatientById(patientId);
+        if (HelperUtils.isNull(p)) { System.out.println(Constants.PATIENT_NOT_FOUND); return; }
+        if (p.getMedicalRecords().isEmpty()) {
+            System.out.println("No medical records.");
+        } else {
+            for(MedicalRecord m :p.getMedicalRecords()){
+                m.displayInfo();
+            }
+        }
+    }
+
+    public void handlePatientMenu(){
         Boolean patientExit = true;
         while (patientExit) {
             int option = scanner.nextInt();
@@ -297,9 +310,8 @@ public class PatientService implements Manageable, Searchable {
     public void add(Object entity) {
 
     }
-
     @Override
-    public static void remove(String id) {
+    public void remove(String id) {
 
         Patient p = getPatientById(id);
             if (HelperUtils.isNull(p)) { System.out.println(Constants.PATIENT_NOT_FOUND); return; }
