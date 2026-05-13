@@ -5,6 +5,7 @@ import Entities.Patient.Patient;
 import Entities.Person;
 import Services.PatientService;
 import Utilities.Constants;
+import Utilities.HelperUtils;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -15,11 +16,11 @@ public class Doctor extends Person implements Displayable {
     static Scanner scanner = new Scanner(System.in);
     PatientService patientService = new PatientService();
 
-    public List<Patient> getAssignedPatients() {
+    public List<String> getAssignedPatients() {
         return assignedPatients;
     }
 
-    public void setAssignedPatients(List<Patient> assignedPatients) {
+    public void setAssignedPatients(List<String> assignedPatients) {
 
         this.assignedPatients = assignedPatients;
     }
@@ -95,7 +96,7 @@ public class Doctor extends Person implements Displayable {
     private String departmentId;
     private double consultationFee;
     private List<String> availableSlots;
-    private List<Patient> assignedPatients;
+    private List<String> assignedPatients;
 
     //call parent constructor
     public Doctor() {
@@ -121,8 +122,9 @@ public class Doctor extends Person implements Displayable {
     }
 
 
-    public void assignPatient() {
-
+    public void assignPatient(String patientId) {
+        if (HelperUtils.isNotNull(patientId) && !assignedPatients.contains(patientId))
+            assignedPatients.add(patientId);
     }
 
 
@@ -153,10 +155,10 @@ public class Doctor extends Person implements Displayable {
             System.out.print(slot + ",");
         }
 
-        System.out.println("Assigned Patients");
-        for(Patient patient : assignedPatients){
+        /*System.out.println("Assigned Patients");
+        for(String patient : assignedPatients){
             patient.displayInfo();
-        }
+        }*/
     }
 
     @Override

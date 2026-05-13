@@ -11,7 +11,7 @@ import Entities.Patient.EmergencyPatient;
 import Entities.Patient.InPatient;
 import Entities.Patient.OutPatient;
 import Entities.Patient.Patient;
-import Services.PatientService;
+import Services.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -20,6 +20,18 @@ import java.util.Arrays;
 public class SampleData {
 
     public static void loadPatients() {
+        DoctorService doctorService = new DoctorService();
+        DepartmentService departmentService = new DepartmentService();
+        PatientService patientService = new PatientService();
+        MedicalRecordService medicalRecordService = new MedicalRecordService();
+        AppointmentService appointmentService = new AppointmentService();
+
+        departmentService.add(new Department("DEP-001", "Cardiology",     "DOC-001", 40));
+        departmentService.add(new Department("DEP-002", "Neurology",      "DOC-002", 30));
+        departmentService.add(new Department("DEP-003", "Pediatrics",     "DOC-003", 25));
+        departmentService.add(new Department("DEP-004", "Emergency",      "DOC-004", 20));
+        departmentService.add(new Department("DEP-005", "General Medicine","DOC-005", 50));
+
 
         Patient p1 = new Patient("P",
                 "Ali",
@@ -215,6 +227,15 @@ public class SampleData {
                 1,
                 true
         );
+        patientService.add(p1);
+        patientService.add(p2);
+        patientService.add(p3);
+        patientService.add(p4);
+        patientService.add(p5);
+        patientService.add(p6);
+        patientService.add(p7);
+        patientService.add(p8);
+        patientService.add(p9);
 
 
         //Doctors sample data

@@ -2,7 +2,6 @@ package Services;
 
 import Behaviour.Manageable;
 import Behaviour.Searchable;
-import Entities.Appointment;
 import Entities.Doctor.Doctor;
 import Entities.Patient.Patient;
 import Utilities.Constants;
@@ -13,8 +12,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-
-import static Services.PatientService.getPatients;
 
 public class DoctorService implements Manageable, Searchable {
     static Scanner scanner = new Scanner(System.in);
@@ -146,14 +143,19 @@ public class DoctorService implements Manageable, Searchable {
         System.out.println(Constants.DOCTOR_NOT_FOUND);
     }
 
-    public void  getDoctorById(String doctorId){
+    public Doctor  getDoctorById(String doctorId){
+        Doctor doctor = new Doctor();
         for(Doctor d : doctors){
             if(d.getId().equals(doctorId)){
-                d.displayInfo();
-                return;
+                doctor =  d;
+            }else{
+                System.out.println(Constants.DOCTOR_NOT_FOUND);
+                break;
+
             }
         }
-        System.out.println(Constants.DOCTOR_NOT_FOUND);
+        return doctor;
+
     }
 
     public void displayDoctors(){
@@ -185,27 +187,14 @@ public class DoctorService implements Manageable, Searchable {
         }
     }
 
-    public void assignPatient(String doctorId, String patientId){
-        for (Doctor doctor : doctors){
-
-            for(Patient p : getPatients()){
-                if(doctor.getId().equals(doctorId)){
-                    if(p.getId().equals(patientId)){
-                        doctor.getAssignedPatients().add(p);
-                        System.out.println(Constants.PATIENT_ASSIGNED_SUCCESSFULLY);
-                        return;
-                    }
-                    System.out.println(Constants.PATIENT_NOT_FOUND);
-
-
-                }
-                System.out.println(Constants.DOCTOR_NOT_FOUND);
-                }
-
-        }
-
-
+    public void assignPatient(String doctorId, String patientId) {
+        Doctor d = getDoctorById(doctorId);
+        if (HelperUtils.isNull(d)) { System.out.println(Constants.DOCTOR_NOT_FOUND); return; }
+        d.assignPatient(patientId);
+        System.out.println("  [✓] Patient " + patientId + " assigned to Dr. " + d.getFullName());
     }
+
+
 
     public void  assignPatient(Doctor doctor, Patient patient){
         doctor.getAssignedPatients().add(patient);
