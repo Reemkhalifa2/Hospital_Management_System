@@ -145,6 +145,30 @@ public class DoctorService implements Manageable, Searchable {
         System.out.println(Constants.DOCTOR_UPDATED_SUCCESSFULLY);
     }
 
+
+    public static void updateDoctor() {
+
+        String id = InputHandler.getStringInput("Doctor ID to update: ");
+
+        Doctor existingDoctor = getDoctorById(id);
+
+        if (HelperUtils.isNull(existingDoctor)) {
+            return;
+        }
+
+        updateDoctor(existingDoctor);
+    }
+
+
+//    public void editDoctor(String doctorId, Doctor updatedDoctor){
+//        Doctor existing = getDoctorById(doctorId);
+//        if (HelperUtils.isNull(existing)) { System.out.println(Constants.DOCTOR_NOT_FOUND
+//        ); return; }
+//        existing.setQualification(updatedDoctor.getQualification());
+//        existing.setExperienceYears(updatedDoctor.getExperienceYears());
+//        System.out.println(Constants.DOCTOR_UPDATED_SUCCESSFULLY);
+//    }
+
     public void removeDoctor(String doctorId){
         for(Doctor d : doctors) {
             if (d.getId().equals(doctorId)) {
