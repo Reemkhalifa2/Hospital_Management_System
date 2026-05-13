@@ -5,6 +5,7 @@ import Behaviour.Searchable;
 import Entities.Nurse;
 import Utilities.Constants;
 import Utilities.HelperUtils;
+import Utilities.InputHandler;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -25,8 +26,7 @@ public class NurseService implements Manageable, Searchable {
         /*System.out.println("Enter Nurse id:");
         String nurseId = scanner.nextLine();
 */
-        System.out.println("Enter first name:");
-        String firstName = scanner.nextLine();
+        String firstName = InputHandler.getStringInput("Enter first name: ")
 
         System.out.println("Enter last name:");
         String lastName = scanner.nextLine();
