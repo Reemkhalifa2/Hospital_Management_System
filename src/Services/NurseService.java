@@ -2,6 +2,7 @@ package Services;
 
 import Behaviour.Manageable;
 import Behaviour.Searchable;
+import Entities.Doctor.Doctor;
 import Entities.Nurse;
 import Entities.Patient.Patient;
 import Utilities.Constants;
@@ -95,14 +96,14 @@ public class NurseService implements Manageable, Searchable {
         System.out.println(Constants.NURSE_NOT_FOUND);
     }
 
-    public void getNurseById(String nurseId){
+    public Nurse getNurseById(String nurseId){
         for(Nurse n : nurses) {
             if (n.getId().equals(nurseId)) {
-               n.displayInfo();
-               return;
+               return n;
             }
         }
         System.out.println(Constants.NURSE_NOT_FOUND);
+        return null;
     }
 
     public void getNurseByDepartment(String departmentId){
@@ -134,6 +135,13 @@ public class NurseService implements Manageable, Searchable {
         if(!found){
             System.out.println(Constants.NURSE_NOT_FOUND);
         }
+    }
+
+    public void assignPatient(String nurseId, String patientId) {
+        Nurse nurse = getNurseById(nurseId);
+        if (HelperUtils.isNull(nurse)) { System.out.println(Constants.NURSE_NOT_FOUND); return; }
+        nurse.assignPatient(patientId);
+        System.out.println(Constants.PATIENT_ASSIGNED_SUCCESSFULLY);
     }
 
 
