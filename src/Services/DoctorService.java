@@ -133,7 +133,7 @@ public class DoctorService implements Manageable, Searchable {
 
         doctors.add(doctor);
     }
-    public static Doctor updatePatient( ){
+    public static Doctor updateDoctor( ){
         Doctor doctor = new Doctor();
 
         System.out.print("Enter First Name: ");
