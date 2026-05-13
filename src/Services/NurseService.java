@@ -1,5 +1,6 @@
 package Services;
 
+import Behaviour.Editable;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entities.Doctor.Doctor;
@@ -268,5 +269,12 @@ public class NurseService implements Manageable, Searchable , Editable {
                 case 0-> nurseExit=false;
             }
         }
+    }
+
+
+
+    @Override
+    public void validate() {
+
     }
 }
