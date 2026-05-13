@@ -139,7 +139,7 @@ public class NurseService implements Manageable, Searchable {
 
     public void assignPatient(String nurseId, String patientId) {
         Nurse nurse = getNurseById(nurseId);
-        if (HelperUtils.isNull(nurse)) { System.out.println(Constants.NURSE_NOT_FOUND); return; }
+        if (HelperUtils.isNull(nurse)) { return; }
         nurse.assignPatient(patientId);
         System.out.println(Constants.PATIENT_ASSIGNED_SUCCESSFULLY);
     }
@@ -192,6 +192,11 @@ public class NurseService implements Manageable, Searchable {
                 case 4-> {
                     String shift = InputHandler.getStringInput("Enter shift: ");
                     getNursesByShift(shift);
+                }
+                case 5-> {
+                    String nurseId = InputHandler.getStringInput("Nurse ID: ");
+                    String patientId = InputHandler.getStringInput("Patient ID: ");
+                    assignPatient(nurseId,patientId);
                 }
             }
         }
