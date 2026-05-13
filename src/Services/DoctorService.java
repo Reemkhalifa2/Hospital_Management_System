@@ -244,10 +244,19 @@ public class DoctorService implements Manageable, Searchable {
     @Override
     public void search(String keyword) {
 
+
     }
 
     @Override
     public void searchById(String id) {
+        for(Doctor doctor : doctors){
+            if(doctor.getId().equals(id)){
+                doctor.displayInfo();
+            }
+        }
 
     }
+
+
+
 }
