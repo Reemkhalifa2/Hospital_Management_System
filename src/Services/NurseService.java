@@ -160,6 +160,8 @@ public class NurseService implements Manageable, Searchable {
 
     @Override
     public void remove(String id) {
+        Nurse nurse = getNurseById(id);
+        nurses.remove(nurse);
 
     }
 
