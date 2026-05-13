@@ -129,6 +129,14 @@ public class NurseService implements Manageable, Searchable {
 
     @Override
     public void add(Object entity) {
+        Nurse nurse = (Nurse) entity;
+        for(Nurse n : nurses){
+            if(!nurse.getId().equals(n.getId())){
+                return;
+            }
+
+        }
+        nurses.add(nurse);
 
     }
 
