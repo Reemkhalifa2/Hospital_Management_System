@@ -3,11 +3,10 @@ package Services;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entities.Department;
-import Entities.Doctor.Doctor;
-import Entities.Nurse;
 import Utilities.Constants;
 import Utilities.HelperUtils;
 import Utilities.InputHandler;
+import Utilities.MenuMessage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,18 +30,16 @@ public class DepartmentService implements Manageable, Searchable {
         System.out.print("Enter Bed Capacity: ");
         int bedCapacity = InputHandler.getIntInput("Enter Bed Capacity: ");
 
-        List<Doctor> doctors = new ArrayList<>();
-        List<Nurse> nurses = new ArrayList<>();
+        List<String> doctors = new ArrayList<>();
+        List<String> nurses = new ArrayList<>();
 
+        System.out.print("Enter Available Beds: ");
         int availableBeds = InputHandler.getIntInput("Enter Available Beds: ");
         Department department = new Department(
                 HelperUtils.generateId("D-"),
                 departmentName,
                 headDoctorId,
-                bedCapacity,
-                availableBeds,
-                doctors,
-                nurses
+                bedCapacity
 
         );
 
@@ -69,6 +66,15 @@ public class DepartmentService implements Manageable, Searchable {
             }
         }
         System.out.println(Constants.DEPARTMENT_NOT_FOUND);
+    }
+    public void getDepartments() {
+        if (departments.isEmpty()) {
+            System.out.println(Constants.DEPARTMENT_NOT_FOUND);
+            return;
+        }
+        for (Department d : departments) {
+            d.displayInfo();
+        }
     }
 
     public void getDepartmentById(String departmentId){
@@ -122,5 +128,17 @@ public class DepartmentService implements Manageable, Searchable {
     @Override
     public void searchById(String id) {
 
+    }
+
+    public void handleDepartmentMenu() {
+        boolean departmentExit = true;
+        while (departmentExit) {
+            System.out.println(MenuMessage.DepartmentManagementMenu);
+            int option = InputHandler.getIntInput(Constants.ENTER_OPTION, 0, 7);
+            switch (option) {
+                case 1 -> addDepartment();
+
+            }
+        }
     }
 }
