@@ -126,6 +126,7 @@ public class NurseService implements Manageable, Searchable {
     }
 
 
+
     @Override
     public void add(Object entity) {
 
@@ -154,6 +155,7 @@ public class NurseService implements Manageable, Searchable {
         Boolean nurseExit = true;
         while (nurseExit){
             System.out.println(MenuMessage.NurseManagementMenu);
+            int option = InputHandler.getIntInput(Constants.ENTER_OPTION,0,9);
 
         }
     }
