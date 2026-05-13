@@ -123,6 +123,9 @@ public class Doctor extends Person implements Displayable {
 
 
     public void assignPatient(String patientId) {
+        if(assignedPatients.isEmpty()) {
+            assignedPatients.add(patientId);
+        }
         if (HelperUtils.isNotNull(patientId) && !assignedPatients.contains(patientId))
             assignedPatients.add(patientId);
     }
