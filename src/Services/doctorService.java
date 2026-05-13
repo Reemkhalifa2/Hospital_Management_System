@@ -14,13 +14,12 @@ import Utilities.MenuMessage;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class DoctorService implements Manageable, Searchable {
+public class doctorService implements Manageable, Searchable {
     static Scanner scanner = new Scanner(System.in);
-    private List<Doctor> doctors = new ArrayList<>();
+    private static List<Doctor> doctors = new ArrayList<>();
 
 
     public void addDoctor(Doctor doctor) {
@@ -28,6 +27,7 @@ public class DoctorService implements Manageable, Searchable {
         if (HelperUtils.isNotNull(getDoctorById(doctor.getId()))){
             System.out.println("Doctor with ID " + doctor.getId() + " already exists."); return;
             }
+        }
         doctors.add(doctor);
         System.out.println(Constants.DOCTOR_ADDED_SUCCESSFULLY);
 
@@ -50,7 +50,7 @@ public class DoctorService implements Manageable, Searchable {
         double fee    = InputHandler.getDoubleInput("Consultation Fee: ");
         Doctor d = new Doctor(id, firstName, lastName, dob, gender, phone, email, address,
                 specialization, qualification, experience, deptId, fee);
-        add(d);
+        addDoctor(d);
     }
     private void addSurgeon() {
         String id    = HelperUtils.generateId("Surg-",4);
@@ -89,7 +89,7 @@ public class DoctorService implements Manageable, Searchable {
         int dur        = InputHandler.getIntInput(" Duration (minutes): ", 15, 120);
         Consultant c = new Consultant(id, firstName, lastName, dob, gender, phone, email, address,
                 specialization, qualification, experience, deptId, fee, new ArrayList<>(), online, dur);
-        add(c);
+        addDoctor(c);
     }
     private void addGeneralPractitioner() {
         String id    = HelperUtils.generateId("GP-",4);
@@ -110,7 +110,7 @@ public class DoctorService implements Manageable, Searchable {
         boolean vacc   = InputHandler.getConfirmation("Vaccination certified?");
         GeneralPractitioner gp = new GeneralPractitioner(id, firstName, lastName, dob, gender, phone, email, address,
                 specialization, qualification, experience, deptId, fee, walkin, home, vacc);
-        add(gp);
+        addDoctor(gp);
     }
 
     public void addDoctor(String name, String specialization, String phone){
@@ -186,7 +186,7 @@ public class DoctorService implements Manageable, Searchable {
         System.out.println(Constants.DOCTOR_NOT_FOUND);
     }
 
-    public Doctor  getDoctorById(String doctorId){
+    public static Doctor getDoctorById(String doctorId){
         Doctor doctor = new Doctor();
         for(Doctor d : doctors){
             if(d.getId().equals(doctorId)){
@@ -321,7 +321,7 @@ public class DoctorService implements Manageable, Searchable {
                 case 2-> addSurgeon();
                 case 3-> addConsultant();
                 case 4-> addGeneralPractitioner();
-                case 5->getAll();
+                case 5->displayDoctors();
                 case 6 ->{
                     String spe = InputHandler.getStringInput("Search Specialization: ");
                     displayDoctors(spe);
