@@ -1,5 +1,6 @@
 package Services;
 
+import Behaviour.Editable;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entities.Doctor.Consultant;
