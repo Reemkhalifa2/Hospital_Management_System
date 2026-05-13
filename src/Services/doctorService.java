@@ -22,10 +22,12 @@ public class doctorService implements Manageable, Searchable {
     private static List<Doctor> doctors = new ArrayList<>();
 
 
-    public void addDoctor(Doctor doctor) {
-        if (HelperUtils.isNull(doctor)) { System.out.println("  [!] Cannot add null doctor."); return; }
-        if (HelperUtils.isNotNull(getDoctorById(doctor.getId()))){
-            System.out.println("Doctor with ID " + doctor.getId() + " already exists."); return;
+    public static void addDoctor(Doctor doctor) {
+        if (HelperUtils.isNull(doctor)) { System.out.println("Cannot add null doctor."); return; }
+        for(Doctor d : doctors){
+            if (d.getId().equals(doctor.getId())) {
+                System.out.println("Patient with ID " + doctor.getId() + " already exists.");
+                return;
             }
         }
         doctors.add(doctor);
