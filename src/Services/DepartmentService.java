@@ -77,11 +77,10 @@ public class DepartmentService implements Manageable, Searchable {
         }
     }
 
-    public void getDepartmentById(String departmentId){
-        for(Department d : departments){
-            if(d.getDepartmentId().equals(departmentId)){
-                d.displayInfo();
-                return;
+    public Department getDepartmentById(String departmentId) {
+        for (Department d : departments) {
+            if (d.getDepartmentId().equals(departmentId)) {
+                return d;
             }
         }
         System.out.println(Constants.DEPARTMENT_NOT_FOUND);
