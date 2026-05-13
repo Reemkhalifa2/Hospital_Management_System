@@ -36,11 +36,9 @@ public class NurseService implements Manageable, Searchable {
 
         LocalDate dateOfBirth = InputHandler.getDateInput("Enter date of birth (yyyy-MM-dd):");
 
-        System.out.println("Enter email:");
-        String email = scanner.nextLine();
+        String email = InputHandler.getStringInput("Enter email:");
 
-        System.out.println("Enter address:");
-        String address = scanner.nextLine();
+        String address = InputHandler.getStringInput("Enter address: ");
 
         System.out.println("Enter department id:");
         String departmentId = scanner.nextLine();
