@@ -32,8 +32,7 @@ public class NurseService implements Manageable, Searchable {
 
         String gender =  InputHandler.getStringInput("Enter gender: ");
 
-        System.out.println("Enter phone number:");
-        String phone = scanner.nextLine();
+        String phone = InputHandler.getStringInput("Enter phone number: ");
 
         System.out.println("Enter date of birth (yyyy-MM-dd):");
         String DOB = scanner.nextLine();
