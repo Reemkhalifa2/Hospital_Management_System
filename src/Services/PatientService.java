@@ -133,7 +133,8 @@ public class PatientService implements Manageable, Searchable, Editable {
             }
         }
 
-        return patient;
+        System.out.println(Constants.PATIENT_NOT_FOUND);
+        return null;
     }
 
     public void searchPatientsByName(String name){
@@ -472,8 +473,10 @@ public class PatientService implements Manageable, Searchable, Editable {
     private static void updatePatient() {
         String id = InputHandler.getStringInput("Patient ID to update: ");
         Patient existing = getPatientById(id);
-        if (HelperUtils.isNull(existing)) { System.out.println(Constants.PATIENT_NOT_FOUND); return; }
-        updatePatient(existing);
+        if (HelperUtils.isNull(existing)) { return; }else{
+            updatePatient(existing);
+
+        }
     }
 
 
