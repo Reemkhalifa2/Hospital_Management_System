@@ -264,6 +264,8 @@ public class NurseService implements Manageable, Searchable , Editable {
                     String patientId = InputHandler.getStringInput("Patient ID: ");
                     assignPatient(nurseId,patientId);
                 }
+                case 6->updateNurse();
+                case 0-> nurseExit=false;
             }
         }
     }
