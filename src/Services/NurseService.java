@@ -150,6 +150,9 @@ public class NurseService implements Manageable, Searchable {
     }
 
     public void handleNurseMenu(){
-
+        Boolean nurseExit = true;
+        while (nurseExit){
+            
+        }
     }
 }
