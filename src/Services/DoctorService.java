@@ -4,6 +4,7 @@ import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entities.Doctor.Consultant;
 import Entities.Doctor.Doctor;
+import Entities.Doctor.GeneralPractitioner;
 import Entities.Doctor.Surgeon;
 import Entities.Patient.Patient;
 import Utilities.Constants;
@@ -84,6 +85,27 @@ public class DoctorService implements Manageable, Searchable {
         Consultant c = new Consultant(id, firstName, lastName, dob, gender, phone, email, address,
                 specialization, qualification, experience, deptId, fee, new ArrayList<>(), online, dur);
         add(c);
+    }
+    private void addGeneralPractitioner() {
+        String id    = HelperUtils.generateId("GP-",4);
+        String firstName    = InputHandler.getStringInput("First Name: ");
+        String lastName    = InputHandler.getStringInput("Last Name: ");
+        LocalDate dob = InputHandler.getDateInput("Date of Birth");
+        String gender = InputHandler.getStringInput("Gender: ");
+        String phone  = InputHandler.getStringInput("Phone: ");
+        String email  = InputHandler.getStringInput("Email: ");
+        String address  = InputHandler.getStringInput("Address: ");
+        String specialization   = InputHandler.getStringInput("Specialization: ");
+        String qualification   = InputHandler.getStringInput("Qualification: ");
+        int    experience    = InputHandler.getIntInput("Experience (years): ", 0, 60);
+        String deptId   = InputHandler.getStringInput("Department ID: ");
+        double fee    = InputHandler.getDoubleInput("Consultation Fee: ");
+        boolean walkin = InputHandler.getConfirmation("Walk-in available?");
+        boolean home   = InputHandler.getConfirmation("Home visits available?");
+        boolean vacc   = InputHandler.getConfirmation("Vaccination certified?");
+        GeneralPractitioner gp = new GeneralPractitioner(id, firstName, lastName, dob, gender, phone, email, address,
+                specialization, qualification, experience, deptId, fee, walkin, home, vacc);
+        add(gp);
     }
 
     public void addDoctor(String name, String specialization, String phone){
