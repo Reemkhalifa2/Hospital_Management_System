@@ -10,13 +10,13 @@ import java.util.List;
 public class Consultant extends Doctor implements Displayable {
 
     private List<String> consultationTypes;
-    Boolean onlineConsultationAvailable;
-    Integer consultationDuration;
+    private Boolean onlineConsultationAvailable;
+    private Integer consultationDuration;
 
 
     public Consultant(String id, String firstName, String lastName, LocalDate dateOfBirth, String gender,
                       String phoneNumber, String email, String address, String specialization, String qualification,
-                      Integer experienceYears, String departmentId, double consultationFee
+                      Integer experienceYears, String departmentId, double consultationFee,List<String> consultationTypes , Boolean onlineConsultationAvailable,Integer consultationDuration
                     ) {
         super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, specialization, qualification, experienceYears, departmentId, consultationFee);
             this.consultationTypes = new ArrayList<>();
