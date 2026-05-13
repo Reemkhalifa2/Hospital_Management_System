@@ -84,6 +84,7 @@ public class DepartmentService implements Manageable, Searchable {
             }
         }
         System.out.println(Constants.DEPARTMENT_NOT_FOUND);
+        return null;
     }
 
     public void displayAllDepartments(){
@@ -94,13 +95,12 @@ public class DepartmentService implements Manageable, Searchable {
 
 
     public void assignDoctorToDepartment(String doctorId, String departmentId){
-        for(Department d : departments){
-            if(d.getDepartmentId().equals(departmentId)){
-                d.setHeadDoctorId(doctorId);
-                return;
-            }
+        Department department = getDepartmentById(departmentId);
+        if (HelperUtils.isNull(department)) {
+            return;
         }
-        System.out.println(Constants.DEPARTMENT_NOT_FOUND);
+        department.assignDoctor(doctorId);
+        System.out.println(Constants.DOCTOR_ASSIGNED_SUCCESSFULLY);
     }
 
 
@@ -142,6 +142,8 @@ public class DepartmentService implements Manageable, Searchable {
 
         System.out.println(Constants.DEPARTMENT_NOT_FOUND);
     }
+
+
 
     public void handleDepartmentMenu() {
         boolean departmentExit = true;
