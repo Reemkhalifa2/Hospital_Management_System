@@ -23,9 +23,6 @@ public class NurseService implements Manageable, Searchable {
 
     public Nurse addNurses(){
 
-        /*System.out.println("Enter Nurse id:");
-        String nurseId = scanner.nextLine();
-*/
         String firstName = InputHandler.getStringInput("Enter first name: ");
 
         String lastName = InputHandler.getStringInput("Enter last name:");
@@ -40,14 +37,11 @@ public class NurseService implements Manageable, Searchable {
 
         String address = InputHandler.getStringInput("Enter address: ");
 
-        System.out.println("Enter department id:");
-        String departmentId = scanner.nextLine();
+        String departmentId = InputHandler.getStringInput("Enter department id: ");
 
-        System.out.println("Enter qualification:");
-        String shift = scanner.nextLine();
+        String shift = InputHandler.getStringInput("Enter shift: ");
 
-        System.out.println("Enter shift:");
-        String qualification = scanner.nextLine();
+        String qualification = InputHandler.getStringInput("Enter qualification: ");
 
 
         Nurse nurse = new Nurse(
