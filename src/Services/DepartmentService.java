@@ -5,6 +5,7 @@ import Behaviour.Searchable;
 import Entities.Department;
 import Utilities.Constants;
 import Utilities.HelperUtils;
+import Utilities.InputHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +22,7 @@ public class DepartmentService implements Manageable, Searchable {
 
     public Department addDepartment(){
 
-        System.out.print("Enter Department Name: ");
-        String departmentName = scanner.nextLine();
+        String departmentName = InputHandler.getStringInput("Enter Department Name: ");
 
         System.out.print("Enter Head Doctor ID: ");
         String headDoctorId = scanner.nextLine();
