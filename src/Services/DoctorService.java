@@ -68,7 +68,7 @@ public class DoctorService implements Manageable, Searchable {
         String deptId   = InputHandler.getStringInput("Department ID: ");
         double fee    = InputHandler.getDoubleInput("Consultation Fee: ");
         boolean  operationTheatreAccess   = InputHandler.getConfirmation("Operation Theatre Access ?");
-        Surgeon s = new Surgeon(id, firstName, lastName, dob, gender, phone, email, address,
+        Surgeon s = new Surgeon(HelperUtils.generateId("Surg-",4), firstName, lastName, dob, gender, phone, email, address,
                 specialization, qualification, experience, deptId, fee, null, operationTheatreAccess);
         add(s);
     }
