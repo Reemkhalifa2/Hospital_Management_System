@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class NurseService implements Manageable, Searchable {
-    static Scanner scanner = new Scanner(System.in);
     List <Nurse> nurses = new ArrayList<>();
 
     public void addNurse(Nurse nurse){
@@ -134,7 +133,6 @@ public class NurseService implements Manageable, Searchable {
             if(nurse.getId().equals(n.getId())){
                 return;
             }
-
         }
         nurses.add(nurse);
 
