@@ -138,9 +138,9 @@ public class DoctorService implements Manageable, Searchable {
                 InputHandler.getStringInput("Enter qualification: ")
         );
 
-        System.out.print("Enter Experience Years: ");
-        int experienceYears = scanner.nextInt();
-        doctor.setExperienceYears(experienceYears);
+        doctor.setExperienceYears(
+                InputHandler.getIntInput("Enter years of experience: ")
+        );
 
 
         return doctor;
