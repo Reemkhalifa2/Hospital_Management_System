@@ -6,6 +6,7 @@ import Entities.Nurse;
 import Utilities.Constants;
 import Utilities.HelperUtils;
 import Utilities.InputHandler;
+import Utilities.MenuMessage;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -152,7 +153,8 @@ public class NurseService implements Manageable, Searchable {
     public void handleNurseMenu(){
         Boolean nurseExit = true;
         while (nurseExit){
-            
+            System.out.println(MenuMessage.NurseManagementMenu);
+
         }
     }
 }
