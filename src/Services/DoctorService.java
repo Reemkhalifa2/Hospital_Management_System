@@ -180,14 +180,16 @@ public class DoctorService implements Manageable, Searchable {
         System.out.println(Constants.DOCTOR_NOT_FOUND);
     }
 
-    public static Doctor getDoctorById(String doctorId){
-        Doctor doctor = new Doctor();
-        for(Doctor d : doctors){
-            if(d.getId().equals(doctorId)){
-                doctor =  d;
-            }else{
-                System.out.println(Constants.DOCTOR_NOT_FOUND);
-                break;
+    public static Doctor getDoctorById(String doctorId) {
+
+        for (Doctor d : doctors) {
+
+            if (d.getId().equals(doctorId)) {
+                return d;
+            }
+        }
+
+        System.out.println(Constants.DOCTOR_NOT_FOUND);
 
             }
         }
