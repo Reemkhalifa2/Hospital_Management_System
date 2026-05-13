@@ -22,6 +22,15 @@ public class Nurse extends Person implements Displayable {
     }
 
     private String shift;
+
+    public String getQualification() {
+        return qualification;
+    }
+
+    public void setQualification(String qualification) {
+        this.qualification = qualification;
+    }
+
     private String qualification;
     private List<String> assignedPatients = new ArrayList<>();
     public Nurse(String id, String firstName, String lastName,
