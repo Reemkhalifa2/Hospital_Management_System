@@ -226,8 +226,8 @@ public class AppointmentService implements Manageable , Searchable , Appointable
     }
 
     @Override
-    public Void getAll() {
-        return null;
+    public void getAll() {
+
     }
 
     @Override
