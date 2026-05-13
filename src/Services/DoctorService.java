@@ -191,10 +191,7 @@ public class DoctorService implements Manageable, Searchable {
 
         System.out.println(Constants.DOCTOR_NOT_FOUND);
 
-            }
-        }
-        return doctor;
-
+        return null;
     }
 
     public void displayDoctors(){
