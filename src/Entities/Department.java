@@ -20,7 +20,7 @@ public class Department implements Displayable {
 
     // Constructor
     public Department(String departmentId, String departmentName,
-                      String headDoctorId, int bedCapacity) {
+                      String headDoctorId, int bedCapacity,int availableBeds,List<Doctor> doctors,List<Nurse> nurses ) {
 
         this.departmentId = departmentId;
         this.departmentName = departmentName;
