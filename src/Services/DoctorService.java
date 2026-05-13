@@ -273,8 +273,9 @@ public class DoctorService implements Manageable, Searchable {
     }
 
     @Override
-    public Void getAll() {
-        return null ;
+    public void getAll() {
+        doctors.forEach(d -> d.displayInfo());
+
     }
 
     @Override
