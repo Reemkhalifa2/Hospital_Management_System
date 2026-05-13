@@ -321,6 +321,21 @@ public class DoctorService implements Manageable, Searchable {
                 case 2-> addSurgeon();
                 case 3-> addConsultant();
                 case 4-> addGeneralPractitioner();
+                case 5->getAll();
+                case 6 ->{
+                    String spe = InputHandler.getStringInput("Search Specialization: ");
+                    displayDoctors(spe);
+                }
+                case 7->getAvailableDoctors();
+                case 8-> {
+                    String doctorId = InputHandler.getStringInput("Doctor ID: ");
+                    String patientId = InputHandler.getStringInput("Patient ID: ");
+                    assignPatient(doctorId,patientId);
+                }
+                case 9-> {
+                    String doctorId = InputHandler.getStringInput("Doctor ID: ");
+                    editDoctor(doctorId,updateDoctor());
+                }
 
 
 
