@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class DoctorService implements Manageable, Searchable {
+public class DoctorService implements Manageable, Searchable , Editable {
     private static List<Doctor> doctors = new ArrayList<>();
     public static void addDoctor(Doctor doctor) {
         if (HelperUtils.isNull(doctor)) { System.out.println("Cannot add null doctor."); return; }
