@@ -3,6 +3,7 @@ package Services;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entities.Nurse;
+import Entities.Patient.Patient;
 import Utilities.Constants;
 import Utilities.HelperUtils;
 import Utilities.InputHandler;
@@ -14,7 +15,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class NurseService implements Manageable, Searchable {
-    List <Nurse> nurses = new ArrayList<>();
+    private static List <Nurse> nurses = new ArrayList<>();
 
     public void addNurse(Nurse nurse){
         nurses.add(nurse);
@@ -130,7 +131,7 @@ public class NurseService implements Manageable, Searchable {
     public void add(Object entity) {
         Nurse nurse = (Nurse) entity;
         for(Nurse n : nurses){
-            if(nurse.getId().equals(n.getId())){
+            if (n.getId().equals(nurse.getId())) {
                 return;
             }
         }
@@ -165,7 +166,6 @@ public class NurseService implements Manageable, Searchable {
             switch (option){
                 case 1 -> addNurses();
                 case 2-> getNurse();
-                case 3-> getNurse();
                 case 4-> {
                     String deptId = InputHandler.getStringInput("Enter department ID: ");
                     getNurseByDepartment(deptId);
