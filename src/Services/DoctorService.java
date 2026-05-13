@@ -154,14 +154,36 @@ public class DoctorService implements Manageable, Searchable , Editable {
 
         Doctor existingDoctor = getDoctorById(doctorId);
 
-
-    public static void updateDoctor() {
-        String id = InputHandler.getStringInput("Doctor ID to update: ");
-        Doctor existingDoctor = getDoctorById(id);
-        if (HelperUtils.isNull(existingDoctor)) {
+        if(HelperUtils.isNull(existingDoctor)){
             return;
         }
-        updateDoctor(existingDoctor);
+
+        String phone = InputHandler.getStringInput("Enter new phone number: ");
+
+        String email = InputHandler.getStringInput("Enter new email: ");
+
+        String address = InputHandler.getStringInput("Enter new address: ");
+
+        String specialization = InputHandler.getStringInput("Enter new specialization: ");
+
+        String qualification = InputHandler.getStringInput("Enter new qualification: ");
+
+        int experience = InputHandler.getIntInput("Enter new experience: ",0,50);
+
+        double fee = InputHandler.getDoubleInput("Enter new consultation fee: ");
+
+        Doctor updatedDoctor = new Doctor();
+
+        updatedDoctor.setId(doctorId);
+        updatedDoctor.setPhoneNumber(phone);
+        updatedDoctor.setEmail(email);
+        updatedDoctor.setAddress(address);
+        updatedDoctor.setSpecialization(specialization);
+        updatedDoctor.setQualification(qualification);
+        updatedDoctor.setExperienceYears(experience);
+        updatedDoctor.setConsultationFee(fee);
+
+        edit(updatedDoctor);
     }
 
 
