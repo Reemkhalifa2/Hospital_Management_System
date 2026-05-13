@@ -149,8 +149,7 @@ public class NurseService implements Manageable, Searchable {
     }
 
     @Override
-    public Void getAll() {
-        return null;
+    public void getAll() {
     }
 
     @Override
