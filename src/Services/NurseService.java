@@ -87,12 +87,12 @@ public class NurseService implements Manageable, Searchable , Editable {
     }
 
     public void removeNurse(String nurseId){
-        for(Nurse n : nurses) {
-            if (n.getId().equals(nurseId)) {
-                nurses.remove(n);
+        Nurse nurse = getNurseById(nurseId);
+        if(HelperUtils.isNotNull(nurse)) {
+                nurses.remove(nurse);
                 System.out.println(Constants.NURSE_REMOVED_SUCCESSFULLY);
                 return;
-            }
+
         }
         System.out.println(Constants.NURSE_NOT_FOUND);
     }
@@ -266,6 +266,10 @@ public class NurseService implements Manageable, Searchable , Editable {
                     assignPatient(nurseId,patientId);
                 }
                 case 6->updateNurse();
+                case 7-> {
+                    String nurseId = InputHandler.getStringInput("Nurse ID: ");
+                    removeNurse(nurseId);
+                }
                 case 0-> nurseExit=false;
             }
         }
