@@ -12,7 +12,6 @@ import Utilities.MenuMessage;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class NurseService implements Manageable, Searchable , Editable {
     private static List <Nurse> nurses = new ArrayList<>();
