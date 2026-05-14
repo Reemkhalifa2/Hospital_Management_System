@@ -220,7 +220,8 @@ public class AppointmentService implements Manageable , Searchable , Appointable
     }
     public void completeAppointment(String appointmentId){
         for(Appointment a : appointmentList){
-            if(a.getAppointmentId().equals(appointmentId)){
+            if (HelperUtils.isNotNull(a.getAppointmentId())
+                    && a.getAppointmentId().equals(appointmentId)){
                 a.setStatus("Completed");
                 return;
             }
