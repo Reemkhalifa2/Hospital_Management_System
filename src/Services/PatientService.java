@@ -640,6 +640,29 @@ public class PatientService implements Manageable, Searchable, Editable {
 
     }
 
+    public static void patientStatisticsReport() {
+
+        int inPatientCount = 0;
+        int outPatientCount = 0;
+        int emergencyCount = 0;
+        int count = 0;
+        for (Patient p : patients) {
+            count++;
+            if (p instanceof InPatient) {
+                inPatientCount++;
+            }if (p instanceof OutPatient) {
+                outPatientCount++;
+            }if (p instanceof EmergencyPatient) {
+                emergencyCount++;
+            }
+        }
+
+        System.out.println("  Total Patients     : " + count);
+        System.out.println("  In-Patients        : " + inPatientCount);
+        System.out.println("  Out-Patients       : " + outPatientCount);
+        System.out.println("  Emergency Patients : " + emergencyCount);
+    }
+
 
     // =========================
     // MENU HANDLER
@@ -704,5 +727,77 @@ public class PatientService implements Manageable, Searchable, Editable {
                 }
             }
         }
+    }
+
+    public void emergencyCasesReport() {
+
+        List<EmergencyPatient> emergencyPatients = new ArrayList<>();
+        for (Patient p : patients) {
+            if (p instanceof EmergencyPatient) {
+                emergencyPatients.add((EmergencyPatient) p);
+            }
+        }
+
+        int triage1 = 0, triage2 = 0, triage3 = 0, triage4 = 0, triage5 = 0;
+        for (EmergencyPatient ep : emergencyPatients) {
+            switch (ep.getTriageLevel()) {
+                case 1 -> triage1++;
+                case 2 -> triage2++;
+                case 3 -> triage3++;
+                case 4 -> triage4++;
+                case 5 -> triage5++;
+            }
+        }
+
+        int admittedViaERCount    = 0;
+        int notAdmittedViaERCount = 0;
+        for (EmergencyPatient ep : emergencyPatients) {
+            if (ep.getAdmittedViaER()) {
+                admittedViaERCount++;
+            } else {
+                notAdmittedViaERCount++;
+            }
+        }
+
+        int ambulanceCount = 0;
+        int walkInCount    = 0;
+        for (EmergencyPatient ep : emergencyPatients) {
+            if (ep.getArrivalMode().equalsIgnoreCase("Ambulance")) {
+                ambulanceCount++;
+            } else if (ep.getArrivalMode().equalsIgnoreCase("Walk-in")) {
+                walkInCount++;
+            }
+        }
+
+        // ── Print Report ──────────────────────────────────────────────
+        System.out.println("EMERGENCY CASES REPORT");
+        System.out.println("-----------------------");
+        System.out.println("Total Emergency Cases : " + emergencyPatients.size());
+        System.out.println();
+        System.out.println("------------------------");
+        System.out.println("TRIAGE LEVEL BREAKDOWN");
+        System.out.println("Level 1 - Critical       : " + triage1);
+        System.out.println("Level 2 - Emergent       : " + triage2);
+        System.out.println("Level 3 - Urgent         : " + triage3);
+        System.out.println("Level 4 - Less Urgent    : " + triage4);
+        System.out.println("Level 5 - Non Urgent     : " + triage5);
+        System.out.println();
+
+        System.out.println("--------------------------");
+        System.out.println("ADMITTED VIA ER BREAKDOWN");
+        System.out.println("--------------------------");
+        System.out.println("Admitted Via ER          : " + admittedViaERCount);
+        System.out.println("Not Admitted Via ER      : " + notAdmittedViaERCount);
+        System.out.println();
+
+        System.out.println("---------------------------");
+        System.out.println("ARRIVAL MODE BREAKDOWN");
+        System.out.println("----------------------------");
+        System.out.println("Ambulance                : " + ambulanceCount);
+        System.out.println("Walk-in                  : " + walkInCount);
+        System.out.println();
+
+
+
     }
 }

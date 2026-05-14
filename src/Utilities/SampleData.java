@@ -232,6 +232,110 @@ public class SampleData {
                 1,
                 true
         );
+
+        EmergencyPatient p11 = new EmergencyPatient(
+                "P011",
+                "Hessa",
+                "Al-Balushi",
+                LocalDate.of(1985, 3, 22),
+                "Female",
+                "99881100",
+                "hessa@gmail.com",
+                "Muscat",
+                "A+",
+                "90000007",
+                LocalDate.now(),
+                "INS011",
+                new ArrayList<>(Arrays.asList("Penicillin")),
+                LocalDate.of(2026, 5, 2),
+                LocalDate.of(2026, 5, 6),
+                "ER-02",
+                "Bed-ER2",
+                "D106",
+                9.0,
+                "Cardiac Arrest",
+                "Ambulance",
+                1,
+                true
+        );
+
+        EmergencyPatient p12 = new EmergencyPatient(
+                "P012",
+                "Tariq",
+                "Al-Hinai",
+                LocalDate.of(2000, 11, 5),
+                "Male",
+                "99772200",
+                "tariq@gmail.com",
+                "Sohar",
+                "O+",
+                "90000008",
+                LocalDate.now(),
+                "INS012",
+                new ArrayList<>(Arrays.asList("Aspirin")),
+                LocalDate.of(2026, 5, 3),
+                LocalDate.of(2026, 5, 7),
+                "ER-03",
+                "Bed-ER3",
+                "D107",
+                7.5,
+                "Severe Burns",
+                "Walk-in",
+                2,
+                true
+        );
+
+        EmergencyPatient p13 = new EmergencyPatient(
+                "P013",
+                "Fatma",
+                "Al-Zadjali",
+                LocalDate.of(1978, 6, 14),
+                "Female",
+                "99663300",
+                "fatma@gmail.com",
+                "Nizwa",
+                "AB-",
+                "90000009",
+                LocalDate.now(),
+                "INS013",
+                new ArrayList<>(Arrays.asList("Latex")),
+                LocalDate.of(2026, 5, 4),
+                LocalDate.of(2026, 5, 8),
+                "ER-04",
+                "Bed-ER4",
+                "D108",
+                6.5,
+                "Stroke",
+                "Ambulance",
+                2,
+                false
+        );
+
+        EmergencyPatient p14 = new EmergencyPatient(
+                "P014",
+                "Khalid",
+                "Al-Maamari",
+                LocalDate.of(1995, 9, 30),
+                "Male",
+                "99554400",
+                "khalid@gmail.com",
+                "Salalah",
+                "O-",
+                "90000010",
+                LocalDate.now(),
+                "INS014",
+                new ArrayList<>(Arrays.asList("None")),
+                LocalDate.of(2026, 5, 5),
+                LocalDate.of(2026, 5, 9),
+                "ER-05",
+                "Bed-ER5",
+                "D109",
+                5.0,
+                "Fracture",
+                "Walk-in",
+                3,
+                false
+        );
         patientService.add(p1);
         patientService.add(p2);
         patientService.add(p3);
@@ -241,6 +345,11 @@ public class SampleData {
         patientService.add(p7);
         patientService.add(p8);
         patientService.add(p9);
+        patientService.add(p10);
+        patientService.add(p11);
+        patientService.add(p12);
+        patientService.add(p13);
+        patientService.add(p14);
 
 
         //Doctors sample data
