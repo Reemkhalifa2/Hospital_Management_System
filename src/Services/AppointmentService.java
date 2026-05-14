@@ -228,7 +228,9 @@ public class AppointmentService implements Manageable , Searchable , Appointable
                 case 1-> addNewAppointment();
                 case 2-> displayAppointments();
                 case 3-> getAppointmentsByPatient(InputHandler.getStringInput("Enter Patient ID: "));
-                
+                case 4-> getAppointmentsByDoctor(InputHandler.getStringInput("Enter Doctor ID: "));
+                case 5-> displayAppointments(InputHandler.getDateInput("Enter Date: "));
+
 
 
 
