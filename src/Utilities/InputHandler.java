@@ -1,6 +1,7 @@
 package Utilities;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
@@ -75,6 +76,19 @@ public class InputHandler {
             if (raw.equalsIgnoreCase("y")) return true;
             if (raw.equalsIgnoreCase("n")) return false;
             System.out.println("Please enter 'y' or 'n'");
+        }
+    }
+
+    public static LocalTime getTimeInput(String prompt) {
+        while (true) {
+            System.out.print(prompt + " (HH:mm): ");
+            String raw = scanner.nextLine().trim();
+
+            try {
+                return LocalTime.parse(raw);
+            } catch (DateTimeParseException e) {
+                System.out.println(Constants.INVALID_TIME);
+            }
         }
     }
 
