@@ -1,8 +1,10 @@
 package Entities.Patient;
 
 import Behaviour.Displayable;
+import Entities.Appointment;
 import Entities.MedicalRecord;
 import Entities.Person;
+import Services.AppointmentService;
 import Services.MedicalRecordService;
 import Utilities.Constants;
 import Utilities.HelperUtils;
@@ -15,7 +17,7 @@ import java.util.Scanner;
 public class Patient extends Person implements Displayable {
     static Scanner scanner = new Scanner(System.in);
 
-    public List<String> getAppointments() {
+    public List<Appointment> getAppointments() {
         return appointments;
     }
 
@@ -86,10 +88,11 @@ public class Patient extends Person implements Displayable {
     private LocalDate registrationDate;
     private String insuranceId;
     private List<MedicalRecord> medicalRecords;
-    private List<String> appointments;
+    private List<Appointment> appointments;
     MedicalRecordService medicalRecordService = new MedicalRecordService();
+    AppointmentService appointmentService = new AppointmentService();
 
-    public void setAppointments(List<String> appointments) {
+    public void setAppointments(List<Appointment> appointments) {
         this.appointments = appointments;
     }
 
@@ -142,8 +145,8 @@ public class Patient extends Person implements Displayable {
         }
         System.out.println("Appointments");
         System.out.println();
-        for(String x : appointments){
-            System.out.print(x + ",");
+        for(Appointment x : appointments){
+            appointmentService.getAppointment(x);
         }
         System.out.println("______________________________");
         System.out.println();
@@ -159,9 +162,8 @@ public class Patient extends Person implements Displayable {
         if (HelperUtils.isNotNull(record)) medicalRecords.add(record);
     }
 
-    public void addAppointment(){
-        System.out.println(Constants.ADD_APPOINTMENT);
-        appointments.add(scanner.nextLine());
+    public void addAppointment(Appointment appointment){
+        if (HelperUtils.isNotNull(appointment)) appointments.add(appointment);
     }
 
     public void updateInsurance(){
