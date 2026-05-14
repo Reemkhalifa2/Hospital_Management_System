@@ -114,6 +114,12 @@ public class MedicalRecord implements Displayable {
 
     @Override
     public void displaySummary() {
+            System.out.println("-------------------------");
+            System.out.println("Record ID: " + recordId);
+            System.out.println("Patient ID: " + patientId);
+            System.out.println("Visit Date: " + visitDate);
+            System.out.println("Diagnosis: " + diagnosis);
+            System.out.println("-------------------------");
 
     }
 }
