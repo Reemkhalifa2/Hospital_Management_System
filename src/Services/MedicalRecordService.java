@@ -189,7 +189,26 @@ public class MedicalRecordService implements Manageable, Searchable, Editable {
     @Override
     public void search(String keyword) {
 
+        boolean found = false;
 
+        for (MedicalRecord m : medicalRecords) {
+
+            if (
+                    m.getRecordId().equals(keyword)||
+                    m.getDiagnosis().equals(keyword)||
+                    m.getPrescription().equals(keyword)||
+                    m.getPatientId().equals(keyword)||
+                    m.getDoctorId().equals(keyword)
+            ) {
+
+                m.displaySummary();
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println(Constants.RECORD_NOT_FOUND);
+        }
     }
 
     @Override

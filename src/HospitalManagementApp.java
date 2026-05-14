@@ -43,10 +43,9 @@ public class HospitalManagementApp {
                             case 3-> departmentService.departmentOccupancyReport();
                             case 4-> patientService.patientStatisticsReport();
                             case 5-> patientService.emergencyCasesReport();
+                            case 0-> exit=false;
                         }
                     }
-
-
                 }
                 case 8 -> {
                     System.out.println("Exit.....");
