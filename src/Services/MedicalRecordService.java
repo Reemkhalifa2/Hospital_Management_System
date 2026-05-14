@@ -166,10 +166,15 @@ public class MedicalRecordService implements Manageable, Searchable, Editable {
     @Override
     public void search(String keyword) {
 
+
     }
 
     @Override
     public void searchById(String id) {
+        MedicalRecord medicalRecord = getRecordById(id);
+        if(HelperUtils.isNotNull(medicalRecord)){
+            medicalRecord.displayInfo();
+        }
 
     }
 
