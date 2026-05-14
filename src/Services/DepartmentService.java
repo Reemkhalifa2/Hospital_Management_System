@@ -159,6 +159,18 @@ public class DepartmentService implements Manageable, Searchable , Editable {
 
     @Override
     public void search(String keyword) {
+        boolean found = false;
+        for (Department d : departments) {
+            if (d.getDepartmentName().equalsIgnoreCase(keyword) ||
+                    d.getDepartmentId().equalsIgnoreCase(keyword)   ||
+                    d.getHeadDoctorId().equalsIgnoreCase(keyword)) {
+                d.displayInfo();
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println(Constants.DEPARTMENT_NOT_FOUND);
+        }
 
     }
 
