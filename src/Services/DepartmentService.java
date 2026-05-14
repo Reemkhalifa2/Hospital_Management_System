@@ -174,6 +174,14 @@ public class DepartmentService implements Manageable, Searchable , Editable {
         edit(updatedDepartment);
     }
 
+    public void viewDepartmentStatistics() {
+        if (HelperUtils.isNull(departments)) {
+            System.out.println(Constants.DEPARTMENT_NOT_FOUND);
+            return;
+        }
+        
+    }
+
 
 
     public void handleDepartmentMenu() {
