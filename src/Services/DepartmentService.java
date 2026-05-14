@@ -144,6 +144,10 @@ public class DepartmentService implements Manageable, Searchable , Editable {
 
     @Override
     public void remove(String id) {
+        Department department = getDepartmentById(id);
+        if (HelperUtils.isNotNull(department)) {
+            departments.remove(department);
+        }
 
     }
 
