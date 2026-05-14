@@ -77,7 +77,7 @@ public class MedicalRecordService implements Manageable, Searchable, Editable {
             m.setPrescription(medicalRecord.getPrescription());
             m.setTestResults(medicalRecord.getTestResults());
         }
-        
+
 
     }
 
@@ -179,7 +179,7 @@ public class MedicalRecordService implements Manageable, Searchable, Editable {
                 case 2->getRecords();
                 case 3->getRecordsByPatientId(InputHandler.getStringInput("Enter Patient Id"));
                 case 4->getRecordsByDoctorId(InputHandler.getStringInput("Enter Doctor Id"));
-
+                case 5-> updateMedicalRecord();
             }
     }
     }
