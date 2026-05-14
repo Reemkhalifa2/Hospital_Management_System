@@ -96,6 +96,7 @@ public class MedicalRecord implements Displayable {
     }
 
     public void displayInfo() {
+        System.out.println("-------------------------");
         System.out.println("Record ID: " + recordId);
         System.out.println("Patient ID: " + patientId);
         System.out.println("Doctor ID: " + doctorId);
@@ -104,6 +105,8 @@ public class MedicalRecord implements Displayable {
         System.out.println("Prescription: " + prescription);
         System.out.println("Test Results: " + testResults);
         System.out.println("Notes: " + notes);
+        System.out.println("-------------------------");
+        System.out.println();
     }
 
     @Override
