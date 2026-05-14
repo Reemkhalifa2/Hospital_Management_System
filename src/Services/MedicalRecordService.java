@@ -178,6 +178,24 @@ public class MedicalRecordService implements Manageable, Searchable, Editable {
 
     }
 
+    public void generatePatientHistoryReport(String patientId) {
+
+        Patient patient = patientService.getPatientById(patientId);
+
+        if (HelperUtils.isNull(patient)) {
+            System.out.println(Constants.PATIENT_NOT_FOUND);
+            return;
+        }
+
+        System.out.println("PATIENT HISTORY REPORT");
+        System.out.println("=======================");
+
+        System.out.println("Patient ID: " + patient.getId());
+        System.out.println("Name: " + patient.getFirstName() + " " + patient.getLastName());
+        System.out.println("Blood Group: " + patient.getBloodGroup());
+        System.out.println();
+        System.out.println("MEDICAL RECORDS:");
+        System.out.println("----------------------------------");
 
     public void handleMedicalREcordMenu() {
 
