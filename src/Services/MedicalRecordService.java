@@ -143,11 +143,14 @@ public class MedicalRecordService implements Manageable, Searchable, Editable {
     public void add(Object entity) {
         MedicalRecord medicalRecord = (MedicalRecord) entity;
         medicalRecords.add(medicalRecord);
-
     }
 
     @Override
     public void remove(String id) {
+        MedicalRecord medicalRecord = getRecordById(id);
+        if(HelperUtils.isNotNull(medicalRecord)){
+            medicalRecords.remove(medicalRecord);
+        }
 
     }
 
