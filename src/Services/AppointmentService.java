@@ -7,6 +7,7 @@ import Entities.Appointment;
 import Utilities.Constants;
 import Utilities.HelperUtils;
 import Utilities.InputHandler;
+import Utilities.MenuMessage;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -205,6 +206,26 @@ public class AppointmentService implements Manageable , Searchable , Appointable
             }
         }
         System.out.println(Constants.APPOINTMENT_NOT_FOUND);
+    }
+
+    public void handleAppointmentMenu(){
+        Boolean appointmentContinue = true;
+        while (appointmentContinue) {
+            System.out.println(MenuMessage.AppointmentManagementMenu);
+            int option = InputHandler.getIntInput(Constants.ENTER_OPTION,0,9);
+            switch (option) {
+                case 1-> addNewAppointment();
+
+
+
+                case 0 ->{
+                    appointmentContinue = false;
+                }
+
+            }
+
+        }
+
     }
 
 
