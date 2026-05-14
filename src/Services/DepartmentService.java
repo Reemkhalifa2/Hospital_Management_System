@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class DepartmentService implements Manageable, Searchable , Editable {
-    static Scanner scanner = new Scanner(System.in);
     List<Department> departments = new ArrayList<>();
 
     public void addDepartment(Department department){
