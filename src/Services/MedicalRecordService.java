@@ -79,11 +79,15 @@ public class MedicalRecordService implements Manageable, Searchable {
 
     }
     public void getRecords(){
+        if (HelperUtils.isNull(medicalRecords)){
+            System.out.println(Constants.RECORD_NOT_FOUND);
+            return;
+        }
         for(MedicalRecord m : medicalRecords) {
                 m.displayInfo();
-
         }
     }
+
     public void getRecordsByPatientId(String patientId){
         for(MedicalRecord m : medicalRecords) {
             if (m.getPatientId().equals(patientId)) {
