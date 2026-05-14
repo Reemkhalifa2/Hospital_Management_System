@@ -197,7 +197,17 @@ public class MedicalRecordService implements Manageable, Searchable, Editable {
         System.out.println("MEDICAL RECORDS:");
         System.out.println("----------------------------------");
 
-    public void handleMedicalREcordMenu() {
+        if (HelperUtils.isNull(patient.getMedicalRecords())) {
+            System.out.println(Constants.RECORD_NOT_FOUND);
+        } else {
+            for (MedicalRecord record : patient.getMedicalRecords()) {
+                record.displaySummary();
+            }
+        }
+    }
+
+
+    public void handleMedicalRecordMenu() {
 
         Boolean exit = true;
 
