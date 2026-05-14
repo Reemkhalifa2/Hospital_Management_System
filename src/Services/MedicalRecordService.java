@@ -51,7 +51,7 @@ public class MedicalRecordService implements Manageable, Searchable {
 
     }
 
-    public void updateMedicalRecord(String recordId, MedicalRecord updatedRecord){
+    public void updateMedicalRecord(){
         for(MedicalRecord m : medicalRecords){
             if(m.getRecordId().equals(recordId)){
 
