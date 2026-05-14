@@ -38,7 +38,11 @@ public class HospitalManagementApp {
                     while (exit){
                         System.out.println(MenuMessage.ReportsMenu);
                         switch (InputHandler.getIntInput(Constants.ENTER_OPTION,0,5)){
-                            case 1-> appointmentService.displayAppointments(LocalDate.now());
+                            case 1-> appointmentService.getupComingAppointments();
+                            case 2-> doctorService.DoctorPerformanceReport();
+                            case 3-> departmentService.departmentOccupancyReport();
+                            case 4-> patientService.patientStatisticsReport();
+                            case 5-> patientService.emergencyCasesReport();
                         }
                     }
 
