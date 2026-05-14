@@ -1,5 +1,6 @@
 package Services;
 
+import Behaviour.Editable;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entities.MedicalRecord;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class MedicalRecordService implements Manageable, Searchable {
+public class MedicalRecordService implements Manageable, Searchable, Editable {
     private static List <MedicalRecord> medicalRecords = new ArrayList<>();
     PatientService patientService = new PatientService();
 
@@ -169,5 +170,15 @@ public class MedicalRecordService implements Manageable, Searchable {
 
             }
     }
+    }
+
+    @Override
+    public void edit(Object updatedData) {
+        
+    }
+
+    @Override
+    public void validate() {
+
     }
 }
