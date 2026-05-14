@@ -156,6 +156,11 @@ public class MedicalRecordService implements Manageable, Searchable, Editable {
 
     @Override
     public void getAll() {
+
+        if(HelperUtils.isNull(medicalRecords)){
+            return;
+        }
+        medicalRecords.forEach(MedicalRecord::displayInfo);
     }
 
     @Override
