@@ -6,7 +6,7 @@ import Behaviour.Searchable;
 import Entities.Department;
 import Entities.Doctor.Doctor;
 import Entities.Nurse;
-import Entities.Patient.Patient;
+
 import Utilities.Constants;
 import Utilities.HelperUtils;
 import Utilities.InputHandler;
@@ -14,7 +14,6 @@ import Utilities.MenuMessage;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class DepartmentService implements Manageable, Searchable , Editable {
     private static List<Department> departments = new ArrayList<>();
