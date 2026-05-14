@@ -103,6 +103,15 @@ public class DepartmentService implements Manageable, Searchable {
         System.out.println(Constants.DOCTOR_ASSIGNED_SUCCESSFULLY);
     }
 
+    public void assignPatientToDepartment(String nurseId, String departmentId){
+        Department department = getDepartmentById(departmentId);
+        if (HelperUtils.isNull(department)) {
+            return;
+        }
+        department.assignNurse(nurseId);
+        System.out.println(Constants.DOCTOR_ASSIGNED_SUCCESSFULLY);
+    }
+
 
     @Override
     public void add(Object entity) {
@@ -159,6 +168,12 @@ public class DepartmentService implements Manageable, Searchable {
                     String departmentId = InputHandler.getStringInput("Enter department ID: ");
                     assignDoctorToDepartment(doctorId,departmentId);
                 }
+                case 5-> {
+                    String nurseId     = InputHandler.getStringInput("Enter Nurse ID: ");
+                    String departmentId = InputHandler.getStringInput("Enter department ID: ");
+                    assignDoctorToDepartment(nurseId,departmentId);
+                }
+
 
 
 
