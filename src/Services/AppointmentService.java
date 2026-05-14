@@ -106,6 +106,11 @@ public class AppointmentService implements Manageable , Searchable , Appointable
     }
 
     public void getAppointmentsByPatient(String patientId){
+        if(HelperUtils.isNull(appointmentList)){
+            System.out.println("No Appointments");
+            return;
+        }
+
         for(Appointment a : appointmentList){
             if(a.getPatientId().equals(patientId)){
                 a.displayInfo();
@@ -116,6 +121,10 @@ public class AppointmentService implements Manageable , Searchable , Appointable
     }
 
     public void getAppointmentsByDoctor(String doctorId){
+        if(HelperUtils.isNull(appointmentList)){
+            System.out.println("No Appointments");
+            return;
+        }
         for(Appointment a : appointmentList){
             if(a.getDoctorId().equals(doctorId)){
                 a.displayInfo();
@@ -126,6 +135,10 @@ public class AppointmentService implements Manageable , Searchable , Appointable
     }
 
     public void displayAppointments(LocalDate date){
+        if(HelperUtils.isNull(appointmentList)){
+            System.out.println("No Appointments");
+            return;
+        }
         for(Appointment a : appointmentList){
             if(a.getAppointmentDate().equals(date)){
                 a.displayInfo();
@@ -213,6 +226,7 @@ public class AppointmentService implements Manageable , Searchable , Appointable
             switch (option) {
                 case 1-> addNewAppointment();
                 case 2-> displayAppointments();
+                case 3->
 
 
 
