@@ -1,8 +1,5 @@
 import Menu.Menu;
-import Services.DepartmentService;
-import Services.DoctorService;
-import Services.NurseService;
-import Services.PatientService;
+import Services.*;
 import Utilities.Constants;
 import Utilities.InputHandler;
 import Utilities.SampleData;
@@ -20,6 +17,7 @@ public class HospitalManagementApp {
         DoctorService doctorService = new DoctorService();
         NurseService nurseService = new NurseService();
         DepartmentService departmentService = new DepartmentService();
+        AppointmentService appointmentService = new AppointmentService();
         Menu menu = new Menu();
         boolean Continue = true;
         while (Continue) {
@@ -29,8 +27,8 @@ public class HospitalManagementApp {
                 case 1 -> patientService.handlePatientMenu();
                 case 2 -> doctorService.handleDoctorMenu();
                 case 3 -> nurseService.handleNurseMenu();
-              /*   case 4 -> appointmentMenu();
-                case 5 -> medicalRecordMenu();*/
+                case 4 -> appointmentService.handleAppointmentMenu();
+                /*case 5 -> medicalRecordMenu();*/
                 case 6 -> departmentService.handleDepartmentMenu();
                 //case 7 -> reportsMenu();
                 case 8 -> {
