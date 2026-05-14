@@ -34,7 +34,7 @@ public class AppointmentService implements Manageable , Searchable , Appointable
         LocalDate appointmentDate = InputHandler.getDateInput("Enter Date: ");
 
         String appointmentTime = String.valueOf(InputHandler.getTimeInput("Enter Appointment Time: "));
-        
+
         String reason = InputHandler.getStringInput("Enter reason: ");
 
         String notes = InputHandler.getStringInput("Enter notes: ");
@@ -135,6 +135,10 @@ public class AppointmentService implements Manageable , Searchable , Appointable
         System.out.println(Constants.APPOINTMENT_NOT_FOUND);
     }
     public void displayAppointments(){
+        if(HelperUtils.isNull(appointmentList)){
+            System.out.println("No Appointments");
+            return;
+        }
         for(Appointment a : appointmentList){
                 a.displayInfo();
         }
@@ -208,6 +212,7 @@ public class AppointmentService implements Manageable , Searchable , Appointable
             int option = InputHandler.getIntInput(Constants.ENTER_OPTION,0,9);
             switch (option) {
                 case 1-> addNewAppointment();
+                case 2-> displayAppointments();
 
 
 
