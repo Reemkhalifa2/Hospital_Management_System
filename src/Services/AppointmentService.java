@@ -26,8 +26,8 @@ public class AppointmentService implements Manageable , Searchable , Appointable
 
     public Appointment addNewAppointment(){
 
-        System.out.println("Enter Doctor Id: ");
-        String doctorId = scanner.nextLine();
+        String patientId = InputHandler.getStringInput("Enter Patient Id: ");
+        String doctorId = InputHandler.getStringInput("Enter Doctor Id: ");
 
         LocalDate appointmentDate = LocalDate.now();
 
