@@ -504,6 +504,9 @@ public class SampleData {
                 "D003",
                 70
         );
+        departmentService.add(d1);
+        departmentService.add(d2);
+        departmentService.add(d3);
 
         //Appointment sample data
 
