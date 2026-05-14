@@ -105,8 +105,10 @@ public class DepartmentService implements Manageable, Searchable , Editable {
         System.out.println(Constants.DOCTOR_ASSIGNED_SUCCESSFULLY);
     }
 
-    public void assignPatientToDepartment(String nurseId, String departmentId){
+    public void assignNurseToDepartment(String nurseId, String departmentId){
         Department department = getDepartmentById(departmentId);
+        Nurse nurse = nurseService.getNurseById(nurseId);
+
         if (HelperUtils.isNull(department)) {
             return;
         }
