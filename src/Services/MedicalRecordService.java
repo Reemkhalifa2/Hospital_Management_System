@@ -68,6 +68,11 @@ public class MedicalRecordService implements Manageable, Searchable, Editable {
 
 
     }
+    @Override
+    public void edit(Object updatedData) {
+        MedicalRecord medicalRecord = (MedicalRecord) updatedData;
+
+    }
 
     public void removeRecord(String recordId) {
         for (MedicalRecord n : medicalRecords) {
@@ -172,10 +177,7 @@ public class MedicalRecordService implements Manageable, Searchable, Editable {
     }
     }
 
-    @Override
-    public void edit(Object updatedData) {
-        
-    }
+
 
     @Override
     public void validate() {
