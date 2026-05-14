@@ -40,14 +40,14 @@ public class MedicalRecordService implements Manageable, Searchable {
         String prescription = InputHandler.getStringInput("Enter prescription: ");
 
         String testResults = InputHandler.getStringInput("Enter testResults: ");
-        
+
         String notes = InputHandler.getStringInput("Enter notes: ");
 
         MedicalRecord medicalRecord = new MedicalRecord(
                 HelperUtils.generateId("MR",3),patientId,doctorId,visitDate,diagnosis,prescription,testResults,notes
         );
 
-        return medicalRecord;
+        addRecord(medicalRecord);
 
     }
 
