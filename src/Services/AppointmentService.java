@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class AppointmentService implements Manageable , Searchable , Appointable {
 
     static Scanner scanner = new Scanner(System.in);
-    List<Appointment> appointmentList = new ArrayList<>();
+    private static List<Appointment> appointmentList = new ArrayList<>();
 
     public void createAppointment(Appointment appointment){
         // Integrate HelperUtils Throughout the System
@@ -25,10 +25,6 @@ public class AppointmentService implements Manageable , Searchable , Appointable
     }
 
     public Appointment addNewAppointment(){
-
-
-        System.out.println("Enter patient Id: ");
-        String patientId = scanner.nextLine();
 
         System.out.println("Enter Doctor Id: ");
         String doctorId = scanner.nextLine();
@@ -60,7 +56,7 @@ public class AppointmentService implements Manageable , Searchable , Appointable
 
         Appointment appointment = new Appointment(
                 // Integrate HelperUtils Throughout the System
-                HelperUtils.generateId("A",4),
+                HelperUtils.generateId("A",3),
                 patientId,
                 doctorId,
                 appointmentDate,
