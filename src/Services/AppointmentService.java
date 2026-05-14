@@ -382,4 +382,35 @@ public class AppointmentService implements Manageable , Searchable , Appointable
         System.out.println(Constants.APPOINTMENT_NOT_FOUND);
     }
 
+    public void getupComingAppointments() {
+
+        int scheduled = 0;
+        int completed = 0;
+        int cancelled = 0;
+
+        LocalDate today = LocalDate.now();
+
+        for (Appointment a : appointmentList) {
+            a.displaySummary();
+            if (a.getAppointmentDate().isAfter(today)) {
+
+                if (a.getStatus().equalsIgnoreCase("Scheduled")) {
+                    scheduled++;
+                }
+                else if (a.getStatus().equalsIgnoreCase("Completed")) {
+                    completed++;
+                }
+                else if (a.getStatus().equalsIgnoreCase("Cancelled")) {
+                    cancelled++;
+                }
+            }
+        }
+
+        System.out.println("===== FUTURE APPOINTMENT STATISTICS =====");
+        System.out.println("Scheduled : " + scheduled);
+        System.out.println("Completed : " + completed);
+        System.out.println("Cancelled : " + cancelled);
+    }
+
+
 }
