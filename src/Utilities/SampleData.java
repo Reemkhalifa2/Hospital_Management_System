@@ -675,6 +675,23 @@ public class SampleData {
                 "Routine checkup"
         );
 
+
+        appointmentService.createAppointment(a1);
+        appointmentService.createAppointment(a2);
+        appointmentService.createAppointment(a3);
+        appointmentService.createAppointment(a4);
+        appointmentService.createAppointment(a5);
+        appointmentService.createAppointment(a6);
+        appointmentService.createAppointment(a7);
+        appointmentService.createAppointment(a8);
+        appointmentService.createAppointment(a9);
+        appointmentService.createAppointment(a10);
+        appointmentService.createAppointment(a11);
+        appointmentService.createAppointment(a12);
+        appointmentService.createAppointment(a13);
+        appointmentService.createAppointment(a14);
+        appointmentService.createAppointment(a15);
+
         //Medical records sample data
         MedicalRecord mr1 = new MedicalRecord(
                 "MR001",
