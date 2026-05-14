@@ -4,6 +4,8 @@ import Behaviour.Appointable;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entities.Appointment;
+import Entities.MedicalRecord;
+import Entities.Patient.Patient;
 import Utilities.Constants;
 import Utilities.HelperUtils;
 import Utilities.InputHandler;
@@ -16,13 +18,16 @@ import java.util.Scanner;
 
 public class AppointmentService implements Manageable , Searchable , Appointable {
 
-    static Scanner scanner = new Scanner(System.in);
     private static List<Appointment> appointmentList = new ArrayList<>();
+    PatientService patientService = new PatientService();
 
     public void createAppointment(Appointment appointment){
+        Patient patient = patientService.getPatientById(appointment.getPatientId());
+
         // Integrate HelperUtils Throughout the System
         if(HelperUtils.isNotNull(appointment)){
         appointmentList.add(appointment);
+        patient.addAppointment(appointment);
         System.out.println(Constants.APPOINTMENT_ADDED_SUCCESSFULLY);}
     }
 
@@ -200,6 +205,21 @@ public class AppointmentService implements Manageable , Searchable , Appointable
         appointment.setAppointmentTime(time);
 
         appointmentList.add(appointment);
+    }
+
+
+    public void getAppointment(Appointment appointment){
+        if (HelperUtils.isNull(appointment)){
+            System.out.println(Constants.APPOINTMENT_NOT_FOUND);
+            return;
+        }
+
+        for(Appointment m : appointmentList) {
+            if(m.getAppointmentId().equals(appointment.getAppointmentId())){
+                m.displayInfo();
+
+            }
+        }
     }
 
     public void rescheduleAppointment(String appointmentId, LocalDate newDate){
