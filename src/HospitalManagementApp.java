@@ -18,6 +18,7 @@ public class HospitalManagementApp {
         NurseService nurseService = new NurseService();
         DepartmentService departmentService = new DepartmentService();
         AppointmentService appointmentService = new AppointmentService();
+        MedicalRecordService medicalRecordService = new MedicalRecordService();
         Menu menu = new Menu();
         boolean Continue = true;
         while (Continue) {
@@ -28,7 +29,7 @@ public class HospitalManagementApp {
                 case 2 -> doctorService.handleDoctorMenu();
                 case 3 -> nurseService.handleNurseMenu();
                 case 4 -> appointmentService.handleAppointmentMenu();
-                /*case 5 -> medicalRecordMenu();*/
+                case 5 -> medicalRecordService.handleMedicalRecordMenu();
                 case 6 -> departmentService.handleDepartmentMenu();
                 //case 7 -> reportsMenu();
                 case 8 -> {
