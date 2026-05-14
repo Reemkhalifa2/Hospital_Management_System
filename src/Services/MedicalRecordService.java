@@ -53,10 +53,17 @@ public class MedicalRecordService implements Manageable, Searchable {
 
     public void updateMedicalRecord(){
         String recordId = InputHandler.getStringInput("Enter record ID: ");
-        MedicalRecord record = getRecordById(recordId)
+        MedicalRecord record = getRecordById(recordId);
         if(HelperUtils.isNull(record)){
             return;
         }
+        String diagnosis = InputHandler.getStringInput("Enter new diagnosis: ");
+        String prescription = InputHandler.getStringInput("Enter new prescription: ");
+        String testResults = InputHandler.getStringInput("Enter new testResults: ");
+        MedicalRecord updateMedicalRecord = new MedicalRecord();
+        updateMedicalRecord.setDiagnosis(diagnosis);
+        updateMedicalRecord.setPrescription(prescription);
+        updateMedicalRecord.setTestResults(testResults);
 
 
     }
