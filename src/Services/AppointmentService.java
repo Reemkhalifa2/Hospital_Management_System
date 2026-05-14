@@ -256,6 +256,18 @@ public class AppointmentService implements Manageable , Searchable , Appointable
         System.out.println(Constants.APPOINTMENT_NOT_FOUND);
 
     }
+    public void ViewUpcomingAppointments(){
+        if (HelperUtils.isNull(appointmentList)){
+            System.out.println(Constants.APPOINTMENT_NOT_FOUND);
+            return;
+        }
+        for(Appointment a : appointmentList){
+           if(a.getAppointmentDate().isAfter(LocalDate.now())){
+               a.displayInfo();
+           }
+        }
+
+    }
 
 
     public void handleAppointmentMenu(){
