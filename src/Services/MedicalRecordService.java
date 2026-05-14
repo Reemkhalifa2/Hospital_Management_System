@@ -27,8 +27,7 @@ public class MedicalRecordService implements Manageable, Searchable {
 
         String patientId = InputHandler.getStringInput("Enter patient Id: ");
 
-        System.out.println("Enter Doctor Id: ");
-        String doctorId = scanner.nextLine();
+        String doctorId = InputHandler.getStringInput("Enter Doctor Id: ");
 
         LocalDate visitDate = LocalDate.now();
 
