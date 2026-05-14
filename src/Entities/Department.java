@@ -13,7 +13,7 @@ public class Department implements Displayable {
     private String headDoctorId;
 
     private List<String> doctors;
-    private List<Nurse> nurses;
+    private List<String> nurses;
 
     private int bedCapacity;
     private int availableBeds;
