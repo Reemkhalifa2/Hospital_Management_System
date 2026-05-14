@@ -381,4 +381,5 @@ public class AppointmentService implements Manageable , Searchable , Appointable
 
         System.out.println(Constants.APPOINTMENT_NOT_FOUND);
     }
+
 }
