@@ -176,8 +176,16 @@ public class DepartmentService implements Manageable, Searchable , Editable {
 
     @Override
     public void searchById(String id) {
+        for (Department d : departments) {
+            if (d.getDepartmentId().equals(id)) {
+                d.displayInfo();
+                return;
+            }
+        }
+        System.out.println(Constants.DEPARTMENT_NOT_FOUND);
 
     }
+
     public void viewDepartmentDetails(){
 
         String id = InputHandler.getStringInput("Enter Department ID: ");
