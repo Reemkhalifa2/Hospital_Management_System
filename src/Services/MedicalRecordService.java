@@ -180,6 +180,7 @@ public class MedicalRecordService implements Manageable, Searchable, Editable {
                 case 3->getRecordsByPatientId(InputHandler.getStringInput("Enter Patient Id"));
                 case 4->getRecordsByDoctorId(InputHandler.getStringInput("Enter Doctor Id"));
                 case 5-> updateMedicalRecord();
+                case 6-> remove(InputHandler.getStringInput("Enter Patient Id"));
             }
     }
     }
