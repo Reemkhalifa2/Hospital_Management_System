@@ -87,13 +87,11 @@ public class Department implements Displayable {
 
     public void assignDoctor(String doctorid) {
         doctors.add(doctorid);
-        System.out.println("Doctor assigned to department.");
 
     }
 
     public void assignNurse(String nurseId) {
         nurses.add(nurseId);
-        System.out.println("Nurse assigned to department.");
 
     }
 
@@ -104,6 +102,7 @@ public class Department implements Displayable {
 
     // Display info
     public void displayInfo() {
+        System.out.println("______________________________");
         System.out.println("Department ID: " + departmentId);
         System.out.println("Department Name: " + departmentName);
         System.out.println("Head Doctor ID: " + headDoctorId);
@@ -111,6 +110,8 @@ public class Department implements Displayable {
         System.out.println("Available Beds: " + availableBeds);
         System.out.println("Doctors: " + doctors.size());
         System.out.println("Nurses: " + nurses.size());
+        System.out.println("______________________________");
+        System.out.println();
     }
 
     @Override
