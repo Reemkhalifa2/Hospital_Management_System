@@ -57,7 +57,7 @@ public class AppointmentService implements Manageable , Searchable , Appointable
                 notes
         );
 
-        return appointment;
+        createAppointment(appointment );
     }
 
     public void editAppointment(String appointmentId, Appointment updatedAppointment){
