@@ -87,8 +87,8 @@ public class Department implements Displayable {
 
     }
 
-    public void assignNurse(Nurse nurse) {
-        nurses.add(nurse);
+    public void assignNurse(String nurseId) {
+        nurses.add(nurseId);
         System.out.println("Nurse assigned to department.");
 
     }
