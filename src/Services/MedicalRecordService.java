@@ -31,8 +31,7 @@ public class MedicalRecordService implements Manageable, Searchable {
 
         LocalDate visitDate = LocalDate.now();
 
-        System.out.println("Enter diagnosis: ");
-        String diagnosis = scanner.nextLine();
+        String diagnosis = InputHandler.getStringInput("Enter diagnosis: ");
 
         System.out.println("Enter prescription: ");
         String prescription = scanner.nextLine();
