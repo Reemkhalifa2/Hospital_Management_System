@@ -289,6 +289,7 @@ public class AppointmentService implements Manageable , Searchable , Appointable
                 }
                 case 7 -> cancelAppointment(InputHandler.getStringInput("Enter Appointment ID: "));
                 case 8 -> completeAppointment(InputHandler.getStringInput("Enter Appointment ID: "));
+                case 9 -> ViewUpcomingAppointments();
                 case 0 ->{
                     appointmentContinue = false;
                 }
