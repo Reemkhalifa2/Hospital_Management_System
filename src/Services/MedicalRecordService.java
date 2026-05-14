@@ -140,6 +140,7 @@ public class MedicalRecordService implements Manageable, Searchable {
             int option = InputHandler.getIntInput(Constants.ENTER_OPTION, 0, 9);
 
             switch (option) {
+                case 1->addNewRecords();
 
             }
     }
