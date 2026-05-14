@@ -179,7 +179,17 @@ public class DepartmentService implements Manageable, Searchable , Editable {
             System.out.println(Constants.DEPARTMENT_NOT_FOUND);
             return;
         }
-        
+        System.out.println("========== Department Statistics ==========");
+        for (Department d : departments) {
+            System.out.println("Department  : " + d.getDepartmentName());
+            System.out.println("Doctors     : " + d.getDoctors().size());
+            System.out.println("Nurses      : " + d.getNurses().size());
+            System.out.println("Bed Capacity: " + d.getBedCapacity());
+            System.out.println("Available Beds : " + d.getAvailableBeds());
+
+            System.out.println("-------------------------------------------");
+        }
+
     }
 
 
@@ -203,6 +213,8 @@ public class DepartmentService implements Manageable, Searchable , Editable {
                     String departmentId = InputHandler.getStringInput("Enter department ID: ");
                     assignDoctorToDepartment(nurseId,departmentId);
                 }
+                case 6 -> updateDepartment();
+                case 7-> viewDepartmentStatistics();
 
 
 
