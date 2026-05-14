@@ -91,6 +91,9 @@ public class HelperUtils {
         Date today = new Date();
         return date.before(today);
     }
+    public static Boolean isPastDate(LocalDate date, LocalDate newDate){
+        return newDate.isBefore(date);
+    }
     public static Boolean isToday(Date date){
         Date today = new Date();
         return date.equals(today);
