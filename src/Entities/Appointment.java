@@ -117,6 +117,13 @@ public class Appointment implements Displayable {
 
     @Override
     public void displaySummary() {
+        System.out.println("--------------------------------------");
+        System.out.println("Appointment Id: " + appointmentId);
+        System.out.println("Appointment Date: " + appointmentDate);
+        System.out.println("Appointment Time: " + appointmentTime);
+        System.out.println("Status: " + status);
+        System.out.println("--------------------------------------");
+
 
     }
 
