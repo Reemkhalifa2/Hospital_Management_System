@@ -169,7 +169,11 @@ public class Doctor extends Person implements Displayable {
     @Override
     public void displaySummary() {
 
-    }
+        System.out.println("Doctor ID: " + getId());
+        System.out.println("Name: " + getFirstName() + " " + getLastName());
+        System.out.println("Specialization: " + specialization);
+        System.out.println("Department: " + departmentId);
+    }}
 
     public void updateFee(double fee){
         this.consultationFee = fee;
