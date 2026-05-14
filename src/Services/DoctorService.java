@@ -198,7 +198,7 @@ public class DoctorService implements Manageable, Searchable , Editable {
         System.out.println(Constants.DOCTOR_NOT_FOUND);
     }
 
-    public static Doctor getDoctorById(String doctorId) {
+    public  Doctor getDoctorById(String doctorId) {
         for (Doctor d : doctors) {
             if (d.getId().equals(doctorId)) {
                 return d;
