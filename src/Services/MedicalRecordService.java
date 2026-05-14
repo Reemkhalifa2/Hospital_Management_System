@@ -154,6 +154,8 @@ public class MedicalRecordService implements Manageable, Searchable {
             switch (option) {
                 case 1->addNewRecords();
                 case 2->getRecords();
+                case 3->getRecordsByPatientId(InputHandler.getStringInput("Enter Patient Id"));
+                case 4->getRecordsByDoctorId(InputHandler.getStringInput("Enter Doctor Id"));
 
             }
     }
