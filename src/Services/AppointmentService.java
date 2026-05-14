@@ -6,6 +6,7 @@ import Behaviour.Searchable;
 import Entities.Appointment;
 import Utilities.Constants;
 import Utilities.HelperUtils;
+import Utilities.InputHandler;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class AppointmentService implements Manageable , Searchable , Appointable
         String patientId = InputHandler.getStringInput("Enter Patient Id: ");
         String doctorId = InputHandler.getStringInput("Enter Doctor Id: ");
 
-        LocalDate appointmentDate = LocalDate.now();
+        LocalDate appointmentDate = InputHandler.getDateInput("Enter Date: ");
 
         System.out.println("Enter Appointment Time: ");
         String appointmentTime = scanner.nextLine();
