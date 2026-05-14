@@ -4,6 +4,7 @@ import Behaviour.Editable;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entities.Department;
+import Entities.Nurse;
 import Entities.Patient.Patient;
 import Utilities.Constants;
 import Utilities.HelperUtils;
@@ -103,6 +104,7 @@ public class DepartmentService implements Manageable, Searchable , Editable {
         }
         department.assignDoctor(doctorId);
         System.out.println(Constants.DOCTOR_ASSIGNED_SUCCESSFULLY);
+
     }
 
     public void assignNurseToDepartment(String nurseId, String departmentId){
@@ -110,10 +112,15 @@ public class DepartmentService implements Manageable, Searchable , Editable {
         Nurse nurse = nurseService.getNurseById(nurseId);
 
         if (HelperUtils.isNull(department)) {
+            System.out.println(Constants.DEPARTMENT_NOT_FOUND);
             return;
         }
+        if (HelperUtils.isNull(nurse)) {
+            return;
+        }
+
         department.assignNurse(nurseId);
-        System.out.println(Constants.DOCTOR_ASSIGNED_SUCCESSFULLY);
+        System.out.println(Constants.NURSE_ASSIGNED_SUCCESSFULLY);
     }
 
 
@@ -221,7 +228,7 @@ public class DepartmentService implements Manageable, Searchable , Editable {
                 case 5-> {
                     String nurseId     = InputHandler.getStringInput("Enter Nurse ID: ");
                     String departmentId = InputHandler.getStringInput("Enter department ID: ");
-                    assignDoctorToDepartment(nurseId,departmentId);
+                    assignNurseToDepartment(nurseId,departmentId);
                 }
                 case 6 -> updateDepartment();
                 case 7-> viewDepartmentStatistics();
