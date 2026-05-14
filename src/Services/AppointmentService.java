@@ -218,6 +218,16 @@ public class AppointmentService implements Manageable , Searchable , Appointable
         }
         System.out.println(Constants.APPOINTMENT_NOT_FOUND);
     }
+    public void completeAppointment(String appointmentId){
+        for(Appointment a : appointmentList){
+            if(a.getAppointmentId().equals(appointmentId)){
+                a.setStatus("Completed");
+                return;
+            }
+        }
+        System.out.println(Constants.APPOINTMENT_NOT_FOUND);
+
+    }
 
     public void handleAppointmentMenu(){
         Boolean appointmentContinue = true;
@@ -237,10 +247,7 @@ public class AppointmentService implements Manageable , Searchable , Appointable
                     rescheduleAppointment(id,newDate,newTime);
                 }
                 case 7 -> cancelAppointment(InputHandler.getStringInput("Enter Appointment ID: "));
-
-
-
-
+                case 8 -> completeAppointment(InputHandler.getStringInput("Enter Appointment ID: "));
                 case 0 ->{
                     appointmentContinue = false;
                 }
