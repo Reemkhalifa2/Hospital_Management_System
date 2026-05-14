@@ -47,7 +47,7 @@ public class Constants {
     public static String SURGEON_CANNOT_OPERATE = "surgeon can't operate";
 
 
-    public static String ENTER_OPTION = "Enter your option";
+    public static String ENTER_OPTION = "Enter your option:  ";
     public static String EMPTY_INPUT = "Input cannot be empty. Try again.";
     public static String INVALID_NUMBER = "Please enter a valid number";
     public static String NOT_IN_RANGE = "Value is not in range";
