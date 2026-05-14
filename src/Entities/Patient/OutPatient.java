@@ -35,12 +35,9 @@ public class OutPatient extends Patient implements Displayable {
     }
 
     public void scheduleFollowUp(){
-        List<String> appointments =  getAppointments();
 
         System.out.println("Enter next appointment");
-        appointments.add(scanner.nextLine());
-        setAppointments(appointments);
-
+        appointmentService.addNewAppointment();
 
     }
 
