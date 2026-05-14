@@ -141,6 +141,8 @@ public class MedicalRecordService implements Manageable, Searchable, Editable {
 
     @Override
     public void add(Object entity) {
+        MedicalRecord medicalRecord = (MedicalRecord) entity;
+        medicalRecords.add(medicalRecord);
 
     }
 
