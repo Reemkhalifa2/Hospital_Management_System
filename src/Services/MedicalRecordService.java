@@ -21,8 +21,13 @@ public class MedicalRecordService implements Manageable, Searchable, Editable {
     PatientService patientService = new PatientService();
 
     public void addRecord(MedicalRecord record){
-        medicalRecords.add(record);
+
         Patient patient = patientService.getPatientById(record.getPatientId());
+        if (HelperUtils.isNull(patient)){
+            System.out.println(Constants.PATIENT_NOT_FOUND);
+            return;
+        }
+        medicalRecords.add(record);
         patient.addMedicalRecord(record);
         System.out.println(Constants.RECORD_ADDED_SUCCESSFULLY);
     }
