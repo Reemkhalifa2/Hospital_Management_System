@@ -102,6 +102,7 @@ public class Appointment implements Displayable {
     }
 
     public void displayInfo(){
+        System.out.println("---------------------------------");
         System.out.println("Appointment Id: " + appointmentId);
         System.out.println("Patient Id: " + patientId);
         System.out.println("Doctor Id: " + doctorId);
@@ -110,6 +111,8 @@ public class Appointment implements Displayable {
         System.out.println("Status: " + status);
         System.out.println("Reason: " + reason);
         System.out.println("Notes: " + notes);
+        System.out.println("---------------------------------");
+        System.out.println();
     }
 
     @Override
