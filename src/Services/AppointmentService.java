@@ -34,11 +34,7 @@ public class AppointmentService implements Manageable , Searchable , Appointable
 
         String appointmentTime = String.valueOf(InputHandler.getTimeInput("Enter Appointment Time: "));
 
-        // Integrate HelperUtils Throughout the System
-        if (!HelperUtils.isValidString(appointmentTime, "\\d{2}:\\d{2}")) {
-            System.out.println("Invalid time format (HH:MM)");
-            return null;
-        }
+       
 
         System.out.println("Enter status (Scheduled/Completed/Cancelled/Rescheduled): ");
         String status = scanner.nextLine();
