@@ -16,8 +16,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MedicalRecordService implements Manageable, Searchable {
-    List <MedicalRecord> medicalRecords = new ArrayList<>();
-    static Scanner scanner = new Scanner(System.in);
+    private static List <MedicalRecord> medicalRecords = new ArrayList<>();
+    PatientService patientService = new PatientService();
 
     public void addRecord(MedicalRecord record){
         medicalRecords.add(record);
