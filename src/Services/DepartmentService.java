@@ -290,4 +290,22 @@ public class DepartmentService implements Manageable, Searchable , Editable {
     public void validate() {
 
     }
+
+    public void departmentOccupancyReport() {
+        System.out.println("==== Department Occupancy Report ====");
+        if (HelperUtils.isNull(departments)) {
+            System.out.println("No departments found.");
+            return;
+        }
+
+        for (Department department : departments) {
+            int occupiedBeds = department.getBedCapacity() - department.getAvailableBeds();
+            System.out.println("Department: " + department.getDepartmentName() );
+            department.displaySummary();
+            System.out.println("Bed Capacity: " + department.getBedCapacity());
+            System.out.println("Available Beds: " + department.getAvailableBeds());
+            System.out.println("Occupied Beds: " + occupiedBeds);
+            System.out.println("-----------------------------------");
+        }
+    }
 }
