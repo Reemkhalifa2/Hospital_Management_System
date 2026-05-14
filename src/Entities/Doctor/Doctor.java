@@ -173,19 +173,28 @@ public class Doctor extends Person implements Displayable {
         System.out.println("Name: " + getFirstName() + " " + getLastName());
         System.out.println("Specialization: " + specialization);
         System.out.println("Department: " + departmentId);
-    }}
-
-    public void updateFee(double fee){
-        this.consultationFee = fee;
     }
 
-    /*public void updateFee(double fee , String reason){
-        this.consultationFee = fee;
-    }*/
+    public void updateFee(double fee) {
 
-    public void addAvailability(String slot){
-        this.availableSlots.add(slot);
+        if (fee < 0) {
+            System.out.println("Invalid fee amount");
+            return;
+        }
+
+        this.consultationFee = fee;
+        System.out.println("Consultation fee updated successfully");
     }
+
+    public void addAvailability(String slot) {
+
+        if (availableSlots == null) {
+            availableSlots = new ArrayList<>();
+        }
+
+        availableSlots.add(slot);
+    }
+
 
     public void addAvailability(List<String> slots){
         this.availableSlots = slots;
