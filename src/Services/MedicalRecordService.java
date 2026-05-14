@@ -220,7 +220,7 @@ public class MedicalRecordService implements Manageable, Searchable, Editable {
 
             System.out.println(MenuMessage.MedicalRecordsManagementMenu);
 
-            int option = InputHandler.getIntInput(Constants.ENTER_OPTION, 0, 9);
+            int option = InputHandler.getIntInput(Constants.ENTER_OPTION, 0, 7);
 
             switch (option) {
                 case 1->addNewRecords();
@@ -229,6 +229,8 @@ public class MedicalRecordService implements Manageable, Searchable, Editable {
                 case 4->getRecordsByDoctorId(InputHandler.getStringInput("Enter Doctor Id"));
                 case 5-> updateMedicalRecord();
                 case 6-> remove(InputHandler.getStringInput("Enter Patient Id"));
+                case 7-> generatePatientHistoryReport(InputHandler.getStringInput("Enter Patient Id"));
+                case 0-> exit = false;
             }
     }
     }
