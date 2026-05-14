@@ -1,5 +1,6 @@
 package Services;
 
+import Behaviour.Editable;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entities.Department;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class DepartmentService implements Manageable, Searchable {
+public class DepartmentService implements Manageable, Searchable , Editable {
     static Scanner scanner = new Scanner(System.in);
     List<Department> departments = new ArrayList<>();
 
@@ -179,5 +180,15 @@ public class DepartmentService implements Manageable, Searchable {
 
             }
         }
+    }
+
+    @Override
+    public void edit(Object updatedData) {
+
+    }
+
+    @Override
+    public void validate() {
+
     }
 }
