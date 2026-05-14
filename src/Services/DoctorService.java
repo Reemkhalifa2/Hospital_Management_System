@@ -406,4 +406,13 @@ public class DoctorService implements Manageable, Searchable , Editable {
     public void validate() {
 
     }
+    public void DoctorPerformanceReport(){
+        Doctor doctor = getDoctorById(InputHandler.getStringInput("Enter Doctor Id"));
+        if(HelperUtils.isNotNull(doctor)){
+            System.out.println("Doctor Performance Report");
+            doctor.displaySummary();
+            System.out.println("Number of patients handled:   " + doctor.getAssignedPatients().size());
+        }
+
+    }
 }
