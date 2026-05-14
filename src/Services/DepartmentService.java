@@ -4,6 +4,7 @@ import Behaviour.Editable;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entities.Department;
+import Entities.Doctor.Doctor;
 import Entities.Nurse;
 import Entities.Patient.Patient;
 import Utilities.Constants;
@@ -18,6 +19,7 @@ import java.util.Scanner;
 public class DepartmentService implements Manageable, Searchable , Editable {
     private static List<Department> departments = new ArrayList<>();
     NurseService nurseService = new NurseService();
+    DoctorService doctorService = new DoctorService();
 
     public void addDepartment(Department department){
         departments.add(department);
@@ -99,7 +101,11 @@ public class DepartmentService implements Manageable, Searchable , Editable {
 
     public void assignDoctorToDepartment(String doctorId, String departmentId){
         Department department = getDepartmentById(departmentId);
+        Doctor doctor = doctorService.getDoctorById(doctorId);
         if (HelperUtils.isNull(department)) {
+            return;
+        }
+        if (HelperUtils.isNull(doctor)) {
             return;
         }
         department.assignDoctor(doctorId);
