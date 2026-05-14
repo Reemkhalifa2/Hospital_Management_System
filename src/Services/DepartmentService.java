@@ -153,6 +153,7 @@ public class DepartmentService implements Manageable, Searchable , Editable {
 
     @Override
     public void getAll() {
+        departments.forEach(d -> d.displayInfo());
 
     }
 
