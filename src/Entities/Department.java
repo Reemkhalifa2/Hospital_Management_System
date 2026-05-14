@@ -32,6 +32,10 @@ public class Department implements Displayable {
         this.nurses = new ArrayList<>();
     }
 
+    public Department() {
+        super();
+    }
+
     // Getters and Setters
     public String getDepartmentId() {
         return departmentId;
