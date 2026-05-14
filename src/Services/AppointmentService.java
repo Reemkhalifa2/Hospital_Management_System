@@ -32,8 +32,7 @@ public class AppointmentService implements Manageable , Searchable , Appointable
 
         LocalDate appointmentDate = InputHandler.getDateInput("Enter Date: ");
 
-        System.out.println("Enter Appointment Time: ");
-        String appointmentTime = scanner.nextLine();
+        String appointmentTime = String.valueOf(InputHandler.getTimeInput("Enter Appointment Time: "));
 
         // Integrate HelperUtils Throughout the System
         if (!HelperUtils.isValidString(appointmentTime, "\\d{2}:\\d{2}")) {
