@@ -4,6 +4,7 @@ import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entities.MedicalRecord;
 import Entities.Nurse;
+import Entities.Patient.Patient;
 import Utilities.Constants;
 import Utilities.HelperUtils;
 import Utilities.InputHandler;
