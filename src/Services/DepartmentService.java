@@ -4,6 +4,7 @@ import Behaviour.Editable;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entities.Department;
+import Entities.Patient.Patient;
 import Utilities.Constants;
 import Utilities.HelperUtils;
 import Utilities.InputHandler;
@@ -14,7 +15,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class DepartmentService implements Manageable, Searchable , Editable {
-    List<Department> departments = new ArrayList<>();
+    private static List<Department> departments = new ArrayList<>();
 
     public void addDepartment(Department department){
         departments.add(department);
@@ -117,12 +118,11 @@ public class DepartmentService implements Manageable, Searchable , Editable {
     public void add(Object entity) {
         Department department = (Department) entity;
         for(Department d : departments){
-            if(d.getDepartmentId().equals(department.getDepartmentId())){
+            if (d.getDepartmentId().equals(department.getDepartmentId())) {
                 return;
             }
         }
         departments.add(department);
-
 
     }
 
@@ -204,6 +204,7 @@ public class DepartmentService implements Manageable, Searchable , Editable {
         boolean departmentExit = true;
         while (departmentExit) {
             System.out.println(MenuMessage.DepartmentManagementMenu);
+
             int option = InputHandler.getIntInput(Constants.ENTER_OPTION, 0, 7);
             switch (option) {
                 case 1 -> addDepartment();
@@ -221,9 +222,7 @@ public class DepartmentService implements Manageable, Searchable , Editable {
                 }
                 case 6 -> updateDepartment();
                 case 7-> viewDepartmentStatistics();
-
-
-
+                case 0-> departmentExit = false;
 
             }
         }
