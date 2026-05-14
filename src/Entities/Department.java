@@ -61,7 +61,7 @@ public class Department implements Displayable {
         return doctors;
     }
 
-    public List<Nurse> getNurses() {
+    public List<String> getNurses() {
         return nurses;
     }
 
