@@ -33,14 +33,11 @@ public class MedicalRecordService implements Manageable, Searchable {
 
         String diagnosis = InputHandler.getStringInput("Enter diagnosis: ");
 
-        System.out.println("Enter prescription: ");
-        String prescription = scanner.nextLine();
+        String prescription = InputHandler.getStringInput("Enter prescription: ");
 
-        System.out.println("Enter testResults: ");
-        String testResults = scanner.nextLine();
-
-        System.out.println("Enter notes: ");
-        String notes = scanner.nextLine();
+        String testResults = InputHandler.getStringInput("Enter testResults: ");
+        
+        String notes = InputHandler.getStringInput("Enter notes: ");
 
         MedicalRecord medicalRecord = new MedicalRecord(
                 HelperUtils.generateId("MR",3),patientId,doctorId,visitDate,diagnosis,prescription,testResults,notes
