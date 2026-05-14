@@ -296,21 +296,36 @@ public class PatientService implements Manageable, Searchable, Editable {
         }
     }
 
-    public static void updatePatient( Patient updatedPatient){
-        updatedPatient.setEmail(InputHandler.getStringInput("Enter new email: "));
-        updatedPatient.setPhoneNumber(InputHandler.getStringInput("Enter new phone number: "));
-        updatedPatient.setEmergencyContact(InputHandler.getStringInput("Enter Emergency Contact: "));
-        updatedPatient.setAddress(InputHandler.getStringInput("Enter new address: "));
-        System.out.println(Constants.PATIENT_UPDATED_SUCCESSFULLY);
-    }
+    public void updatePatient(){
 
-    private static void updatePatient() {
-        String id = InputHandler.getStringInput("Patient ID to update: ");
-        Patient existing = getPatientById(id);
-        if (HelperUtils.isNull(existing)) { return; }else{
-            updatePatient(existing);
+        String patientId = InputHandler.getStringInput("Enter patient ID: ");
 
+        Patient existingPatient = getPatientById(patientId);
+
+        if(HelperUtils.isNull(existingPatient)){
+            return;
         }
+
+        String phone = InputHandler.getStringInput("Enter new phone number: ");
+
+        String email = InputHandler.getStringInput("Enter new email: ");
+
+        String address = InputHandler.getStringInput("Enter new address: ");
+
+        String emergencyContact = InputHandler.getStringInput("Enter new emergency contact: ");
+
+        String insuranceId = InputHandler.getStringInput("Enter new insurance ID: ");
+
+        Patient updatedPatient = new Patient();
+
+        updatedPatient.setId(patientId);
+        updatedPatient.setPhoneNumber(phone);
+        updatedPatient.setEmail(email);
+        updatedPatient.setAddress(address);
+        updatedPatient.setEmergencyContact(emergencyContact);
+        updatedPatient.setInsuranceId(insuranceId);
+
+        edit(updatedPatient);
     }
 
 
@@ -329,9 +344,9 @@ public class PatientService implements Manageable, Searchable, Editable {
     public void remove(String id) {
 
         Patient p = getPatientById(id);
-            if (HelperUtils.isNull(p)) { System.out.println(Constants.PATIENT_NOT_FOUND); return; }
-            patients.remove(p);
-            System.out.println(Constants.PATIENT_REMOVED_SUCCESSFULLY);
+        if (HelperUtils.isNull(p)) { System.out.println(Constants.PATIENT_NOT_FOUND); return; }
+        patients.remove(p);
+        System.out.println(Constants.PATIENT_REMOVED_SUCCESSFULLY);
 
 
     }
@@ -346,24 +361,36 @@ public class PatientService implements Manageable, Searchable, Editable {
     }
     @Override
     public void search(String keyword) {
-        if (HelperUtils.isNull(patients)) {
-            System.out.println("No patients registered.");
-            return;}
-        for (Patient patient : patients) {
 
-            if (patient.getFirstName().equalsIgnoreCase(keyword)
-                    || patient.getLastName().equalsIgnoreCase(keyword)
-                    || patient.getPhoneNumber().equalsIgnoreCase(keyword)
-                    || patient.getBloodGroup().equalsIgnoreCase(keyword)
-                    || patient.getEmail().equalsIgnoreCase(keyword)
-                    || patient.getId().equalsIgnoreCase(keyword)) {
+        boolean found = false;
 
-                patient.displayInfo();
-                return;
+        for(Patient p : patients){
+
+            if(
+
+                    p.getId().equalsIgnoreCase(keyword) ||
+                            p.getFirstName().equalsIgnoreCase(keyword) ||
+                            p.getLastName().equalsIgnoreCase(keyword) ||
+                            p.getGender().equalsIgnoreCase(keyword) ||
+                            p.getPhoneNumber().equalsIgnoreCase(keyword) ||
+                            p.getEmail().equalsIgnoreCase(keyword) ||
+                            p.getAddress().equalsIgnoreCase(keyword) ||
+                            p.getBloodGroup().equalsIgnoreCase(keyword) ||
+                            p.getEmergencyContact().equalsIgnoreCase(keyword) ||
+                            p.getInsuranceId().equalsIgnoreCase(keyword) ||
+                            p.getDateOfBirth().toString().equalsIgnoreCase(keyword) ||
+                            p.getRegistrationDate().toString().equalsIgnoreCase(keyword)
+
+            ){
+
+                p.displayInfo();
+                found = true;
             }
         }
-        System.out.println(Constants.PATIENT_NOT_FOUND);
 
+        if(!found){
+            System.out.println(Constants.PATIENT_NOT_FOUND);
+        }
     }
     @Override
     public void searchById(String id) {
@@ -383,10 +410,33 @@ public class PatientService implements Manageable, Searchable, Editable {
 
 
     }
+
     @Override
     public void edit(Object updatedData) {
 
+        if(!(updatedData instanceof Patient)){
+            System.out.println("Invalid patient data");
+            return;
+        }
 
+        Patient updatedPatient = (Patient) updatedData;
+
+        for(Patient p : patients){
+
+            if(p.getId().equals(updatedPatient.getId())){
+
+                p.setPhoneNumber(updatedPatient.getPhoneNumber());
+                p.setEmail(updatedPatient.getEmail());
+                p.setAddress(updatedPatient.getAddress());
+                p.setEmergencyContact(updatedPatient.getEmergencyContact());
+                p.setInsuranceId(updatedPatient.getInsuranceId());
+
+                System.out.println(Constants.PATIENT_UPDATED_SUCCESSFULLY);
+                return;
+            }
+        }
+
+        System.out.println(Constants.PATIENT_NOT_FOUND);
     }
 
     @Override

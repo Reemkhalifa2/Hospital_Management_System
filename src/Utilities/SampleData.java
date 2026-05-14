@@ -29,6 +29,7 @@ public class SampleData {
         MedicalRecordService medicalRecordService = new MedicalRecordService();
         AppointmentService appointmentService = new AppointmentService();
         DoctorService doctorService = new DoctorService();
+        NurseService nurseService = new NurseService();
 
        /* departmentService.add(new Department("DEP-001", "Cardiology",     "DOC-001", 40));
         departmentService.add(new Department("DEP-002", "Neurology",      "DOC-002", 30));
@@ -475,6 +476,11 @@ public class SampleData {
                 "Night",
                 "BSc Nursing"
         );
+        nurseService.add(n1);
+        nurseService.add(n2);
+        nurseService.add(n3);
+        nurseService.add(n4);
+        nurseService.add(n5);
 
         // Department sample data
 

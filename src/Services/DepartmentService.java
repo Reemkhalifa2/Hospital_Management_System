@@ -4,6 +4,9 @@ import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entities.Department;
 import Utilities.Constants;
+import Utilities.HelperUtils;
+import Utilities.InputHandler;
+import Utilities.MenuMessage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,25 +22,21 @@ public class DepartmentService implements Manageable, Searchable {
     }
 
     public Department addDepartment(){
-        System.out.print("Enter Department ID: ");
-        String departmentId = scanner.nextLine();
 
-        System.out.print("Enter Department Name: ");
-        String departmentName = scanner.nextLine();
+        String departmentName = InputHandler.getStringInput("Enter Department Name: ");
 
-        System.out.print("Enter Head Doctor ID: ");
-        String headDoctorId = scanner.nextLine();
+        String headDoctorId = InputHandler.getStringInput("Enter Head Doctor ID: ");
 
         System.out.print("Enter Bed Capacity: ");
-        int bedCapacity = scanner.nextInt();
+        int bedCapacity = InputHandler.getIntInput("Enter Bed Capacity: ");
 
         List<String> doctors = new ArrayList<>();
         List<String> nurses = new ArrayList<>();
 
         System.out.print("Enter Available Beds: ");
-        int availableBeds = scanner.nextInt();
+        int availableBeds = InputHandler.getIntInput("Enter Available Beds: ");
         Department department = new Department(
-                departmentId,
+                HelperUtils.generateId("D-"),
                 departmentName,
                 headDoctorId,
                 bedCapacity
@@ -68,15 +67,24 @@ public class DepartmentService implements Manageable, Searchable {
         }
         System.out.println(Constants.DEPARTMENT_NOT_FOUND);
     }
+    public void getDepartments() {
+        if (departments.isEmpty()) {
+            System.out.println(Constants.DEPARTMENT_NOT_FOUND);
+            return;
+        }
+        for (Department d : departments) {
+            d.displayInfo();
+        }
+    }
 
-    public void getDepartmentById(String departmentId){
-        for(Department d : departments){
-            if(d.getDepartmentId().equals(departmentId)){
-                d.displayInfo();
-                return;
+    public Department getDepartmentById(String departmentId) {
+        for (Department d : departments) {
+            if (d.getDepartmentId().equals(departmentId)) {
+                return d;
             }
         }
         System.out.println(Constants.DEPARTMENT_NOT_FOUND);
+        return null;
     }
 
     public void displayAllDepartments(){
@@ -87,13 +95,12 @@ public class DepartmentService implements Manageable, Searchable {
 
 
     public void assignDoctorToDepartment(String doctorId, String departmentId){
-        for(Department d : departments){
-            if(d.getDepartmentId().equals(departmentId)){
-                d.setHeadDoctorId(doctorId);
-                return;
-            }
+        Department department = getDepartmentById(departmentId);
+        if (HelperUtils.isNull(department)) {
+            return;
         }
-        System.out.println(Constants.DEPARTMENT_NOT_FOUND);
+        department.assignDoctor(doctorId);
+        System.out.println(Constants.DOCTOR_ASSIGNED_SUCCESSFULLY);
     }
 
 
@@ -120,5 +127,42 @@ public class DepartmentService implements Manageable, Searchable {
     @Override
     public void searchById(String id) {
 
+    }
+    public void viewDepartmentDetails(){
+
+        String id = InputHandler.getStringInput("Enter Department ID: ");
+
+        for(Department d : departments){
+
+            if(d.getDepartmentId().equals(id)){
+                d.displayInfo();
+                return;
+            }
+        }
+
+        System.out.println(Constants.DEPARTMENT_NOT_FOUND);
+    }
+
+
+
+    public void handleDepartmentMenu() {
+        boolean departmentExit = true;
+        while (departmentExit) {
+            System.out.println(MenuMessage.DepartmentManagementMenu);
+            int option = InputHandler.getIntInput(Constants.ENTER_OPTION, 0, 7);
+            switch (option) {
+                case 1 -> addDepartment();
+                case 2 -> getDepartments();
+                case 3 -> viewDepartmentDetails();
+                case 4-> {
+                    String doctorId     = InputHandler.getStringInput("Enter doctor ID: ");
+                    String departmentId = InputHandler.getStringInput("Enter department ID: ");
+                    assignDoctorToDepartment(doctorId,departmentId);
+                }
+
+
+
+            }
+        }
     }
 }

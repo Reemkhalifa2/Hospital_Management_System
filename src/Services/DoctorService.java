@@ -1,5 +1,6 @@
 package Services;
 
+import Behaviour.Editable;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entities.Doctor.Consultant;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class DoctorService implements Manageable, Searchable {
+public class DoctorService implements Manageable, Searchable , Editable {
     private static List<Doctor> doctors = new ArrayList<>();
     public static void addDoctor(Doctor doctor) {
         if (HelperUtils.isNull(doctor)) { System.out.println("Cannot add null doctor."); return; }
@@ -147,38 +148,53 @@ public class DoctorService implements Manageable, Searchable {
 
         doctors.add(doctor);
     }
-    public static void updateDoctor(Doctor doctor) {
+    public void updateDoctor(){
 
-        doctor.setQualification(
-                InputHandler.getStringInput("Enter qualification: ")
-        );
+        String doctorId = InputHandler.getStringInput("Enter doctor ID: ");
 
-        doctor.setExperienceYears(
-                InputHandler.getIntInput("Enter years of experience: ")
-        );
+        Doctor existingDoctor = getDoctorById(doctorId);
 
-        System.out.println(Constants.DOCTOR_UPDATED_SUCCESSFULLY);
-    }
-
-
-    public static void updateDoctor() {
-        String id = InputHandler.getStringInput("Doctor ID to update: ");
-        Doctor existingDoctor = getDoctorById(id);
-        if (HelperUtils.isNull(existingDoctor)) {
+        if(HelperUtils.isNull(existingDoctor)){
             return;
         }
-        updateDoctor(existingDoctor);
+
+        String phone = InputHandler.getStringInput("Enter new phone number: ");
+
+        String email = InputHandler.getStringInput("Enter new email: ");
+
+        String address = InputHandler.getStringInput("Enter new address: ");
+
+        String specialization = InputHandler.getStringInput("Enter new specialization: ");
+
+        String qualification = InputHandler.getStringInput("Enter new qualification: ");
+
+        int experience = InputHandler.getIntInput("Enter new experience: ",0,50);
+
+        double fee = InputHandler.getDoubleInput("Enter new consultation fee: ");
+
+        Doctor updatedDoctor = new Doctor();
+
+        updatedDoctor.setId(doctorId);
+        updatedDoctor.setPhoneNumber(phone);
+        updatedDoctor.setEmail(email);
+        updatedDoctor.setAddress(address);
+        updatedDoctor.setSpecialization(specialization);
+        updatedDoctor.setQualification(qualification);
+        updatedDoctor.setExperienceYears(experience);
+        updatedDoctor.setConsultationFee(fee);
+
+        edit(updatedDoctor);
     }
 
 
     public void removeDoctor(String doctorId){
-        for(Doctor d : doctors) {
-            if (d.getId().equals(doctorId)) {
-                doctors.remove(d);
+        Doctor doctor = getDoctorById(doctorId);
+        if(HelperUtils.isNotNull(doctor)){
+                doctors.remove(doctor);
                 System.out.println(Constants.DOCTOR_REMOVED_SUCCESSFULLY);
                 return;
             }
-        }
+
         System.out.println(Constants.DOCTOR_NOT_FOUND);
     }
 
@@ -223,7 +239,7 @@ public class DoctorService implements Manageable, Searchable {
 
     public void assignPatient(String doctorId, String patientId) {
         Doctor d = getDoctorById(doctorId);
-        if (HelperUtils.isNull(d)) { System.out.println(Constants.DOCTOR_NOT_FOUND); return; }
+        if (HelperUtils.isNull(d)) { return; }
         d.assignPatient(patientId);
         System.out.println(Constants.PATIENT_ASSIGNED_SUCCESSFULLY);
     }
@@ -274,25 +290,37 @@ public class DoctorService implements Manageable, Searchable {
 
     @Override
     public void search(String keyword) {
-        if (HelperUtils.isNull(doctors)) {
-            System.out.println("No Doctors registered.");
-            return;}
-        for (Doctor doctor : doctors) {
 
-            if (doctor.getFirstName().equalsIgnoreCase(keyword)
-                    || doctor.getLastName().equalsIgnoreCase(keyword)
-                    || doctor.getPhoneNumber().equalsIgnoreCase(keyword)
-                    || doctor.getEmail().equalsIgnoreCase(keyword)
-                    || doctor.getId().equalsIgnoreCase(keyword)) {
+        boolean found = false;
 
-                doctor.displayInfo();
-                return;
+        for(Doctor d : doctors){
+
+            if(
+
+                    d.getId().equalsIgnoreCase(keyword) ||
+                            d.getFirstName().equalsIgnoreCase(keyword) ||
+                            d.getLastName().equalsIgnoreCase(keyword) ||
+                            d.getGender().equalsIgnoreCase(keyword) ||
+                            d.getPhoneNumber().equalsIgnoreCase(keyword) ||
+                            d.getEmail().equalsIgnoreCase(keyword) ||
+                            d.getAddress().equalsIgnoreCase(keyword) ||
+                            d.getSpecialization().equalsIgnoreCase(keyword) ||
+                            d.getQualification().equalsIgnoreCase(keyword) ||
+                            d.getDepartmentId().equalsIgnoreCase(keyword) ||
+                            d.getDateOfBirth().toString().equalsIgnoreCase(keyword) ||
+                            String.valueOf(d.getExperienceYears()).equals(keyword) ||
+                            String.valueOf(d.getConsultationFee()).equals(keyword)
+
+            ){
+
+                d.displayInfo();
+                found = true;
             }
         }
-        System.out.println(Constants.DOCTOR_NOT_FOUND);
 
-
-
+        if(!found){
+            System.out.println(Constants.DOCTOR_NOT_FOUND);
+        }
     }
 
     @Override
@@ -341,6 +369,41 @@ public class DoctorService implements Manageable, Searchable {
             }
 
         }
+
+    }
+
+    @Override
+    public void edit(Object updatedData) {
+
+        if(!(updatedData instanceof Doctor)){
+            System.out.println("Invalid doctor data");
+            return;
+        }
+
+        Doctor updatedDoctor = (Doctor) updatedData;
+
+        for(Doctor d : doctors){
+
+            if(d.getId().equals(updatedDoctor.getId())){
+
+                d.setPhoneNumber(updatedDoctor.getPhoneNumber());
+                d.setEmail(updatedDoctor.getEmail());
+                d.setAddress(updatedDoctor.getAddress());
+                d.setSpecialization(updatedDoctor.getSpecialization());
+                d.setQualification(updatedDoctor.getQualification());
+                d.setExperienceYears(updatedDoctor.getExperienceYears());
+                d.setConsultationFee(updatedDoctor.getConsultationFee());
+
+                System.out.println(Constants.DOCTOR_UPDATED_SUCCESSFULLY);
+                return;
+            }
+        }
+
+        System.out.println(Constants.DOCTOR_NOT_FOUND);
+    }
+
+    @Override
+    public void validate() {
 
     }
 }

@@ -12,8 +12,8 @@ public class Department implements Displayable {
     private String departmentName;
     private String headDoctorId;
 
-    private List<Doctor> doctors;
-    private List<Nurse> nurses;
+    private List<String> doctors;
+    private List<String> nurses;
 
     private int bedCapacity;
     private int availableBeds;
@@ -57,11 +57,11 @@ public class Department implements Displayable {
         this.headDoctorId = headDoctorId;
     }
 
-    public List<Doctor> getDoctors() {
+    public List<String> getDoctors() {
         return doctors;
     }
 
-    public List<Nurse> getNurses() {
+    public List<String> getNurses() {
         return nurses;
     }
 
@@ -81,14 +81,14 @@ public class Department implements Displayable {
         this.availableBeds = availableBeds;
     }
 
-    public void assignDoctor(Doctor doctor) {
-        doctors.add(doctor);
+    public void assignDoctor(String doctorid) {
+        doctors.add(doctorid);
         System.out.println("Doctor assigned to department.");
 
     }
 
-    public void assignNurse(Nurse nurse) {
-        nurses.add(nurse);
+    public void assignNurse(String nurseId) {
+        nurses.add(nurseId);
         System.out.println("Nurse assigned to department.");
 
     }

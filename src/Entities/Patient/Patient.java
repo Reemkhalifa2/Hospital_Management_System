@@ -122,6 +122,7 @@ public class Patient extends Person implements Displayable {
     //Display patient information
     @Override
     public void displayInfo() {
+        System.out.println("______________________________");
         super.displayInfo();
         System.out.println("Blood Group       :"+bloodGroup );
         System.out.println("Allergies");
@@ -143,6 +144,8 @@ public class Patient extends Person implements Displayable {
         for(String x : appointments){
             System.out.print(x + ",");
         }
+        System.out.println("______________________________");
+        System.out.println();
 
     }
 

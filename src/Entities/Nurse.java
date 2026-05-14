@@ -11,6 +11,10 @@ import java.util.Scanner;
 
 public class Nurse extends Person implements Displayable {
 
+    public Nurse() {
+        super();
+    }
+
     public String getDepartmentId() {
         return departmentId;
     }
@@ -22,8 +26,17 @@ public class Nurse extends Person implements Displayable {
     }
 
     private String shift;
+
+    public String getQualification() {
+        return qualification;
+    }
+
+    public void setQualification(String qualification) {
+        this.qualification = qualification;
+    }
+
     private String qualification;
-    private List<Patient> assignedPatients;
+    private List<String> assignedPatients = new ArrayList<>();
     public Nurse(String id, String firstName, String lastName,
                  LocalDate dateOfBirth, String gender,
                  String phoneNumber, String email, String address,
@@ -42,11 +55,13 @@ public class Nurse extends Person implements Displayable {
 
     @Override
     public void displayInfo() {
+        System.out.println("______________________________");
         super.displayInfo();
-
-        System.out.println("Department ID: " + departmentId);
-        System.out.println("Shift: " + shift);
-        System.out.println("Qualification: " + qualification);
+        System.out.println("Department ID     :" + departmentId);
+        System.out.println("Shift             :" + shift);
+        System.out.println("Qualification     :" + qualification);
+        System.out.println("______________________________");
+        System.out.println();
     }
 
     @Override
@@ -55,8 +70,8 @@ public class Nurse extends Person implements Displayable {
     }
 
     // Assign patient
-    public void assignPatient(Patient patient) {
-        assignedPatients.add(patient);
+    public void assignPatient(String patientId) {
+        assignedPatients.add(patientId);
         System.out.println(Constants.PATIENT_ASSIGNED_SUCCESSFULLY);
     }
 
