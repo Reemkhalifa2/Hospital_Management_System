@@ -303,26 +303,82 @@ public class AppointmentService implements Manageable , Searchable , Appointable
 
     @Override
     public void add(Object entity) {
+        Appointment appointment = (Appointment) entity;
+        appointmentList.add(appointment);
 
     }
 
     @Override
     public void remove(String id) {
 
+        if (HelperUtils.isNull(appointmentList)) {
+            System.out.println(Constants.APPOINTMENT_NOT_FOUND);
+            return;
+        }
+
+        for (Appointment a : appointmentList) {
+            if (a.getAppointmentId().equals(id)) {
+                appointmentList.remove(a);
+                System.out.println(Constants.APPOINTMENT_REMOVED_SUCCESSFULLY);
+                return;
+            }
+        }
+
+        System.out.println(Constants.APPOINTMENT_NOT_FOUND);
     }
 
     @Override
     public void getAll() {
 
+        if (HelperUtils.isNull(appointmentList)) {
+            System.out.println(Constants.APPOINTMENT_NOT_FOUND);
+            return;
+        }
+
+        for (Appointment a : appointmentList) {
+            a.displayInfo();
+        }
     }
 
     @Override
     public void search(String keyword) {
 
+        if (HelperUtils.isNull(appointmentList)) {
+            System.out.println(Constants.APPOINTMENT_NOT_FOUND);
+            return;
+        }
+
+        boolean found = false;
+
+        for (Appointment a : appointmentList) {
+
+            if (a.getAppointmentId().contains(keyword)
+                    || a.getDoctorId().contains(keyword)
+                    || a.getPatientId().contains(keyword)) {
+
+                a.displayInfo();
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println(Constants.APPOINTMENT_NOT_FOUND);
+        }
     }
 
     @Override
     public void searchById(String id) {
+        if (HelperUtils.isNull(appointmentList)) {
+            System.out.println(Constants.APPOINTMENT_NOT_FOUND);
+            return;
+        }
+        for (Appointment a : appointmentList) {
+            if (a.getAppointmentId().equals(id)) {
+                a.displayInfo();
+                return;
+            }
+        }
 
+        System.out.println(Constants.APPOINTMENT_NOT_FOUND);
     }
 }
