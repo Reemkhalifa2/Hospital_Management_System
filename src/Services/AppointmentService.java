@@ -68,9 +68,14 @@ public class AppointmentService implements Manageable , Searchable , Appointable
         System.out.println(Constants.APPOINTMENT_NOT_FOUND);
     }
     public void rescheduleAppointment(String appointmentId, LocalDate newDate, String newTime){
+
         for(Appointment a : appointmentList){
             if (HelperUtils.isNotNull(a.getAppointmentId())
-                    && a.getAppointmentId().equals(appointmentId)){
+                    && a.getAppointmentId().equals(appointmentId) ){
+                if (HelperUtils.isPastDate(a.getAppointmentDate(),newDate)){
+                    System.out.println("Invalid Date");
+                    return;
+                }
                 a.setAppointmentDate(newDate);
                 a.setAppointmentTime(newTime);
                 a.setStatus("Rescheduled");
@@ -105,48 +110,66 @@ public class AppointmentService implements Manageable , Searchable , Appointable
         System.out.println(Constants.APPOINTMENT_NOT_FOUND);
     }
 
-    public void getAppointmentsByPatient(String patientId){
+    public void getAppointmentsByPatient(String patientId) {
 
-        if(HelperUtils.isNull(appointmentList)){
+        if (HelperUtils.isNull(appointmentList)) {
             System.out.println("No Appointments");
             return;
         }
 
-        for(Appointment a : appointmentList){
-            if(a.getPatientId().equals(patientId)){
+        boolean found = false;
+
+        for (Appointment a : appointmentList) {
+            if (a.getPatientId().equals(patientId)) {
                 a.displayInfo();
-                return;
+                found = true;
             }
         }
-        System.out.println(Constants.APPOINTMENT_NOT_FOUND);
+
+        if (!found) {
+            System.out.println(Constants.APPOINTMENT_NOT_FOUND);
+        }
     }
 
-    public void getAppointmentsByDoctor(String doctorId){
-        if(HelperUtils.isNull(appointmentList)){
+    public void getAppointmentsByDoctor(String doctorId) {
+
+        if (HelperUtils.isNull(appointmentList)) {
             System.out.println("No Appointments");
             return;
         }
-        for(Appointment a : appointmentList){
-            if(a.getDoctorId().equals(doctorId)){
+
+        boolean found = false;
+
+        for (Appointment a : appointmentList) {
+            if (a.getDoctorId().equals(doctorId)) {
                 a.displayInfo();
-                return;
+                found = true;
             }
         }
-        System.out.println(Constants.APPOINTMENT_NOT_FOUND);
+
+        if (!found) {
+            System.out.println(Constants.APPOINTMENT_NOT_FOUND);
+        }
     }
 
     public void displayAppointments(LocalDate date){
-        if(HelperUtils.isNull(appointmentList)){
+        if (HelperUtils.isNull(appointmentList)) {
             System.out.println("No Appointments");
             return;
         }
-        for(Appointment a : appointmentList){
-            if(a.getAppointmentDate().equals(date)){
+
+        boolean found = false;
+
+        for (Appointment a : appointmentList) {
+            if (a.getAppointmentDate().equals(date)) {
                 a.displayInfo();
-                return;
+                found = true;
             }
         }
-        System.out.println(Constants.APPOINTMENT_NOT_FOUND);
+
+        if (!found) {
+            System.out.println(Constants.APPOINTMENT_NOT_FOUND);
+        }
     }
     public void displayAppointments(){
         if(HelperUtils.isNull(appointmentList)){
@@ -182,6 +205,10 @@ public class AppointmentService implements Manageable , Searchable , Appointable
     public void rescheduleAppointment(String appointmentId, LocalDate newDate){
         for (Appointment appointment : appointmentList){
             if(appointment.getAppointmentId().equals(appointmentId)){
+                if (HelperUtils.isPastDate(appointment.getAppointmentDate(),newDate)){
+                    System.out.println(Constants.INVALID_DATE);
+                    return;
+                }
                 appointment.setAppointmentDate(newDate);
                 appointment.setStatus("Rescheduled");
                 System.out.println(Constants.APPOINTMENT_RESCHEDULED_SUCCESSFULLY);
@@ -229,6 +256,7 @@ public class AppointmentService implements Manageable , Searchable , Appointable
         System.out.println(Constants.APPOINTMENT_NOT_FOUND);
 
     }
+
 
     public void handleAppointmentMenu(){
         Boolean appointmentContinue = true;
