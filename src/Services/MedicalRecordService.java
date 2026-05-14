@@ -127,4 +127,21 @@ public class MedicalRecordService implements Manageable, Searchable {
     public void searchById(String id) {
 
     }
+
+
+    public void handleMedicalREcordMenu() {
+
+        Boolean exit = true;
+
+        while (exit) {
+
+            System.out.println(MenuMessage.MedicalRecordsManagementMenu);
+
+            int option = InputHandler.getIntInput(Constants.ENTER_OPTION, 0, 9);
+
+            switch (option) {
+
+            }
+    }
+    }
 }
