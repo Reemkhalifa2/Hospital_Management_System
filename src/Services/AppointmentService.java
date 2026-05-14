@@ -34,14 +34,7 @@ public class AppointmentService implements Manageable , Searchable , Appointable
         LocalDate appointmentDate = InputHandler.getDateInput("Enter Date: ");
 
         String appointmentTime = String.valueOf(InputHandler.getTimeInput("Enter Appointment Time: "));
-
-        String status = InputHandler.getStringInput("Enter status (Scheduled/Completed/Cancelled/Rescheduled): ");
-        List<String> validStatus = List.of("Scheduled", "Completed", "Cancelled", "Rescheduled");
-        if (!validStatus.contains(status)) {
-            System.out.println("Invalid status value");
-            return null;
-        }
-
+        
         String reason = InputHandler.getStringInput("Enter reason: ");
 
         String notes = InputHandler.getStringInput("Enter notes: ");
@@ -53,7 +46,7 @@ public class AppointmentService implements Manageable , Searchable , Appointable
                 doctorId,
                 appointmentDate,
                 appointmentTime,
-                status,
+                "Scheduled",
                 reason,
                 notes
         );
