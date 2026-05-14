@@ -5,6 +5,8 @@ import Behaviour.Searchable;
 import Entities.MedicalRecord;
 import Entities.Nurse;
 import Utilities.Constants;
+import Utilities.HelperUtils;
+import Utilities.InputHandler;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -21,8 +23,7 @@ public class MedicalRecordService implements Manageable, Searchable {
     }
 
     public MedicalRecord addNewRecords(){
-        System.out.println("Enter Record Id: ");
-        String recordId = scanner.nextLine();
+
 
         System.out.println("Enter patient Id: ");
         String patientId = scanner.nextLine();
@@ -45,7 +46,7 @@ public class MedicalRecordService implements Manageable, Searchable {
         String notes = scanner.nextLine();
 
         MedicalRecord medicalRecord = new MedicalRecord(
-                recordId,patientId,doctorId,visitDate,diagnosis,prescription,testResults,notes
+                HelperUtils.generateId("MR",3),patientId,doctorId,visitDate,diagnosis,prescription,testResults,notes
         );
 
         return medicalRecord;
