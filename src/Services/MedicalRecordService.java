@@ -145,7 +145,7 @@ public class MedicalRecordService implements Manageable, Searchable {
 
             switch (option) {
                 case 1->addNewRecords();
-
+                case 2->getRecords();
             }
     }
     }
