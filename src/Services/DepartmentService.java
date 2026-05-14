@@ -205,6 +205,18 @@ public class DepartmentService implements Manageable, Searchable , Editable {
 
     @Override
     public void edit(Object updatedData) {
+        Department updatedDepartment = (Department) updatedData;
+        for (Department d : departments) {
+            if (d.getDepartmentId().equals(updatedDepartment.getDepartmentId())) {
+                d.setDepartmentName(updatedDepartment.getDepartmentName());
+                d.setHeadDoctorId(updatedDepartment.getHeadDoctorId());
+                d.setBedCapacity(updatedDepartment.getBedCapacity());
+                d.setAvailableBeds(updatedDepartment.getAvailableBeds());
+                System.out.println(Constants.DEPARTMENT_UPDATED_SUCCESSFULLY);
+                return;
+            }
+        }
+        System.out.println(Constants.DEPARTMENT_NOT_FOUND);
 
     }
 
