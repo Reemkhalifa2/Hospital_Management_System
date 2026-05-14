@@ -33,7 +33,7 @@ public class AppointmentService implements Manageable , Searchable , Appointable
         LocalDate appointmentDate = InputHandler.getDateInput("Enter Date: ");
 
         String appointmentTime = String.valueOf(InputHandler.getTimeInput("Enter Appointment Time: "));
-        
+
         String status = InputHandler.getStringInput("Enter status (Scheduled/Completed/Cancelled/Rescheduled): ");
         List<String> validStatus = List.of("Scheduled", "Completed", "Cancelled", "Rescheduled");
         if (!validStatus.contains(status)) {
@@ -41,11 +41,9 @@ public class AppointmentService implements Manageable , Searchable , Appointable
             return null;
         }
 
-        System.out.println("Enter reason: ");
-        String reason = scanner.nextLine();
+        String reason = InputHandler.getStringInput("Enter reason: ");
 
-        System.out.println("Enter notes: ");
-        String notes = scanner.nextLine();
+        String notes = InputHandler.getStringInput("Enter notes: ");
 
         Appointment appointment = new Appointment(
                 // Integrate HelperUtils Throughout the System
