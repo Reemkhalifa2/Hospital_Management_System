@@ -78,6 +78,9 @@ public class MedicalRecord implements Displayable {
     private String prescription;
     private String testResults;
     private String notes;
+    public MedicalRecord(){
+        super();
+    }
 
 
     public MedicalRecord(String recordId, String patientId, String doctorId,
