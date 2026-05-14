@@ -38,7 +38,7 @@ public class SampleData {
         departmentService.add(new Department("DEP-005", "General Medicine","DOC-005", 50));
 */
 
-        Patient p1 = new Patient("P",
+        Patient p1 = new Patient("P158",
                 "Ali",
                 "Ahmed",
                 LocalDate.of(2000, 1, 1),
@@ -54,7 +54,7 @@ public class SampleData {
         );
 
         Patient p2 = new Patient(
-                "P",
+                "P465",
                 "Sara",
                 "Mohammed",
                 LocalDate.of(1999, 5, 10),
@@ -70,7 +70,7 @@ public class SampleData {
         );
 
         Patient p3 = new Patient(
-                "P",
+                "P002",
                 "Omar",
                 "Salim",
                 LocalDate.of(1998, 3, 20),
@@ -86,7 +86,7 @@ public class SampleData {
         );
 
         InPatient p4 = new InPatient(
-                "P",
+                "P001",
                 "Hana",
                 "Nasser",
                 LocalDate.of(2014, 8, 22),
@@ -805,7 +805,7 @@ public class SampleData {
 
         MedicalRecord mr11 = new MedicalRecord(
                 "MR011",
-                "P004",
+                "P006",
                 "D001",
                 LocalDate.of(2026, 5, 11),
                 "Asthma",
