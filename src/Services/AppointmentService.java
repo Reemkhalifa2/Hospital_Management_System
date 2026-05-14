@@ -34,7 +34,7 @@ public class AppointmentService implements Manageable , Searchable , Appointable
 
         String appointmentTime = String.valueOf(InputHandler.getTimeInput("Enter Appointment Time: "));
 
-       
+
 
         System.out.println("Enter status (Scheduled/Completed/Cancelled/Rescheduled): ");
         String status = scanner.nextLine();
