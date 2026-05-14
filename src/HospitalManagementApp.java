@@ -2,8 +2,10 @@ import Menu.Menu;
 import Services.*;
 import Utilities.Constants;
 import Utilities.InputHandler;
+import Utilities.MenuMessage;
 import Utilities.SampleData;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -31,7 +33,17 @@ public class HospitalManagementApp {
                 case 4 -> appointmentService.handleAppointmentMenu();
                 case 5 -> medicalRecordService.handleMedicalRecordMenu();
                 case 6 -> departmentService.handleDepartmentMenu();
-                //case 7 -> reportsMenu();
+                case 7 -> {
+                    boolean exit = true;
+                    while (exit){
+                        System.out.println(MenuMessage.ReportsMenu);
+                        switch (InputHandler.getIntInput(Constants.ENTER_OPTION,0,5)){
+                            case 1-> appointmentService.displayAppointments(LocalDate.now());
+                        }
+                    }
+
+
+                }
                 case 8 -> {
                     System.out.println("Exit.....");
                     Continue = false;
