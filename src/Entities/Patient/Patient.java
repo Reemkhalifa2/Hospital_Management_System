@@ -3,6 +3,7 @@ package Entities.Patient;
 import Behaviour.Displayable;
 import Entities.MedicalRecord;
 import Entities.Person;
+import Services.MedicalRecordService;
 import Utilities.Constants;
 import Utilities.HelperUtils;
 
@@ -86,6 +87,7 @@ public class Patient extends Person implements Displayable {
     private String insuranceId;
     private List<MedicalRecord> medicalRecords;
     private List<String> appointments;
+    MedicalRecordService medicalRecordService = new MedicalRecordService();
 
     public void setAppointments(List<String> appointments) {
         this.appointments = appointments;
@@ -135,9 +137,10 @@ public class Patient extends Person implements Displayable {
         System.out.println("Medical Records");
         System.out.println();
         for(MedicalRecord x : medicalRecords){
-            System.out.print(x + ",");
+            medicalRecordService.getRecords(x);
 
-        }System.out.println("Appointments");
+        }
+        System.out.println("Appointments");
         System.out.println();
         for(String x : appointments){
             System.out.print(x + ",");
