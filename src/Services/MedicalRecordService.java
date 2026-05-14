@@ -71,6 +71,13 @@ public class MedicalRecordService implements Manageable, Searchable, Editable {
     @Override
     public void edit(Object updatedData) {
         MedicalRecord medicalRecord = (MedicalRecord) updatedData;
+        MedicalRecord m = getRecordById(medicalRecord.getRecordId());
+        if (HelperUtils.isNotNull(m)){
+            m.setDiagnosis(medicalRecord.getDiagnosis());
+            m.setPrescription(medicalRecord.getPrescription());
+            m.setTestResults(medicalRecord.getTestResults());
+        }
+        
 
     }
 
