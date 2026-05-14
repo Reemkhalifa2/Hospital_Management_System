@@ -824,6 +824,18 @@ public class SampleData {
                 "Vitamin D level low",
                 "Sun exposure recommended"
         );
+        medicalRecordService.add(mr1);
+        medicalRecordService.add(mr2);
+        medicalRecordService.add(mr3);
+        medicalRecordService.add(mr4);
+        medicalRecordService.add(mr5);
+        medicalRecordService.add(mr6);
+        medicalRecordService.add(mr7);
+        medicalRecordService.add(mr8);
+        medicalRecordService.add(mr9);
+        medicalRecordService.add(mr10);
+        medicalRecordService.add(mr11);
+        medicalRecordService.add(mr12);
 
 
     }
