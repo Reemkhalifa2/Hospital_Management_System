@@ -117,8 +117,6 @@ public class Patient extends Person implements Displayable {
     }
 
 
-
-
     //Display patient information
     @Override
     public void displayInfo() {
