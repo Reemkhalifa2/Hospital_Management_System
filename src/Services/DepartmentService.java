@@ -41,7 +41,7 @@ public class DepartmentService implements Manageable, Searchable , Editable {
         System.out.print("Enter Available Beds: ");
         int availableBeds = InputHandler.getIntInput("Enter Available Beds: ");
         Department department = new Department(
-                HelperUtils.generateId("D-"),
+                HelperUtils.generateId("DEP",2),
                 departmentName,
                 headDoctorId,
                 bedCapacity

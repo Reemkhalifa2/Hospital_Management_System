@@ -48,7 +48,7 @@ public class NurseService implements Manageable, Searchable , Editable {
 
 
         Nurse nurse = new Nurse(
-                HelperUtils.generateId("N-"),
+                HelperUtils.generateId("N",3),
                 firstName,
                 lastName,
                 dateOfBirth,
