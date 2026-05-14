@@ -106,6 +106,7 @@ public class AppointmentService implements Manageable , Searchable , Appointable
     }
 
     public void getAppointmentsByPatient(String patientId){
+
         if(HelperUtils.isNull(appointmentList)){
             System.out.println("No Appointments");
             return;
@@ -226,7 +227,8 @@ public class AppointmentService implements Manageable , Searchable , Appointable
             switch (option) {
                 case 1-> addNewAppointment();
                 case 2-> displayAppointments();
-                case 3->
+                case 3-> getAppointmentsByPatient(InputHandler.getStringInput("Enter Patient ID: "));
+                
 
 
 
