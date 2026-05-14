@@ -4,7 +4,6 @@ import Behaviour.Editable;
 import Behaviour.Manageable;
 import Behaviour.Searchable;
 import Entities.MedicalRecord;
-import Entities.Nurse;
 import Entities.Patient.Patient;
 import Utilities.Constants;
 import Utilities.HelperUtils;
@@ -14,7 +13,7 @@ import Utilities.MenuMessage;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
 
 public class MedicalRecordService implements Manageable, Searchable, Editable {
     private static List <MedicalRecord> medicalRecords = new ArrayList<>();
