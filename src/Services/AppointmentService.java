@@ -90,6 +90,12 @@ public class AppointmentService implements Manageable , Searchable , Appointable
 
     @Override
     public void scheduleAppointment(Appointment appointment) {
+        for(Appointment p: appointmentList){
+            if(p.getAppointmentId().equals(appointment.getAppointmentId())){
+                return;
+            }
+        }
+        appointmentList.add(appointment);
 
     }
 
