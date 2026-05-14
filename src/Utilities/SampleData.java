@@ -676,21 +676,21 @@ public class SampleData {
         );
 
 
-        appointmentService.createAppointment(a1);
-        appointmentService.createAppointment(a2);
-        appointmentService.createAppointment(a3);
-        appointmentService.createAppointment(a4);
-        appointmentService.createAppointment(a5);
-        appointmentService.createAppointment(a6);
-        appointmentService.createAppointment(a7);
-        appointmentService.createAppointment(a8);
-        appointmentService.createAppointment(a9);
-        appointmentService.createAppointment(a10);
-        appointmentService.createAppointment(a11);
-        appointmentService.createAppointment(a12);
-        appointmentService.createAppointment(a13);
-        appointmentService.createAppointment(a14);
-        appointmentService.createAppointment(a15);
+        appointmentService.scheduleAppointment(a1);
+        appointmentService.scheduleAppointment(a2);
+        appointmentService.scheduleAppointment(a3);
+        appointmentService.scheduleAppointment(a4);
+        appointmentService.scheduleAppointment(a5);
+        appointmentService.scheduleAppointment(a6);
+        appointmentService.scheduleAppointment(a7);
+        appointmentService.scheduleAppointment(a8);
+        appointmentService.scheduleAppointment(a9);
+        appointmentService.scheduleAppointment(a10);
+        appointmentService.scheduleAppointment(a11);
+        appointmentService.scheduleAppointment(a12);
+        appointmentService.scheduleAppointment(a13);
+        appointmentService.scheduleAppointment(a14);
+        appointmentService.scheduleAppointment(a15);
 
         //Medical records sample data
         MedicalRecord mr1 = new MedicalRecord(
